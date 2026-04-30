@@ -11,6 +11,12 @@
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  min-width: 0;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -79,10 +85,12 @@ figcaption {
 .navLinks {
   display: flex;
   gap: clamp(10px, 2vw, 24px);
+  min-width: 0;
 }
 
 .navLinks a {
   color: rgba(243, 239, 229, 0.74);
+  white-space: nowrap;
 }
 
 .cover {
@@ -132,7 +140,7 @@ figcaption {
 .coverGrid {
   display: grid;
   gap: clamp(24px, 5vw, 70px);
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
   margin: 28px auto 0;
   max-width: 1320px;
   position: relative;
@@ -155,7 +163,7 @@ p {
 }
 
 h1 {
-  font-size: clamp(4.1rem, 11vw, 12rem);
+  font-size: clamp(3.25rem, 10.5vw, 12rem);
   font-weight: 950;
   letter-spacing: 0;
   line-height: 0.76;
@@ -294,7 +302,7 @@ h1 span {
 }
 
 h2 {
-  font-size: clamp(2.7rem, 7vw, 7.2rem);
+  font-size: clamp(2.35rem, 6.5vw, 7.2rem);
   font-weight: 950;
   letter-spacing: 0;
   line-height: 0.82;
@@ -319,7 +327,7 @@ h2 {
   gap: 18px;
   grid-template-columns: 74px 1fr;
   padding: 22px 0;
-  font-size: clamp(1.15rem, 2.7vw, 2rem);
+  font-size: clamp(1.05rem, 2.5vw, 2rem);
   font-weight: 900;
   line-height: 1;
   text-transform: uppercase;
@@ -385,7 +393,7 @@ h2 {
 }
 
 .articleCard h3 {
-  font-size: clamp(1.6rem, 3vw, 3.1rem);
+  font-size: clamp(1.45rem, 2.7vw, 3.1rem);
   line-height: 0.9;
   margin-bottom: 12px;
   text-transform: uppercase;
@@ -531,7 +539,7 @@ h2 {
 .createdVisual::after {
   color: rgba(243, 239, 229, 0.08);
   content: "CREATED";
-  font-size: clamp(3rem, 8vw, 8rem);
+  font-size: clamp(2.4rem, 7vw, 8rem);
   font-weight: 950;
   left: -8px;
   line-height: 0.8;
@@ -558,7 +566,7 @@ h2 {
 
 .createdVisual strong {
   display: block;
-  font-size: clamp(1.8rem, 4vw, 4.3rem);
+  font-size: clamp(1.55rem, 3.6vw, 4.3rem);
   line-height: 0.86;
   margin-top: 8px;
   text-transform: uppercase;
@@ -661,6 +669,17 @@ h2 {
 }
 
 @media (max-width: 980px) {
+  .nav {
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .navLinks {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 70%;
+  }
+
   .coverGrid,
   .contents,
   .signals,
@@ -669,7 +688,7 @@ h2 {
   }
 
   .coverStack {
-    min-height: 620px;
+    min-height: min(620px, 88vw);
   }
 
   .articleGrid {
@@ -694,11 +713,13 @@ h2 {
 
   .navLinks {
     flex-wrap: wrap;
+    justify-content: flex-start;
     margin-top: 10px;
+    max-width: none;
   }
 
   .cover {
-    padding-top: 138px;
+    padding-top: 154px;
   }
 
   .coverMasthead {
@@ -712,11 +733,20 @@ h2 {
   }
 
   h1 {
-    font-size: clamp(3.35rem, 17vw, 5.4rem);
+    font-size: clamp(2.9rem, 15.5vw, 5.4rem);
+    -webkit-text-stroke-width: 0;
+  }
+
+  h1 span {
+    -webkit-text-stroke: 1px #f3efe5;
+  }
+
+  h2 {
+    font-size: clamp(2.2rem, 12vw, 4.2rem);
   }
 
   .coverStack {
-    min-height: 520px;
+    min-height: 500px;
   }
 
   .clip1,
@@ -763,6 +793,122 @@ h2 {
     grid-column: 1 / -1;
     min-height: 420px;
     transform: none !important;
+  }
+}
+
+@media (max-width: 440px) {
+  .brand,
+  .navLinks a,
+  .kicker,
+  .action,
+  .crawl span,
+  .contentsList span,
+  .articleCard span,
+  .fileCopy span,
+  .signalList span,
+  .credits span,
+  figcaption {
+    font-size: 0.68rem;
+  }
+
+  .nav {
+    padding: 12px 14px;
+  }
+
+  .navLinks {
+    gap: 8px 12px;
+  }
+
+  .cover {
+    padding: 146px 14px 36px;
+  }
+
+  .contents,
+  .features,
+  .lookbook,
+  .signals,
+  .editor {
+    padding: 48px 14px;
+  }
+
+  .coverMasthead span {
+    font-size: 0.72rem;
+  }
+
+  h1 {
+    font-size: clamp(2.55rem, 15vw, 3.7rem);
+    line-height: 0.84;
+  }
+
+  h2 {
+    line-height: 0.88;
+  }
+
+  .coverCopy p,
+  .signalCopy > p,
+  .editorLetter p,
+  .articleCard p,
+  .fileCopy p {
+    font-size: 0.94rem;
+  }
+
+  .coverStack {
+    min-height: 430px;
+  }
+
+  .clip1,
+  .clip2,
+  .clip3,
+  .clip4 {
+    height: 46%;
+    width: 64%;
+  }
+
+  .clip2 {
+    left: 32%;
+  }
+
+  .clip4 {
+    left: 34%;
+  }
+
+  .contentsList a {
+    gap: 10px;
+    grid-template-columns: 38px 1fr;
+    line-height: 1.05;
+    padding: 18px 0;
+  }
+
+  .articleCard > .createdVisual {
+    min-height: 220px;
+  }
+
+  .file {
+    min-height: 360px;
+  }
+
+  .createdVisual {
+    padding: 14px;
+  }
+
+  .createdVisual::before {
+    inset: 10px;
+  }
+
+  .createdVisual strong {
+    font-size: clamp(1.35rem, 9vw, 2.6rem);
+  }
+
+  .createdVisual em {
+    max-width: 170px;
+  }
+
+  .file b {
+    font-size: 4.4rem;
+  }
+
+  .credits {
+    padding-left: 12px;
   }
 }
 
