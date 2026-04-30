@@ -92,7 +92,9 @@ figcaption {
 
 .navLinks {
   display: flex;
+  flex-wrap: wrap;
   gap: clamp(10px, 2vw, 24px);
+  justify-content: flex-end;
   min-width: 0;
 }
 
@@ -354,6 +356,7 @@ h1 span {
 .departments,
 .editorsPicks,
 .features,
+.imageWall,
 .lookbook,
 .motionStrip,
 .signals,
@@ -693,6 +696,74 @@ h2 {
 .railFrame:hover img {
   filter: contrast(1.18) saturate(1.12);
   transform: scale(1.05);
+}
+
+.imageWall {
+  background:
+    linear-gradient(180deg, rgba(243, 239, 229, 0.04), transparent 260px),
+    #080808;
+  overflow: hidden;
+}
+
+.wallGrid {
+  column-count: 4;
+  column-gap: 12px;
+  margin: 0 auto;
+  max-width: 1320px;
+}
+
+.wallTile {
+  border: 1px solid rgba(243, 239, 229, 0.16);
+  break-inside: avoid;
+  display: grid;
+  margin: 0 0 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.wallTile img {
+  aspect-ratio: 4 / 5;
+  filter: grayscale(0.18) contrast(1.12) saturate(0.92);
+  object-fit: cover;
+  transition: filter 500ms ease, transform 500ms ease;
+}
+
+.wallTile:nth-child(3n) img {
+  aspect-ratio: 1 / 1;
+}
+
+.wallTile:nth-child(4n) img {
+  aspect-ratio: 3 / 4;
+}
+
+.wallTile figcaption {
+  align-items: center;
+  background: linear-gradient(180deg, transparent, rgba(8, 8, 8, 0.9));
+  bottom: 0;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  left: 0;
+  opacity: 0;
+  padding: 40px 10px 10px;
+  position: absolute;
+  right: 0;
+  transform: translateY(12px);
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.wallTile figcaption span {
+  color: #d8ff3f;
+}
+
+.wallTile:hover img {
+  filter: grayscale(0) contrast(1.18) saturate(1.08);
+  transform: scale(1.04);
+}
+
+.wallTile:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .editorsPicks {
@@ -1137,6 +1208,7 @@ h2 {
   .coverStory,
   .departmentGrid,
   .footerIssue,
+  .imageWall,
   .pickGrid,
   .signals,
   .motionStrip,
@@ -1155,6 +1227,10 @@ h2 {
 
   .issueDeck {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .wallGrid {
+    column-count: 3;
   }
 
   .articleCard:first-child {
@@ -1258,6 +1334,10 @@ h2 {
     grid-template-columns: 1fr;
   }
 
+  .wallGrid {
+    column-count: 2;
+  }
+
   .trendList article {
     grid-template-columns: 1fr;
   }
@@ -1321,6 +1401,7 @@ h2 {
   .departments,
   .editorsPicks,
   .features,
+  .imageWall,
   .lookbook,
   .signals,
   .motionStrip,
@@ -1382,6 +1463,10 @@ h2 {
 
   .newsletter div {
     grid-template-columns: 1fr;
+  }
+
+  .wallGrid {
+    column-count: 1;
   }
 
   .createdVisual {

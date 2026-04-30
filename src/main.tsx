@@ -229,6 +229,102 @@ const looks: Look[] = [
     alt: "Layered final fashion image from supplied Pinterest short link",
     mood: "street",
   },
+  {
+    title: "Silver Crop",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/474x/88/fb/94/88fb94a365cdf7ecca2cd434ae4d4fdf.jpg",
+    note: "A compact frame for accessory rhythm and visual breaks.",
+    alt: "Additional Pinterest fashion image from supplied short link",
+    mood: "texture",
+  },
+  {
+    title: "Sharp Archive",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/474x/b9/8b/17/b98b175e391022abbb8ae69134db0e70.jpg",
+    note: "Archive styling with a strong vertical read.",
+    alt: "Additional archive fashion image from supplied Pinterest short link",
+    mood: "street",
+  },
+  {
+    title: "Gallery Proof",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/474x/43/6f/58/436f581dab42dcacce56d17af00f3ffd.jpg",
+    note: "A proof-card crop for the expanded image wall.",
+    alt: "Additional gallery fashion image from supplied Pinterest short link",
+    mood: "cover",
+  },
+  {
+    title: "Warm Static",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/474x/30/4c/bc/304cbcffa5ec29f8294ce1afb0fb6a4c.jpg",
+    note: "Warm tones add another beat between the darker frames.",
+    alt: "Additional warm fashion image from supplied Pinterest short link",
+    mood: "texture",
+  },
+  {
+    title: "Micro Fit",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/236x/90/6b/81/906b81134f2cf2c1141876cdf2d2820d.jpg",
+    note: "Small-source image used as a fast editorial thumbnail.",
+    alt: "Small Pinterest fashion thumbnail from supplied short link",
+    mood: "street",
+  },
+  {
+    title: "Detail Flash",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/236x/57/1e/6e/571e6eb9aa805aadf11ee141d81be56f.jpg",
+    note: "A detail-sized image that adds motion to the wall.",
+    alt: "Small detail fashion thumbnail from supplied Pinterest short link",
+    mood: "texture",
+  },
+  {
+    title: "Board Cut",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/236x/eb/cb/3d/ebcb3d1553b55d6e47542bac139ea7ac.jpg",
+    note: "Another Pinterest-board crop for a denser magazine wall.",
+    alt: "Small board fashion thumbnail from supplied Pinterest short link",
+    mood: "cover",
+  },
+  {
+    title: "Black Note",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/236x/bd/b3/50/bdb350f0b3ea12f41f3d3c14746436d7.jpg",
+    note: "A darker thumbnail that keeps the image wall balanced.",
+    alt: "Small dark fashion thumbnail from supplied Pinterest short link",
+    mood: "street",
+  },
+  {
+    title: "Accessory Beat",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/236x/ff/d1/10/ffd1102e2ed150ac06b98a197759f7a5.jpg",
+    note: "Accessory energy for the fast-scan section.",
+    alt: "Small accessory fashion thumbnail from supplied Pinterest short link",
+    mood: "texture",
+  },
+  {
+    title: "Color Snap",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/236x/49/4e/0f/494e0f6548c5d977b8ae44af28213558.jpg",
+    note: "A small color hit for the expanded visual archive.",
+    alt: "Small colorful fashion thumbnail from supplied Pinterest short link",
+    mood: "cover",
+  },
+  {
+    title: "Loose Proof",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/236x/90/b7/a5/90b7a5cbc3dba4574837621ef227fc65.jpg",
+    note: "A tiny proof image that adds density to the page.",
+    alt: "Small loose styling thumbnail from supplied Pinterest short link",
+    mood: "street",
+  },
+  {
+    title: "Texture Proof",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/236x/ed/ea/42/edea42112c56d91c93cf4b84808e4f0a.jpg",
+    note: "Small crop, strong texture, fast visual pace.",
+    alt: "Small texture fashion thumbnail from supplied Pinterest short link",
+    mood: "texture",
+  },
 ];
 
 const articles: Article[] = [
@@ -312,6 +408,7 @@ function App() {
   const railLooks = [...looks.slice(3, 15), ...looks.slice(3, 15)];
   const coverStory = looks[13];
   const editorPicks = [looks[0], looks[7], looks[12], looks[19]];
+  const wallLooks = [...looks.slice(6), ...looks.slice(24, 30)];
 
   return (
     <main>
@@ -321,6 +418,7 @@ function App() {
           <a href="#contents">Contents</a>
           <a href="#features">Features</a>
           <a href="#departments">Departments</a>
+          <a href="#wall">Image wall</a>
           <a href="#motion">Motion</a>
           <a href="#lookbook">Lookbook</a>
           <a href="#editor">Editor</a>
@@ -392,6 +490,7 @@ function App() {
           <span>hover motion</span>
           <span>mood filters</span>
           <span>moving image rail</span>
+          <span>animated image wall</span>
           <span>streetwear archive</span>
         </div>
       </section>
@@ -405,8 +504,9 @@ function App() {
           <li><a href="#features"><span>01</span> Features: animated editorial system</a></li>
           <li><a href="#departments"><span>02</span> Departments: cover, street, texture</a></li>
           <li><a href="#trend"><span>03</span> Trend report: color and silhouette notes</a></li>
-          <li><a href="#lookbook"><span>04</span> Lookbook: filter by image mood</a></li>
-          <li><a href="#editor"><span>05</span> Editor: picks and credits</a></li>
+          <li><a href="#wall"><span>04</span> Image wall: expanded Pinterest archive</a></li>
+          <li><a href="#lookbook"><span>05</span> Lookbook: filter by image mood</a></li>
+          <li><a href="#editor"><span>06</span> Editor: picks and credits</a></li>
         </ol>
       </section>
 
@@ -496,6 +596,24 @@ function App() {
         </div>
       </section>
 
+      <section className="imageWall" id="wall">
+        <div className="sectionIntro reveal">
+          <p className="kicker">Image wall</p>
+          <h2>More Pinterest frames in motion.</h2>
+        </div>
+        <div className="wallGrid" aria-label="Expanded Pinterest image wall">
+          {wallLooks.map((look, index) => (
+            <figure className="wallTile reveal" key={`${look.title}-${index}`}>
+              <PinImage look={look} />
+              <figcaption>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                {look.title}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className="editorsPicks" aria-label="Editor's picks">
         <div className="sectionIntro reveal">
           <p className="kicker">Editor's picks</p>
@@ -556,7 +674,7 @@ function App() {
           <p>
             The site now behaves like a real magazine website: a lead cover,
             contents, feature cards, departments, trend report, moving gallery,
-            filterable archive, editor picks, and credits.
+            animated image wall, filterable archive, editor picks, and credits.
           </p>
           <div className="signalList">
             {signals.map((signal) => (
