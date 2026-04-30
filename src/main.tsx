@@ -325,6 +325,102 @@ const looks: Look[] = [
     alt: "Small South African texture fashion thumbnail",
     mood: "texture",
   },
+  {
+    title: "Chrome Walk",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/736x/07/bd/4c/07bd4ce5d88f710b18a803e723cafac1.jpg",
+    note: "A sharp metallic mood for jewellery, flash, and the edge of a night-out fit.",
+    alt: "South African fashion image with chrome streetwear styling",
+    mood: "texture",
+  },
+  {
+    title: "Signal Red",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/736x/0f/77/c2/0f77c2044adfbdadd31800950699e191.jpg",
+    note: "Red moves like a headline: loud, clean, and impossible to ignore.",
+    alt: "South African fashion image with red streetwear styling",
+    mood: "cover",
+  },
+  {
+    title: "Clean Set",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/736x/3d/34/fd/3d34fdf449480f50c3652d7b0be570cb.jpg",
+    note: "Minimal styling with the confidence of a polished city uniform.",
+    alt: "South African fashion image with clean modern styling",
+    mood: "street",
+  },
+  {
+    title: "Heat Line",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/736x/52/a9/73/52a973afe615d9fca0905161ad4e5f22.jpg",
+    note: "Warm colour and relaxed structure for Durban heat and late-afternoon light.",
+    alt: "South African fashion image with warm summer styling",
+    mood: "cover",
+  },
+  {
+    title: "Dust Fit",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/736x/6a/54/fe/6a54fe5fc3c63d3256d7bf929896c679.jpg",
+    note: "Earthy tones give the outfit a grounded, everyday streetwear feel.",
+    alt: "South African fashion image with earthy streetwear styling",
+    mood: "street",
+  },
+  {
+    title: "Green Cut",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/736x/6d/65/f3/6d65f3139b6ad56a52972daec88d6c20.jpg",
+    note: "Green brings freshness into the issue, like a new fit before first plans.",
+    alt: "South African fashion image with green styling",
+    mood: "texture",
+  },
+  {
+    title: "Soft Blue",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/736x/78/53/c2/7853c2f7e6da0eec2b8325936e3b045c.jpg",
+    note: "Blue keeps the styling calm while the silhouette carries the attitude.",
+    alt: "South African fashion image with soft blue styling",
+    mood: "cover",
+  },
+  {
+    title: "Late Flash",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/736x/78/e0/17/78e0179634cd4017d92c7f13415fcd1d.jpg",
+    note: "A quick flash of texture for a magazine spread that needs speed.",
+    alt: "South African fashion image with fast texture detail",
+    mood: "texture",
+  },
+  {
+    title: "Hard White",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/736x/85/9a/c7/859ac76a28e66ae8c37c762dcdc5ed92.jpg",
+    note: "Bright white styling gives the page a clean editorial punch.",
+    alt: "South African fashion image with white styling",
+    mood: "cover",
+  },
+  {
+    title: "City Cream",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/736x/95/dd/e9/95dde9d451d569429c6fe787e534d0c6.jpg",
+    note: "Cream and neutral tones bring quiet luxury into the streetwear rhythm.",
+    alt: "South African fashion image with neutral city styling",
+    mood: "street",
+  },
+  {
+    title: "Gold Detail",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/736x/ae/c2/8d/aec28d3d691cfbf25041827721634e38.jpg",
+    note: "Gold detail adds warmth, craft, and the feeling of a finished outfit.",
+    alt: "South African fashion image with gold accessory detail",
+    mood: "texture",
+  },
+  {
+    title: "Black Heat",
+    pin: "Pin.it set",
+    image: "https://i.pinimg.com/736x/c3/26/08/c3260803164f302f54861b0ddcad607a.jpg",
+    note: "Dark styling with summer pressure, built for streets that stay awake.",
+    alt: "South African fashion image with black streetwear styling",
+    mood: "street",
+  },
 ];
 
 const articles: Article[] = [
@@ -419,6 +515,7 @@ function App() {
           <a href="#features">Features</a>
           <a href="#departments">Departments</a>
           <a href="#wall">Image wall</a>
+          <a href="#runway">Runway</a>
           <a href="#motion">Motion</a>
           <a href="#lookbook">Lookbook</a>
           <a href="#editor">Editor</a>
@@ -506,8 +603,9 @@ function App() {
           <li><a href="#departments"><span>02</span> Departments: Johannesburg, Durban, Cape Town</a></li>
           <li><a href="#trend"><span>03</span> Trend report: colour, heritage, silhouette</a></li>
           <li><a href="#wall"><span>04</span> Image wall: visual street-style archive</a></li>
-          <li><a href="#lookbook"><span>05</span> Lookbook: filter by fashion mood</a></li>
-          <li><a href="#editor"><span>06</span> Editor: South African fashion note</a></li>
+          <li><a href="#runway"><span>05</span> Runway: animated Pinterest fashion stream</a></li>
+          <li><a href="#lookbook"><span>06</span> Lookbook: filter by fashion mood</a></li>
+          <li><a href="#editor"><span>07</span> Editor: South African fashion note</a></li>
         </ol>
       </section>
 
@@ -612,6 +710,36 @@ function App() {
               </figcaption>
             </figure>
           ))}
+        </div>
+      </section>
+
+      <section className="runwayBoard" id="runway">
+        <div className="runwayCopy reveal">
+          <p className="kicker">Runway stream</p>
+          <h2>More Pinterest looks, more movement.</h2>
+          <p>
+            The added frames move like a digital fashion wall: quick details,
+            tall outfit crops, warm colour, chrome shine, and the visual pace of
+            South African streetwear in motion.
+          </p>
+        </div>
+        <div className="runwayStage" aria-label="Animated Pinterest fashion runway">
+          <div className="runwayTrack runwayTrackA">
+            {[...looks.slice(30), ...looks.slice(30)].map((look, index) => (
+              <figure className="runwayCard" key={`runway-a-${look.title}-${index}`}>
+                <PinImage look={look} />
+                <figcaption>{look.title}</figcaption>
+              </figure>
+            ))}
+          </div>
+          <div className="runwayTrack runwayTrackB">
+            {[...looks.slice(6, 24), ...looks.slice(6, 24)].map((look, index) => (
+              <figure className="runwayCard" key={`runway-b-${look.title}-${index}`}>
+                <PinImage look={look} />
+                <figcaption>{look.title}</figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 

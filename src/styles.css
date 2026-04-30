@@ -359,6 +359,7 @@ h1 span {
 .imageWall,
 .lookbook,
 .motionStrip,
+.runwayBoard,
 .signals,
 .trendReport,
 .editor {
@@ -766,6 +767,131 @@ h2 {
   transform: translateY(0);
 }
 
+.runwayBoard {
+  background: #f3efe5;
+  color: #080808;
+  display: grid;
+  gap: clamp(22px, 5vw, 70px);
+  grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.runwayBoard .kicker {
+  color: #ff5c33;
+}
+
+.runwayCopy {
+  align-self: center;
+  position: relative;
+  z-index: 2;
+}
+
+.runwayCopy p:not(.kicker) {
+  color: rgba(8, 8, 8, 0.68);
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  max-width: 620px;
+}
+
+.runwayStage {
+  display: grid;
+  gap: 12px;
+  min-height: 620px;
+  overflow: hidden;
+  position: relative;
+}
+
+.runwayStage::before,
+.runwayStage::after {
+  content: "";
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: 3;
+}
+
+.runwayStage::before {
+  background: linear-gradient(180deg, #f3efe5, transparent);
+  height: 120px;
+  top: 0;
+}
+
+.runwayStage::after {
+  background: linear-gradient(0deg, #f3efe5, transparent);
+  bottom: 0;
+  height: 120px;
+}
+
+.runwayTrack {
+  animation: runwayRise 28s linear infinite;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.runwayTrackB {
+  animation-direction: reverse;
+  animation-duration: 36s;
+  margin-top: -42%;
+}
+
+.runwayStage:hover .runwayTrack {
+  animation-play-state: paused;
+}
+
+.runwayCard {
+  background: #080808;
+  border: 1px solid rgba(8, 8, 8, 0.2);
+  box-shadow: 0 18px 48px rgba(8, 8, 8, 0.18);
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  transform: translateZ(0);
+}
+
+.runwayCard:nth-child(4n + 1) {
+  transform: translateY(34px);
+}
+
+.runwayCard:nth-child(5n) {
+  transform: translateY(-22px);
+}
+
+.runwayCard img {
+  aspect-ratio: 3 / 4;
+  filter: contrast(1.08) saturate(0.92);
+  height: 100%;
+  object-fit: cover;
+  transition: filter 420ms ease, transform 420ms ease;
+}
+
+.runwayCard:nth-child(3n) img {
+  aspect-ratio: 1 / 1;
+}
+
+.runwayCard figcaption {
+  background: #d8ff3f;
+  bottom: 8px;
+  color: #080808;
+  left: 8px;
+  opacity: 0;
+  padding: 6px 8px;
+  position: absolute;
+  right: 8px;
+  transform: translateY(10px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.runwayCard:hover img {
+  filter: contrast(1.2) saturate(1.12);
+  transform: scale(1.06);
+}
+
+.runwayCard:hover figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .editorsPicks {
   background: #151515;
 }
@@ -1149,6 +1275,12 @@ h2 {
   }
 }
 
+@keyframes runwayRise {
+  to {
+    transform: translateY(-50%);
+  }
+}
+
 @keyframes revealUp {
   from {
     opacity: 0;
@@ -1210,6 +1342,7 @@ h2 {
   .footerIssue,
   .imageWall,
   .pickGrid,
+.runwayBoard,
   .signals,
   .motionStrip,
   .trendReport,
@@ -1231,6 +1364,10 @@ h2 {
 
   .wallGrid {
     column-count: 3;
+  }
+
+  .runwayStage {
+    min-height: 560px;
   }
 
   .articleCard:first-child {
@@ -1405,6 +1542,7 @@ h2 {
   .lookbook,
   .signals,
   .motionStrip,
+.runwayBoard,
   .trendReport,
   .editor {
     padding: 48px 14px;
@@ -1467,6 +1605,14 @@ h2 {
 
   .wallGrid {
     column-count: 1;
+  }
+
+  .runwayStage {
+    min-height: 480px;
+  }
+
+  .runwayTrack {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .createdVisual {
