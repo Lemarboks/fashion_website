@@ -24,6 +24,18 @@ type Signal = {
   value: string;
 };
 
+type Department = {
+  label: string;
+  title: string;
+  copy: string;
+  look: Look;
+};
+
+type Trend = {
+  name: string;
+  detail: string;
+};
+
 const looks: Look[] = [
   {
     title: "Blue Fold",
@@ -239,9 +251,9 @@ const articles: Article[] = [
 
 const signals: Signal[] = [
   { label: "Images", value: `${looks.length} active frames` },
-  { label: "Motion", value: "cover drift / reveals / rail" },
-  { label: "Feature", value: "mood filters" },
-  { label: "Format", value: "react / typescript / css" },
+  { label: "Sections", value: "cover / features / departments" },
+  { label: "Interaction", value: "filters / rail / hover previews" },
+  { label: "Build", value: "react / typescript / css" },
 ];
 
 const moodFilters: { value: Mood; label: string }[] = [
@@ -249,6 +261,34 @@ const moodFilters: { value: Mood; label: string }[] = [
   { value: "cover", label: "Cover" },
   { value: "street", label: "Street" },
   { value: "texture", label: "Texture" },
+];
+
+const departments: Department[] = [
+  {
+    label: "01 / Cover",
+    title: "The frame has to hit before the caption does.",
+    copy: "Big crops, tight type, and direct contrast make the first screen feel like an issue cover instead of a landing page.",
+    look: looks[13],
+  },
+  {
+    label: "02 / Street",
+    title: "Loose shape, sharp posture, no dead space.",
+    copy: "The streetwear pages use tall editorial cards so each fit has room to breathe on desktop and mobile.",
+    look: looks[20],
+  },
+  {
+    label: "03 / Texture",
+    title: "Details carry the issue when the silhouettes pause.",
+    copy: "Accessories, fabric, and close crops break the rhythm so the page feels curated, not dumped from a board.",
+    look: looks[8],
+  },
+];
+
+const trendReport: Trend[] = [
+  { name: "Washed blue", detail: "Denim tones keep the issue grounded." },
+  { name: "Hard contrast", detail: "Bright whites and deep blacks build the magazine edge." },
+  { name: "Red accents", detail: "Small hits of heat stop the grid from feeling flat." },
+  { name: "Tall crops", detail: "Vertical image framing keeps the fashion readable on phones." },
 ];
 
 function PinImage({ look, eager = false }: { look: Look; eager?: boolean }) {
@@ -270,6 +310,8 @@ function App() {
   );
   const heroLooks = looks.slice(0, 5);
   const railLooks = [...looks.slice(3, 15), ...looks.slice(3, 15)];
+  const coverStory = looks[13];
+  const editorPicks = [looks[0], looks[7], looks[12], looks[19]];
 
   return (
     <main>
@@ -278,6 +320,7 @@ function App() {
         <div className="navLinks">
           <a href="#contents">Contents</a>
           <a href="#features">Features</a>
+          <a href="#departments">Departments</a>
           <a href="#motion">Motion</a>
           <a href="#lookbook">Lookbook</a>
           <a href="#editor">Editor</a>
@@ -287,25 +330,25 @@ function App() {
       <section className="cover" id="top">
         <div className="noise" aria-hidden="true" />
         <div className="coverMasthead reveal">
-          <span>Issue 02</span>
-          <span>Animated pin magazine</span>
+          <span>Issue 03</span>
+          <span>Full fashion magazine</span>
           <span>{looks.length} Pinterest frames</span>
         </div>
         <div className="coverGrid">
           <div className="coverCopy reveal">
-            <p className="kicker">Pinterest images / motion edition</p>
+            <p className="kicker">Digital fashion issue / visual archive</p>
             <h1>
-              Pinboard.
-              <span>Runway.</span>
+              Modern.
+              <span>Fashion.</span>
               <span>Magazine.</span>
             </h1>
             <p>
-              A modern fashion website built from the pictures in your Pinterest
-              links, with animated editorial sections, hover movement, and a
-              responsive gallery that works across screens.
+              A full editorial fashion website built from the Pinterest images you
+              supplied: cover story, departments, trend report, moving image rail,
+              filterable lookbook, and issue credits.
             </p>
             <div className="actions">
-              <a className="action" href="#lookbook">View gallery</a>
+              <a className="action" href="#contents">Open issue</a>
               <a className="ghostAction" href="https://pin.it/5Sk0eJC3d" target="_blank" rel="noreferrer">Source link</a>
             </div>
           </div>
@@ -321,11 +364,31 @@ function App() {
         </div>
       </section>
 
+      <section className="issueDeck" aria-label="Issue highlights">
+        <div className="issueDeckItem">
+          <span>Cover</span>
+          <strong>Image-led editorial system</strong>
+        </div>
+        <div className="issueDeckItem">
+          <span>Departments</span>
+          <strong>Cover / Street / Texture</strong>
+        </div>
+        <div className="issueDeckItem">
+          <span>Gallery</span>
+          <strong>{looks.length} responsive frames</strong>
+        </div>
+        <div className="issueDeckItem">
+          <span>Interaction</span>
+          <strong>Filters, hover motion, rail</strong>
+        </div>
+      </section>
+
       <section className="crawl" aria-label="Moodboard keywords">
         <div>
-          <span>animated editorial</span>
+          <span>full magazine issue</span>
           <span>new pin.it image set</span>
           <span>responsive fashion grid</span>
+          <span>editorial departments</span>
           <span>hover motion</span>
           <span>mood filters</span>
           <span>moving image rail</span>
@@ -340,16 +403,17 @@ function App() {
         </div>
         <ol className="contentsList reveal">
           <li><a href="#features"><span>01</span> Features: animated editorial system</a></li>
-          <li><a href="#motion"><span>02</span> Motion rail: moving Pinterest frames</a></li>
-          <li><a href="#lookbook"><span>03</span> Lookbook: filter by image mood</a></li>
-          <li><a href="#signals"><span>04</span> Signals: features and credits</a></li>
+          <li><a href="#departments"><span>02</span> Departments: cover, street, texture</a></li>
+          <li><a href="#trend"><span>03</span> Trend report: color and silhouette notes</a></li>
+          <li><a href="#lookbook"><span>04</span> Lookbook: filter by image mood</a></li>
+          <li><a href="#editor"><span>05</span> Editor: picks and credits</a></li>
         </ol>
       </section>
 
       <section className="features" id="features">
         <div className="sectionIntro reveal">
           <p className="kicker">Features</p>
-          <h2>Modern motion, image first.</h2>
+          <h2>Stories built like spreads.</h2>
         </div>
         <div className="articleGrid">
           {articles.map((article, index) => (
@@ -360,6 +424,57 @@ function App() {
                 <h3>{article.title}</h3>
                 <p>{article.dek}</p>
               </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="coverStory" id="cover-story">
+        <div className="coverStoryImage reveal">
+          <PinImage look={coverStory} />
+        </div>
+        <article className="coverStoryCopy reveal">
+          <p className="kicker">Cover story</p>
+          <h2>Fashion sites should feel edited, not assembled.</h2>
+          <p>
+            The new structure treats every picture like a page in an issue: some
+            images lead, some support, and some work as details that change the
+            pace between larger visual moments.
+          </p>
+          <a className="textLink" href="#departments">Read departments</a>
+        </article>
+      </section>
+
+      <section className="departments" id="departments">
+        <div className="sectionIntro reveal">
+          <p className="kicker">Departments</p>
+          <h2>Three lanes for the issue.</h2>
+        </div>
+        <div className="departmentGrid">
+          {departments.map((department) => (
+            <article className="departmentCard reveal" key={department.title}>
+              <PinImage look={department.look} />
+              <div>
+                <span>{department.label}</span>
+                <h3>{department.title}</h3>
+                <p>{department.copy}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="trendReport" id="trend">
+        <div className="trendCopy reveal">
+          <p className="kicker">Trend report</p>
+          <h2>What the board is saying.</h2>
+        </div>
+        <div className="trendList reveal">
+          {trendReport.map((trend, index) => (
+            <article key={trend.name}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{trend.name}</h3>
+              <p>{trend.detail}</p>
             </article>
           ))}
         </div>
@@ -378,6 +493,22 @@ function App() {
               </figure>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="editorsPicks" aria-label="Editor's picks">
+        <div className="sectionIntro reveal">
+          <p className="kicker">Editor's picks</p>
+          <h2>Four frames that hold the issue.</h2>
+        </div>
+        <div className="pickGrid">
+          {editorPicks.map((look, index) => (
+            <article className="pickCard reveal" key={look.title}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <PinImage look={look} />
+              <h3>{look.title}</h3>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -421,11 +552,11 @@ function App() {
         </div>
         <div className="signalCopy reveal">
           <p className="kicker">Style signals</p>
-          <h2>The page moves now.</h2>
+          <h2>The issue has structure now.</h2>
           <p>
-            The site now has a larger Pinterest image set, animated cover cards,
-            reveal transitions, a looping image rail, hover zooms, and filterable
-            lookbook categories.
+            The site now behaves like a real magazine website: a lead cover,
+            contents, feature cards, departments, trend report, moving gallery,
+            filterable archive, editor picks, and credits.
           </p>
           <div className="signalList">
             {signals.map((signal) => (
@@ -441,22 +572,36 @@ function App() {
       <section className="editor" id="editor">
         <div className="editorLetter reveal">
           <p className="kicker">Editor note</p>
-          <h2>Built like a digital fashion issue.</h2>
+          <h2>A full issue, not just a page.</h2>
           <p>
-            The new Pinterest short link added a much bigger visual pool, so the
-            site now feels less like a static page and more like a full magazine:
-            cover, contents, features, moving rail, filtered lookbook, and credits.
+            The Pinterest images now sit inside a proper editorial system with
+            visual hierarchy, sections, motion, mobile-safe grids, and a footer
+            that closes the issue cleanly.
           </p>
         </div>
         <div className="credits reveal">
           <span>Primary links</span>
           <strong>SenchTV pins + pin.it/5Sk0eJC3d</strong>
           <span>Features</span>
-          <strong>Animations, filters, image rail, responsive gallery</strong>
+          <strong>Departments, trend report, filters, image rail</strong>
           <span>Format</span>
           <strong>React / TypeScript / CSS</strong>
         </div>
       </section>
+
+      <footer className="footerIssue">
+        <div>
+          <p className="kicker">Sench//Index</p>
+          <h2>End of issue.</h2>
+        </div>
+        <form className="newsletter" onSubmit={(event) => event.preventDefault()}>
+          <label htmlFor="email">Magazine updates</label>
+          <div>
+            <input id="email" type="email" placeholder="email@example.com" />
+            <button type="submit">Join</button>
+          </div>
+        </form>
+      </footer>
     </main>
   );
 }

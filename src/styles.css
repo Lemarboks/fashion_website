@@ -350,12 +350,53 @@ h1 span {
 }
 
 .contents,
+.coverStory,
+.departments,
+.editorsPicks,
 .features,
 .lookbook,
 .motionStrip,
 .signals,
+.trendReport,
 .editor {
   padding: clamp(58px, 9vw, 112px) clamp(16px, 4vw, 48px);
+}
+
+.issueDeck {
+  background: #f3efe5;
+  color: #080808;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.issueDeckItem {
+  border-right: 1px solid rgba(8, 8, 8, 0.16);
+  display: grid;
+  gap: 8px;
+  min-height: 130px;
+  padding: 18px;
+}
+
+.issueDeckItem span,
+.departmentCard span,
+.trendList span,
+.pickCard span,
+.newsletter label {
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.issueDeckItem span {
+  color: #ff5c33;
+}
+
+.issueDeckItem strong {
+  align-self: end;
+  font-size: clamp(1.05rem, 2vw, 1.65rem);
+  line-height: 0.96;
+  text-transform: uppercase;
 }
 
 .contents {
@@ -475,6 +516,138 @@ h2 {
   text-transform: uppercase;
 }
 
+.coverStory {
+  align-items: stretch;
+  background: #0e0e0e;
+  display: grid;
+  gap: clamp(20px, 4vw, 58px);
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1fr);
+}
+
+.coverStoryImage {
+  min-height: clamp(480px, 62vw, 820px);
+  overflow: hidden;
+}
+
+.coverStoryImage img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.coverStoryCopy {
+  align-self: center;
+  border-bottom: 1px solid rgba(243, 239, 229, 0.18);
+  border-top: 1px solid rgba(243, 239, 229, 0.18);
+  padding: clamp(24px, 5vw, 64px) 0;
+}
+
+.coverStoryCopy p:not(.kicker) {
+  color: rgba(243, 239, 229, 0.74);
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  max-width: 680px;
+}
+
+.textLink {
+  color: #d8ff3f;
+  display: inline-flex;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  margin-top: 16px;
+  text-transform: uppercase;
+}
+
+.departments {
+  background: #101010;
+}
+
+.departmentGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 auto;
+  max-width: 1320px;
+}
+
+.departmentCard {
+  border: 1px solid rgba(243, 239, 229, 0.18);
+  display: grid;
+  overflow: hidden;
+}
+
+.departmentCard img {
+  aspect-ratio: 4 / 5;
+  filter: contrast(1.08) saturate(0.92);
+  height: 100%;
+  object-fit: cover;
+  transition: filter 500ms ease, transform 500ms ease;
+}
+
+.departmentCard:hover img {
+  filter: contrast(1.18) saturate(1.05);
+  transform: scale(1.04);
+}
+
+.departmentCard div {
+  padding: 18px;
+}
+
+.departmentCard span,
+.pickCard span {
+  color: #ff5c33;
+}
+
+.departmentCard h3 {
+  font-size: clamp(1.35rem, 2.5vw, 2.65rem);
+  line-height: 0.9;
+  margin: 12px 0;
+  text-transform: uppercase;
+}
+
+.departmentCard p {
+  color: rgba(243, 239, 229, 0.72);
+  margin-bottom: 0;
+}
+
+.trendReport {
+  align-items: start;
+  background: #d8ff3f;
+  color: #080808;
+  display: grid;
+  gap: clamp(24px, 5vw, 70px);
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1fr);
+}
+
+.trendReport .kicker {
+  color: #080808;
+}
+
+.trendList {
+  border-top: 1px solid rgba(8, 8, 8, 0.24);
+  display: grid;
+}
+
+.trendList article {
+  border-bottom: 1px solid rgba(8, 8, 8, 0.24);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 60px minmax(0, 0.6fr) minmax(0, 1fr);
+  padding: 20px 0;
+}
+
+.trendList h3 {
+  font-size: clamp(1.4rem, 2.8vw, 3rem);
+  line-height: 0.9;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.trendList p {
+  align-self: center;
+  color: rgba(8, 8, 8, 0.72);
+  margin-bottom: 0;
+}
+
 .motionStrip {
   background: #f3efe5;
   color: #080808;
@@ -520,6 +693,44 @@ h2 {
 .railFrame:hover img {
   filter: contrast(1.18) saturate(1.12);
   transform: scale(1.05);
+}
+
+.editorsPicks {
+  background: #151515;
+}
+
+.pickGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1.1fr 0.9fr 0.9fr 1.1fr;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.pickCard {
+  border-top: 1px solid rgba(243, 239, 229, 0.2);
+  display: grid;
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.pickCard img {
+  aspect-ratio: 3 / 4;
+  filter: grayscale(0.28) contrast(1.14);
+  object-fit: cover;
+  transition: filter 400ms ease, transform 400ms ease;
+}
+
+.pickCard:hover img {
+  filter: grayscale(0) contrast(1.16);
+  transform: translateY(-4px);
+}
+
+.pickCard h3 {
+  font-size: clamp(1.15rem, 2vw, 2.2rem);
+  line-height: 0.92;
+  margin-bottom: 0;
+  text-transform: uppercase;
 }
 
 .filterBar {
@@ -796,6 +1007,59 @@ h2 {
   text-transform: uppercase;
 }
 
+.footerIssue {
+  align-items: end;
+  background: #080808;
+  border-top: 1px solid rgba(243, 239, 229, 0.18);
+  color: #f3efe5;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.58fr);
+  padding: clamp(50px, 8vw, 96px) clamp(16px, 4vw, 48px);
+}
+
+.footerIssue h2 {
+  margin-bottom: 0;
+}
+
+.newsletter {
+  display: grid;
+  gap: 12px;
+}
+
+.newsletter label {
+  color: #d8ff3f;
+}
+
+.newsletter div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.newsletter input,
+.newsletter button {
+  border: 1px solid rgba(243, 239, 229, 0.28);
+  min-height: 48px;
+}
+
+.newsletter input {
+  background: transparent;
+  color: #f3efe5;
+  font: inherit;
+  padding: 0 14px;
+}
+
+.newsletter button {
+  background: #f3efe5;
+  color: #080808;
+  cursor: pointer;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  padding: 0 18px;
+  text-transform: uppercase;
+}
+
 .reveal {
   animation: revealUp 700ms ease both;
   animation-timeline: view();
@@ -870,8 +1134,13 @@ h2 {
 
   .coverGrid,
   .contents,
-.signals,
-.motionStrip,
+  .coverStory,
+  .departmentGrid,
+  .footerIssue,
+  .pickGrid,
+  .signals,
+  .motionStrip,
+  .trendReport,
   .editor {
     grid-template-columns: 1fr;
   }
@@ -882,6 +1151,10 @@ h2 {
 
   .articleGrid {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .issueDeck {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .articleCard:first-child {
@@ -980,8 +1253,25 @@ h2 {
   }
 
   .articleGrid,
+  .departmentGrid,
   .signalList {
     grid-template-columns: 1fr;
+  }
+
+  .trendList article {
+    grid-template-columns: 1fr;
+  }
+
+  .issueDeck {
+    grid-template-columns: 1fr;
+  }
+
+  .issueDeckItem {
+    min-height: 104px;
+  }
+
+  .coverStoryImage {
+    min-height: 420px;
   }
 
   .contentsList a {
@@ -1027,10 +1317,14 @@ h2 {
   }
 
   .contents,
+  .coverStory,
+  .departments,
+  .editorsPicks,
   .features,
   .lookbook,
-.signals,
-.motionStrip,
+  .signals,
+  .motionStrip,
+  .trendReport,
   .editor {
     padding: 48px 14px;
   }
@@ -1084,6 +1378,10 @@ h2 {
 
   .file {
     min-height: 360px;
+  }
+
+  .newsletter div {
+    grid-template-columns: 1fr;
   }
 
   .createdVisual {
