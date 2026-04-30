@@ -483,6 +483,17 @@ const trendReport: Trend[] = [
   { name: "Heritage detail", detail: "Beadwork, blanket references, and crafted accessories add meaning to the fit." },
 ];
 
+const navItems = [
+  { href: "#contents", label: "Contents" },
+  { href: "#features", label: "Features" },
+  { href: "#departments", label: "Departments" },
+  { href: "#wall", label: "Image wall" },
+  { href: "#runway", label: "Runway" },
+  { href: "#motion", label: "Motion" },
+  { href: "#lookbook", label: "Lookbook" },
+  { href: "#editor", label: "Editor" },
+];
+
 const whatsappMessage = encodeURIComponent(
   "Hi, I am interested in the Sench//Index South African fashion magazine.",
 );
@@ -500,6 +511,7 @@ function PinImage({ look, eager = false }: { look: Look; eager?: boolean }) {
 
 function App() {
   const [activeMood, setActiveMood] = useState<Mood>("all");
+  const [navOpen, setNavOpen] = useState(false);
   const filteredLooks = useMemo(
     () => looks.filter((look) => activeMood === "all" || look.mood === activeMood),
     [activeMood],
@@ -512,17 +524,26 @@ function App() {
 
   return (
     <main>
-      <nav className="nav" aria-label="Primary navigation">
-        <a className="brand" href="#top">Sench//Index</a>
-        <div className="navLinks">
-          <a href="#contents">Contents</a>
-          <a href="#features">Features</a>
-          <a href="#departments">Departments</a>
-          <a href="#wall">Image wall</a>
-          <a href="#runway">Runway</a>
-          <a href="#motion">Motion</a>
-          <a href="#lookbook">Lookbook</a>
-          <a href="#editor">Editor</a>
+      <nav className={`nav${navOpen ? " navOpen" : ""}`} aria-label="Primary navigation">
+        <a className="brand" href="#top" onClick={() => setNavOpen(false)}>Sench//Index</a>
+        <button
+          aria-controls="primary-menu"
+          aria-expanded={navOpen}
+          aria-label="Toggle navigation menu"
+          className="navToggle"
+          onClick={() => setNavOpen((open) => !open)}
+          type="button"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <div className="navLinks" id="primary-menu">
+          {navItems.map((item) => (
+            <a href={item.href} key={item.href} onClick={() => setNavOpen(false)}>
+              {item.label}
+            </a>
+          ))}
         </div>
       </nav>
 
