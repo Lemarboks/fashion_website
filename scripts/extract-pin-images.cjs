@@ -4,7 +4,7 @@ const path = require("node:path");
 const root = path.resolve(__dirname, "..");
 const files = fs
   .readdirSync(root)
-  .filter((file) => /^pin-\d+\.html$/.test(file))
+  .filter((file) => /^pin-(?:\d+|short-.+)\.html$/.test(file))
   .sort();
 
 const images = new Map();
