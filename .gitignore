@@ -3,6 +3,7 @@ dist/
 .vite/
 pages-build/
 pinterest.html
+created*.html
 *.tsbuildinfo
 vite.config.js
 vite.config.d.ts
