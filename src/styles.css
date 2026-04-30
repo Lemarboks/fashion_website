@@ -1277,16 +1277,13 @@ h2 {
   z-index: 30;
 }
 
-.whatsappButton span {
-  align-items: center;
+.whatsappButton svg {
   background: #07130b;
-  color: #25d366;
-  display: inline-flex;
-  font-size: 0.72rem;
-  height: 28px;
-  justify-content: center;
-  letter-spacing: 0;
-  width: 28px;
+  border-radius: 50%;
+  fill: #25d366;
+  height: 30px;
+  padding: 4px;
+  width: 30px;
 }
 
 .whatsappButton:hover {
