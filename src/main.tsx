@@ -4,7 +4,8 @@ import "./styles.css";
 
 type Look = {
   title: string;
-  code: string;
+  pin: string;
+  image: string;
   note: string;
   alt: string;
 };
@@ -22,75 +23,77 @@ type Signal = {
 
 const looks: Look[] = [
   {
-    title: "Denim Static",
-    code: "FIT-01",
-    note: "Washed blue, stacked shape, no clean-room polish.",
-    alt: "Created-only fashion slot for denim streetwear styling",
+    title: "Blue Fold",
+    pin: "Pin 9535",
+    image: "https://i.pinimg.com/736x/81/b7/95/81b7955f8a71bf2388414a8b59919d92.jpg",
+    note: "A created SenchTV frame with washed denim, sharp contrast, and magazine-cover weight.",
+    alt: "SenchTV created Pinterest fashion image with blue denim styling",
   },
   {
-    title: "Chrome Bite",
-    code: "JWL-02",
-    note: "The accessory becomes the headline.",
-    alt: "Created-only fashion slot for jewelry styling",
+    title: "White Signal",
+    pin: "Pin 9613",
+    image: "https://i.pinimg.com/736x/ee/fe/ed/eefeed26d894b54ad4d74347579296cd.jpg",
+    note: "Clean light, hard pose, and a graphic silhouette built for a spread.",
+    alt: "SenchTV created Pinterest fashion image with bright styling",
   },
   {
-    title: "Late Utility",
-    code: "DRP-03",
-    note: "Black layers for city movement after dark.",
-    alt: "Created-only fashion slot for dark utility styling",
+    title: "Red Impact",
+    pin: "Pin 9622",
+    image: "https://i.pinimg.com/736x/cb/b6/4e/cbb64ed60dc3a31f80b714d65403e4c9.jpg",
+    note: "A bold created post with enough color pressure to lead the whole issue.",
+    alt: "SenchTV created Pinterest fashion image with red styling",
   },
   {
-    title: "Flash Archive",
-    code: "ARC-04",
-    note: "A created post that feels pulled from a folder called proof.",
-    alt: "Created-only fashion slot for archive styling",
+    title: "Blue Fold Detail",
+    pin: "Pin 9535",
+    image: "https://i.pinimg.com/736x/81/b7/95/81b7955f8a71bf2388414a8b59919d92.jpg",
+    note: "Repeated as an editorial crop so every visible photo still comes from the created pins.",
+    alt: "Editorial crop from SenchTV created Pinterest fashion image",
   },
   {
-    title: "Sport Fragment",
-    code: "RUN-05",
-    note: "Retro sport energy, sharper than nostalgia.",
-    alt: "Created-only fashion slot for sport styling",
+    title: "White Signal Detail",
+    pin: "Pin 9613",
+    image: "https://i.pinimg.com/736x/ee/fe/ed/eefeed26d894b54ad4d74347579296cd.jpg",
+    note: "A second magazine crop from the created source image, keeping the page full.",
+    alt: "Editorial crop from SenchTV created bright Pinterest fashion image",
   },
   {
-    title: "Concrete Ease",
-    code: "BLK-06",
-    note: "Quiet fit, hard pavement, loose posture.",
-    alt: "Created-only fashion slot for concrete street styling",
+    title: "Red Impact Detail",
+    pin: "Pin 9622",
+    image: "https://i.pinimg.com/736x/cb/b6/4e/cbb64ed60dc3a31f80b714d65403e4c9.jpg",
+    note: "The final crop repeats the created image set instead of pulling from saved pins.",
+    alt: "Editorial crop from SenchTV created red Pinterest fashion image",
   },
 ];
 
 const articles: Article[] = [
   {
     eyebrow: "Cover Story",
-    title: "The created image is the new fashion clipping.",
-    dek: "Sench//Index now runs in created-only mode: the layout is ready for original SenchTV pins and avoids saved images from other creators.",
+    title: "Three created pins become a full fashion issue.",
+    dek: "Sench//Index now displays only the images from the SenchTV created pin URLs you provided.",
   },
   {
-    eyebrow: "Accessories",
-    title: "Chrome is not decoration. It is punctuation.",
-    dek: "A hard shine can change the whole fit. Grillz, chains, rings, and metal hardware do the talking before the clothes do.",
+    eyebrow: "Layout",
+    title: "The same image can become cover, crop, and proof.",
+    dek: "The issue repeats the three created pictures as editorial crops so no saved-board images sneak in.",
   },
   {
-    eyebrow: "Texture",
-    title: "Washed fabric keeps the silhouette human.",
-    dek: "Future visuals should come from created posts only, not saved-board images from other accounts.",
+    eyebrow: "Source",
+    title: "Every visible photo traces back to the created pins.",
+    dek: "Only the three supplied SenchTV created pin pages are used as the image source for this build.",
   },
 ];
 
 const signals: Signal[] = [
   { label: "Source", value: "created pins only" },
-  { label: "Status", value: "no public created images returned" },
-  { label: "Texture", value: "denim / metal / flash" },
+  { label: "Images", value: "3 supplied pins" },
+  { label: "Texture", value: "blue / white / red" },
   { label: "Rule", value: "no saved-pin images" },
 ];
 
-function CreatedVisual({ code, label }: { code: string; label: string }) {
+function PinImage({ look }: { look: Look }) {
   return (
-    <div className="createdVisual" role="img" aria-label={label}>
-      <span>{code}</span>
-      <strong>Created-only</strong>
-      <em>No public created pin image returned</em>
-    </div>
+    <img src={look.image} alt={look.alt} loading="lazy" referrerPolicy="no-referrer" />
   );
 }
 
@@ -119,23 +122,22 @@ function App() {
           <div className="coverCopy">
             <p className="kicker">Created pins only / no saved images</p>
             <h1>
-              Streetwear scraps.
-              <span>Chrome teeth.</span>
-              <span>Denim evidence.</span>
+              SenchTV.
+              <span>Created pins.</span>
+              <span>Full issue.</span>
             </h1>
             <p>
-              This issue only accepts pictures created by the SenchTV Pinterest
-              account. The public created feed currently returned no image URLs,
-              so saved-pin photos have been removed.
+              This issue displays only the pictures from the SenchTV created pin
+              links you gave me. No saved-board photos, no outside Pinterest images.
             </p>
             <a className="action" href="#contents">Read issue</a>
           </div>
 
           <div className="coverStack" aria-label="Magazine cover collage">
             {looks.slice(0, 4).map((look, index) => (
-              <figure className={`clip clip${index + 1}`} key={look.code}>
-                <CreatedVisual code={look.code} label={look.alt} />
-                <figcaption>{look.code}</figcaption>
+              <figure className={`clip clip${index + 1}`} key={`${look.pin}-${index}`}>
+                <PinImage look={look} />
+                <figcaption>{look.pin}</figcaption>
               </figure>
             ))}
           </div>
@@ -145,10 +147,10 @@ function App() {
       <section className="crawl" aria-label="Moodboard keywords">
         <div>
           <span>created pins only</span>
-          <span>no saved images</span>
-          <span>original posts</span>
+          <span>three supplied pictures</span>
+          <span>original SenchTV posts</span>
           <span>street uniform</span>
-          <span>washed black</span>
+          <span>image-led issue</span>
           <span>loose silhouette</span>
           <span>reference culture</span>
         </div>
@@ -160,9 +162,9 @@ function App() {
           <h2>Inside the issue.</h2>
         </div>
         <ol className="contentsList">
-          <li><a href="#features"><span>01</span> Cover story: created-image archive</a></li>
-          <li><a href="#lookbook"><span>02</span> Six created-only fit slots</a></li>
-          <li><a href="#signals"><span>03</span> Source rules and image status</a></li>
+          <li><a href="#features"><span>01</span> Cover story: created-image issue</a></li>
+          <li><a href="#lookbook"><span>02</span> Six crops from three created pins</a></li>
+          <li><a href="#signals"><span>03</span> Source rules and pin credits</a></li>
           <li><a href="#editor"><span>04</span> Editor note and credits</a></li>
         </ol>
       </section>
@@ -170,12 +172,12 @@ function App() {
       <section className="features" id="features">
         <div className="sectionIntro">
           <p className="kicker">Features</p>
-          <h2>Original images only.</h2>
+          <h2>Created pictures on page.</h2>
         </div>
         <div className="articleGrid">
-          {articles.map((article) => (
+          {articles.map((article, index) => (
             <article className="articleCard" key={article.title}>
-              <CreatedVisual code={article.eyebrow.slice(0, 3).toUpperCase()} label={article.title} />
+              <PinImage look={looks[index]} />
               <div>
                 <span>{article.eyebrow}</span>
                 <h3>{article.title}</h3>
@@ -189,16 +191,16 @@ function App() {
       <section className="lookbook" id="lookbook">
         <div className="sectionIntro">
           <p className="kicker">Lookbook</p>
-          <h2>Built for SenchTV-created pictures only.</h2>
+          <h2>All photos from your created pins.</h2>
         </div>
         <div className="fileGrid">
           {looks.map((look, index) => (
-            <article className="file" key={look.code}>
+            <article className="file" key={`${look.pin}-${index}`}>
               <div className="fileImage">
-                <CreatedVisual code={look.code} label={look.alt} />
+                <PinImage look={look} />
               </div>
               <div className="fileCopy">
-                <span>{look.code}</span>
+                <span>{look.pin}</span>
                 <h3>{look.title}</h3>
                 <p>{look.note}</p>
               </div>
@@ -210,15 +212,14 @@ function App() {
 
       <section className="signals" id="signals">
         <div className="signalPoster">
-          <CreatedVisual code="SRC" label="Created-only Pinterest source status" />
+          <PinImage look={looks[2]} />
         </div>
         <div className="signalCopy">
           <p className="kicker">Style signals</p>
-          <h2>The source rule is strict.</h2>
+          <h2>The pictures are live.</h2>
           <p>
-            The public Pinterest created tab returned no created pin image URLs.
-            Until those original URLs are available, the site uses designed image
-            slots instead of photos saved from other accounts.
+            I pulled the actual image URLs from the three SenchTV created pin pages
+            you sent and used only those photos across the magazine.
           </p>
           <div className="signalList">
             {signals.map((signal) => (
@@ -234,18 +235,18 @@ function App() {
       <section className="editor" id="editor">
         <div className="editorLetter">
           <p className="kicker">Editor note</p>
-          <h2>Only created pins belong here.</h2>
+          <h2>Only your created pins belong here.</h2>
           <p>
-            I checked the public SenchTV created page and it returned an empty
-            created-pin image feed. The magazine is now ready for those original
-            images, but it no longer displays saved pins from other Pinterest users.
+            The magazine now uses the pictures from pins 1020980178040299535,
+            1020980178040299613, and 1020980178040299622. Those images are repeated
+            as editorial crops to make the page feel like a complete fashion issue.
           </p>
         </div>
         <div className="credits">
           <span>Source rule</span>
           <strong>SenchTV created pins only</strong>
-          <span>Current public feed</span>
-          <strong>No created images returned</strong>
+          <span>Current image set</span>
+          <strong>3 supplied created pins</strong>
           <span>Format</span>
           <strong>React / TypeScript / CSS magazine site</strong>
         </div>

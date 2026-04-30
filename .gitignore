@@ -5,6 +5,7 @@ pages-build/
 pinterest.html
 created*.html
 created-api.json
+pin-*.html
 *.tsbuildinfo
 vite.config.js
 vite.config.d.ts
