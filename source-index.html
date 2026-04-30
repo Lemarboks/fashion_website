@@ -8,9 +8,81 @@
       content="Sench//Index, a full animated streetwear magazine built from the SenchTV Pinterest moodboard."
     />
     <title>Sench//Index</title>
+    <style>
+      html,
+      body {
+        background: #080808;
+        color: #f3efe5;
+        margin: 0;
+        min-height: 100%;
+      }
+
+      .static-fallback {
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          #080808;
+        background-size: 72px 72px;
+        font-family: Arial, Helvetica, sans-serif;
+        min-height: 100vh;
+        padding: 48px 18px;
+      }
+
+      .static-fallback__inner {
+        margin: 0 auto;
+        max-width: 980px;
+      }
+
+      .static-fallback p {
+        color: #d8ff3f;
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        margin: 0 0 18px;
+        text-transform: uppercase;
+      }
+
+      .static-fallback h1 {
+        font-size: clamp(3.4rem, 13vw, 10rem);
+        font-weight: 950;
+        letter-spacing: 0;
+        line-height: 0.78;
+        margin: 0 0 24px;
+        text-transform: uppercase;
+      }
+
+      .static-fallback strong {
+        border-left: 4px solid #ff5c33;
+        color: rgba(243, 239, 229, 0.78);
+        display: block;
+        font-size: 1rem;
+        max-width: 560px;
+        padding-left: 16px;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <section class="static-fallback">
+        <div class="static-fallback__inner">
+          <p>Sench//Index / loading magazine</p>
+          <h1>Streetwear scraps. Chrome teeth. Denim evidence.</h1>
+          <strong>
+            The animated magazine is loading. If it stays here, refresh the page
+            once so GitHub Pages can fetch the latest compiled files.
+          </strong>
+        </div>
+      </section>
+    </div>
+    <noscript>
+      <section class="static-fallback">
+        <div class="static-fallback__inner">
+          <p>JavaScript required</p>
+          <h1>Sench//Index</h1>
+          <strong>Enable JavaScript to view the full animated fashion magazine.</strong>
+        </div>
+      </section>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
