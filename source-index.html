@@ -30,7 +30,7 @@
 
       .static-fallback__inner {
         margin: 0 auto;
-        max-width: 980px;
+        max-width: 1120px;
       }
 
       .static-fallback p {
@@ -59,6 +59,27 @@
         max-width: 560px;
         padding-left: 16px;
       }
+
+      .static-fallback__grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 28px;
+      }
+
+      .static-fallback__grid img {
+        aspect-ratio: 4 / 5;
+        border: 1px solid rgba(243, 239, 229, 0.22);
+        display: block;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      @media (max-width: 680px) {
+        .static-fallback__grid {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
@@ -66,12 +87,15 @@
       <section class="static-fallback">
         <div class="static-fallback__inner">
           <p>Sench//Index / created-only magazine</p>
-          <h1>Streetwear scraps. Chrome teeth. Denim evidence.</h1>
+          <h1>SenchTV. Created pins. Full issue.</h1>
           <strong>
-            This page only uses images from the SenchTV created pins page. That
-            public feed is not exposing image URLs right now, so the magazine
-            shows created-only slots instead of saved-pin photos.
+            This page uses only the three SenchTV created pin images you supplied.
           </strong>
+          <div class="static-fallback__grid" aria-label="Created pin image preview">
+            <img src="https://i.pinimg.com/736x/81/b7/95/81b7955f8a71bf2388414a8b59919d92.jpg" alt="SenchTV created Pinterest fashion image with blue denim styling" referrerpolicy="no-referrer" />
+            <img src="https://i.pinimg.com/736x/ee/fe/ed/eefeed26d894b54ad4d74347579296cd.jpg" alt="SenchTV created Pinterest fashion image with bright styling" referrerpolicy="no-referrer" />
+            <img src="https://i.pinimg.com/736x/cb/b6/4e/cbb64ed60dc3a31f80b714d65403e4c9.jpg" alt="SenchTV created Pinterest fashion image with red styling" referrerpolicy="no-referrer" />
+          </div>
         </div>
       </section>
     </div>
