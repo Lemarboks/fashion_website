@@ -1260,30 +1260,26 @@ h2 {
 .whatsappButton {
   align-items: center;
   background: #25d366;
-  border: 1px solid rgba(8, 8, 8, 0.22);
+  border: 0;
+  border-radius: 50%;
   bottom: 18px;
   box-shadow: 0 18px 46px rgba(0, 0, 0, 0.34);
   color: #07130b;
   display: inline-flex;
-  font-size: 0.74rem;
-  font-weight: 950;
-  gap: 9px;
-  letter-spacing: 0.12em;
-  padding: 12px 14px;
+  height: 58px;
+  justify-content: center;
+  padding: 0;
   position: fixed;
   right: 18px;
-  text-transform: uppercase;
   transition: transform 240ms ease, box-shadow 240ms ease, background-color 240ms ease;
+  width: 58px;
   z-index: 30;
 }
 
 .whatsappButton svg {
-  background: #07130b;
-  border-radius: 50%;
-  fill: #25d366;
-  height: 30px;
-  padding: 4px;
-  width: 30px;
+  fill: #07130b;
+  height: 38px;
+  width: 38px;
 }
 
 .whatsappButton:hover {
@@ -1640,9 +1636,14 @@ h2 {
 
   .whatsappButton {
     bottom: 12px;
-    font-size: 0.68rem;
-    padding: 10px 12px;
+    height: 52px;
     right: 12px;
+    width: 52px;
+  }
+
+  .whatsappButton svg {
+    height: 34px;
+    width: 34px;
   }
 
   .wallGrid {
