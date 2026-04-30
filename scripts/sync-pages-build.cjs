@@ -22,6 +22,7 @@ fs.cpSync(path.join(dist, "assets"), path.join(root, "assets"), {
 
 fs.cpSync(path.join(root, "index.html"), path.join(pagesBuild, "index.html"));
 fs.cpSync(path.join(root, "404.html"), path.join(pagesBuild, "404.html"));
+fs.writeFileSync(path.join(pagesBuild, ".nojekyll"), "");
 fs.cpSync(path.join(root, "assets"), path.join(pagesBuild, "assets"), {
   recursive: true,
 });
