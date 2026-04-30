@@ -4,6 +4,7 @@ dist/
 pages-build/
 pinterest.html
 created*.html
+created-api.json
 *.tsbuildinfo
 vite.config.js
 vite.config.d.ts
