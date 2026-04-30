@@ -483,6 +483,10 @@ const trendReport: Trend[] = [
   { name: "Heritage detail", detail: "Beadwork, blanket references, and crafted accessories add meaning to the fit." },
 ];
 
+const whatsappMessage = encodeURIComponent(
+  "Hi, I am interested in the Sench//Index South African fashion magazine.",
+);
+
 function PinImage({ look, eager = false }: { look: Look; eager?: boolean }) {
   return (
     <img
@@ -850,6 +854,17 @@ function App() {
           </div>
         </form>
       </footer>
+
+      <a
+        aria-label="Open WhatsApp"
+        className="whatsappButton"
+        href={`https://wa.me/?text=${whatsappMessage}`}
+        rel="noreferrer"
+        target="_blank"
+      >
+        <span aria-hidden="true">WA</span>
+        WhatsApp
+      </a>
     </main>
   );
 }
