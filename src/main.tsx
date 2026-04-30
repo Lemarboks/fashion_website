@@ -65,264 +65,264 @@ const looks: Look[] = [
     title: "Utility Crop",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/37/ad/87/37ad87af414392f19028af7ffe7dab83.jpg",
-    note: "Sharp outerwear energy for the first new Pinterest drop.",
-    alt: "Pinterest fashion image from supplied short link",
+    note: "Johannesburg outerwear: practical layers for taxis, campus pavements, and late plans.",
+    alt: "South African streetwear image with sharp outerwear styling",
     mood: "street",
   },
   {
     title: "Concrete Fit",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/5b/9a/20/5b9a20dd7db72337bb6d18d7f78f7b17.jpg",
-    note: "Street styling with enough structure for a full-page crop.",
-    alt: "Streetwear fashion image from supplied Pinterest short link",
+    note: "Braamfontein structure, where oversized pieces still read sharp on the sidewalk.",
+    alt: "South African streetwear image with concrete city styling",
     mood: "street",
   },
   {
     title: "Archive Flash",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/2f/71/b1/2f71b13df8073726652f841bfcec1ac5.jpg",
-    note: "A reference-board moment made loud enough for print.",
-    alt: "Fashion reference image from supplied Pinterest short link",
+    note: "Colour and attitude that echo the speed of a taxi-rank palette.",
+    alt: "South African fashion image with bold archive styling",
     mood: "texture",
   },
   {
     title: "Dark Layer",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/ce/1a/d6/ce1ad6cd28c793865073a7b11e9a10b6.jpg",
-    note: "Black-on-black styling with a crisp silhouette.",
-    alt: "Dark fashion image from supplied Pinterest short link",
+    note: "Black-on-black styling for Joburg nights, clean enough to carry the whole fit.",
+    alt: "South African fashion image with dark layered styling",
     mood: "street",
   },
   {
     title: "Sharp White",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/82/5b/c5/825bc53a0c865f76c69fba0e6860ad94.jpg",
-    note: "A bright frame that gives the layout breathing room.",
-    alt: "Bright fashion image from supplied Pinterest short link",
+    note: "White space and polished confidence, the quiet side of modern Mzansi streetwear.",
+    alt: "South African fashion image with bright clean styling",
     mood: "cover",
   },
   {
     title: "Metal Detail",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/a8/b7/5c/a8b75c1706c03509a6a30ee99b1ffd58.jpg",
-    note: "Texture, hardware, and close-range styling cues.",
-    alt: "Fashion texture image from supplied Pinterest short link",
+    note: "Hardware, jewellery, and texture sharpen the look without needing a logo.",
+    alt: "South African fashion texture image with metal detail",
     mood: "texture",
   },
   {
     title: "Night Fit",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/2b/9e/e6/2b9ee65bf6bac9ae7ff918f49d95024c.jpg",
-    note: "Late-city contrast with a clean editorial crop.",
-    alt: "Night fashion image from supplied Pinterest short link",
+    note: "Amapiano-night contrast: easy movement, strong posture, clean city light.",
+    alt: "South African nightlife fashion image",
     mood: "street",
   },
   {
     title: "Soft Static",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/e2/95/c7/e295c751653b9b2b85ee812bab7e8f1e.jpg",
-    note: "A quieter image that keeps the spread from shouting.",
-    alt: "Soft fashion image from supplied Pinterest short link",
+    note: "Soft tones bring the calm between louder streetwear statements.",
+    alt: "South African fashion image with soft muted styling",
     mood: "texture",
   },
   {
     title: "Red Frame",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/2d/06/44/2d06449697ebf6e3dafc2f8fa1284dec.jpg",
-    note: "Color tension for the scroll gallery.",
-    alt: "Colorful fashion image from supplied Pinterest short link",
+    note: "Red heat, made for a summer street scene that refuses to fade back.",
+    alt: "South African fashion image with red colour styling",
     mood: "cover",
   },
   {
     title: "Bag Shape",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/9a/65/dd/9a65ddff7c41307e69af3d42e7440a1d.jpg",
-    note: "Accessory-forward styling with a clean silhouette.",
-    alt: "Accessory fashion image from supplied Pinterest short link",
+    note: "Accessory-led styling, where the bag becomes part of the silhouette.",
+    alt: "South African fashion accessory image",
     mood: "texture",
   },
   {
     title: "Studio Heat",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/45/c9/fe/45c9feb227ef694bf5fb62d9a44b268f.jpg",
-    note: "A studio image with enough energy to sit beside the hero.",
-    alt: "Studio fashion image from supplied Pinterest short link",
+    note: "Durban heat in a studio frame: bright, direct, and built for movement.",
+    alt: "South African studio fashion image",
     mood: "cover",
   },
   {
     title: "Mono Fit",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/79/fe/1d/79fe1d487c57ea124faad913e7d232d4.jpg",
-    note: "A monochrome outfit read for the lookbook grid.",
-    alt: "Monochrome fashion image from supplied Pinterest short link",
+    note: "Monochrome streetwear that keeps the fit focused on proportion.",
+    alt: "South African monochrome streetwear image",
     mood: "street",
   },
   {
     title: "Warm Crop",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/24/63/f5/2463f556c46aede0c874de646bdec32d.jpg",
-    note: "Warm tone, quick impact, strong editorial rhythm.",
-    alt: "Warm fashion image from supplied Pinterest short link",
+    note: "Warm tones with the glow of a late afternoon walk through the city.",
+    alt: "South African fashion image with warm styling",
     mood: "cover",
   },
   {
     title: "Pattern Cut",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/8e/ae/0d/8eae0da7d737f788368f9bce5c7fc57b.jpg",
-    note: "Pattern and posture for the texture lane.",
-    alt: "Pattern fashion image from supplied Pinterest short link",
+    note: "Pattern and posture nod to shweshwe energy without turning heritage into costume.",
+    alt: "South African fashion image with pattern styling",
     mood: "texture",
   },
   {
     title: "Muted Proof",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/a8/85/37/a8853750b622649f7452ed45a6ce3008.jpg",
-    note: "Muted styling, clean crop, strong proof-of-source feel.",
-    alt: "Muted fashion image from supplied Pinterest short link",
+    note: "Muted tones carry the quieter side of Cape Town thrift culture.",
+    alt: "South African fashion image with muted styling",
     mood: "street",
   },
   {
     title: "Editorial Pose",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/7e/66/98/7e6698d55cb321b55e2564a20e88c312.jpg",
-    note: "A direct magazine pose for the animated rail.",
-    alt: "Editorial fashion image from supplied Pinterest short link",
+    note: "A direct pose with the confidence of a street-style cover.",
+    alt: "South African editorial fashion pose",
     mood: "cover",
   },
   {
     title: "Texture Stack",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/75/da/07/75da073b3c225a2a32d04636c4c31d05.jpg",
-    note: "Layered texture that works best in close crop.",
-    alt: "Layered fashion texture image from supplied Pinterest short link",
+    note: "Layered texture gives local streetwear its hand-feel and depth.",
+    alt: "South African fashion image with layered texture",
     mood: "texture",
   },
   {
     title: "Loose Shape",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/d7/47/96/d7479613d6a610d64e55864d57e03406.jpg",
-    note: "Volume, ease, and a relaxed silhouette.",
-    alt: "Loose fashion styling image from supplied Pinterest short link",
+    note: "Loose proportions built for heat, dance floors, and all-day comfort.",
+    alt: "South African fashion image with loose styling",
     mood: "street",
   },
   {
     title: "Flash Detail",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/f9/f2/42/f9f2421f0a098545b46d443aa8ceedb4.jpg",
-    note: "A small visual shock for the end of the gallery.",
-    alt: "Fashion detail image from supplied Pinterest short link",
+    note: "A quick detail hit, like jewellery catching light outside a venue.",
+    alt: "South African fashion detail image",
     mood: "texture",
   },
   {
     title: "Bright Archive",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/68/bd/46/68bd46c0d3d08a6253a4299231c28390.jpg",
-    note: "Bright archive energy with a clean vertical frame.",
-    alt: "Bright archive fashion image from supplied Pinterest short link",
+    note: "Bright archive energy that feels at home beside beadwork colour.",
+    alt: "South African bright archive fashion image",
     mood: "cover",
   },
   {
     title: "Final Layer",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/736x/f1/b2/8c/f1b28c81a380bfb8af442fad8468dc3e.jpg",
-    note: "A closing frame with enough density to end the scroll.",
-    alt: "Layered final fashion image from supplied Pinterest short link",
+    note: "A dense final layer, equal parts township tailoring and streetwear ease.",
+    alt: "South African layered streetwear image",
     mood: "street",
   },
   {
     title: "Silver Crop",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/474x/88/fb/94/88fb94a365cdf7ecca2cd434ae4d4fdf.jpg",
-    note: "A compact frame for accessory rhythm and visual breaks.",
-    alt: "Additional Pinterest fashion image from supplied short link",
+    note: "Silver detail sharpens a simple fit the way Joburg street style often does.",
+    alt: "South African fashion image with silver detail",
     mood: "texture",
   },
   {
     title: "Sharp Archive",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/474x/b9/8b/17/b98b175e391022abbb8ae69134db0e70.jpg",
-    note: "Archive styling with a strong vertical read.",
-    alt: "Additional archive fashion image from supplied Pinterest short link",
+    note: "Archive styling with a vertical read, clean enough for a gallery opening.",
+    alt: "South African archive fashion image",
     mood: "street",
   },
   {
     title: "Gallery Proof",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/474x/43/6f/58/436f581dab42dcacce56d17af00f3ffd.jpg",
-    note: "A proof-card crop for the expanded image wall.",
-    alt: "Additional gallery fashion image from supplied Pinterest short link",
+    note: "A gallery-night frame: clean enough for Cape Town, loud enough for Braam.",
+    alt: "South African gallery fashion image",
     mood: "cover",
   },
   {
     title: "Warm Static",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/474x/30/4c/bc/304cbcffa5ec29f8294ce1afb0fb6a4c.jpg",
-    note: "Warm tones add another beat between the darker frames.",
-    alt: "Additional warm fashion image from supplied Pinterest short link",
+    note: "Warm colour keeps the visual rhythm close to South African summer light.",
+    alt: "South African warm fashion image",
     mood: "texture",
   },
   {
     title: "Micro Fit",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/236x/90/6b/81/906b81134f2cf2c1141876cdf2d2820d.jpg",
-    note: "Small-source image used as a fast editorial thumbnail.",
-    alt: "Small Pinterest fashion thumbnail from supplied short link",
+    note: "A quick street-style flash, spotted between taxi doors and shopfront glass.",
+    alt: "Small South African streetwear thumbnail",
     mood: "street",
   },
   {
     title: "Detail Flash",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/236x/57/1e/6e/571e6eb9aa805aadf11ee141d81be56f.jpg",
-    note: "A detail-sized image that adds motion to the wall.",
-    alt: "Small detail fashion thumbnail from supplied Pinterest short link",
+    note: "Small accessories do big work in South African streetwear.",
+    alt: "Small South African fashion detail thumbnail",
     mood: "texture",
   },
   {
     title: "Board Cut",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/236x/eb/cb/3d/ebcb3d1553b55d6e47542bac139ea7ac.jpg",
-    note: "Another Pinterest-board crop for a denser magazine wall.",
-    alt: "Small board fashion thumbnail from supplied Pinterest short link",
+    note: "A compact cut of colour and attitude for the fast-moving city wall.",
+    alt: "Small South African fashion thumbnail with colour",
     mood: "cover",
   },
   {
     title: "Black Note",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/236x/bd/b3/50/bdb350f0b3ea12f41f3d3c14746436d7.jpg",
-    note: "A darker thumbnail that keeps the image wall balanced.",
-    alt: "Small dark fashion thumbnail from supplied Pinterest short link",
+    note: "Dark layers for late-night movement after the last plan becomes the real plan.",
+    alt: "Small South African dark fashion thumbnail",
     mood: "street",
   },
   {
     title: "Accessory Beat",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/236x/ff/d1/10/ffd1102e2ed150ac06b98a197759f7a5.jpg",
-    note: "Accessory energy for the fast-scan section.",
-    alt: "Small accessory fashion thumbnail from supplied Pinterest short link",
+    note: "Accessory energy that turns a simple outfit into a full look.",
+    alt: "Small South African accessory fashion thumbnail",
     mood: "texture",
   },
   {
     title: "Color Snap",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/236x/49/4e/0f/494e0f6548c5d977b8ae44af28213558.jpg",
-    note: "A small color hit for the expanded visual archive.",
-    alt: "Small colorful fashion thumbnail from supplied Pinterest short link",
+    note: "Colour snap with the brightness of Ndebele-inspired street palettes.",
+    alt: "Small South African colourful fashion thumbnail",
     mood: "cover",
   },
   {
     title: "Loose Proof",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/236x/90/b7/a5/90b7a5cbc3dba4574837621ef227fc65.jpg",
-    note: "A tiny proof image that adds density to the page.",
-    alt: "Small loose styling thumbnail from supplied Pinterest short link",
+    note: "Loose proportions keep the silhouette comfortable without losing attitude.",
+    alt: "Small South African loose styling thumbnail",
     mood: "street",
   },
   {
     title: "Texture Proof",
     pin: "Pin.it set",
     image: "https://i.pinimg.com/236x/ed/ea/42/edea42112c56d91c93cf4b84808e4f0a.jpg",
-    note: "Small crop, strong texture, fast visual pace.",
-    alt: "Small texture fashion thumbnail from supplied Pinterest short link",
+    note: "Small crop, strong texture, and the pace of a city getting dressed.",
+    alt: "Small South African texture fashion thumbnail",
     mood: "texture",
   },
 ];
@@ -330,26 +330,26 @@ const looks: Look[] = [
 const articles: Article[] = [
   {
     eyebrow: "Cover Story",
-    title: "The pinboard becomes a moving magazine.",
-    dek: "The new issue blends your original created pins with the new Pinterest short-link set and turns the page into a faster, animated editorial system.",
+    title: "South African streetwear is a city language.",
+    dek: "From Braamfontein layers to Durban heat and Cape Town thrift rails, the look is practical, expressive, and impossible to separate from movement.",
   },
   {
     eyebrow: "Motion",
-    title: "Hover, filter, scroll, and let the images cut through.",
-    dek: "The page now uses animated cover cards, reveal effects, a moving image rail, and mood filters for a more modern fashion-site feel.",
+    title: "Amapiano nights changed the silhouette.",
+    dek: "Wide denim, cropped jackets, polished sneakers, jewellery, and easy shirts carry dance-floor confidence into everyday street style.",
   },
   {
-    eyebrow: "Source",
-    title: "Every visual comes from the Pinterest links you supplied.",
-    dek: "The layout keeps the images external, lightweight, and responsive so GitHub Pages can serve the magazine without a backend.",
+    eyebrow: "Heritage",
+    title: "Heritage is not costume. It is construction.",
+    dek: "Shweshwe pattern, beadwork colour, Basotho blanket references, and township tailoring sit beside global streetwear without losing their local weight.",
   },
 ];
 
 const signals: Signal[] = [
-  { label: "Images", value: `${looks.length} active frames` },
-  { label: "Sections", value: "cover / features / departments" },
-  { label: "Interaction", value: "filters / rail / hover previews" },
-  { label: "Build", value: "react / typescript / css" },
+  { label: "Images", value: `${looks.length} editorial frames` },
+  { label: "Cities", value: "Joburg / Durban / Cape Town" },
+  { label: "Mood", value: "street / heritage / nightlife" },
+  { label: "Issue", value: "South African fashion report" },
 ];
 
 const moodFilters: { value: Mood; label: string }[] = [
@@ -361,30 +361,30 @@ const moodFilters: { value: Mood; label: string }[] = [
 
 const departments: Department[] = [
   {
-    label: "01 / Cover",
-    title: "The frame has to hit before the caption does.",
-    copy: "Big crops, tight type, and direct contrast make the first screen feel like an issue cover instead of a landing page.",
+    label: "01 / Johannesburg",
+    title: "Braamfontein knows how to layer a look.",
+    copy: "Campus pavements, thrift rails, utility jackets, wide denim, and polished sneakers meet in a style language that is fast, practical, and fearless.",
     look: looks[13],
   },
   {
-    label: "02 / Street",
-    title: "Loose shape, sharp posture, no dead space.",
-    copy: "The streetwear pages use tall editorial cards so each fit has room to breathe on desktop and mobile.",
+    label: "02 / Durban",
+    title: "Heat changes the cut.",
+    copy: "Durban style loosens the shirt, brightens the colour, and keeps the outfit ready for sea air, street corners, and night movement.",
     look: looks[20],
   },
   {
-    label: "03 / Texture",
-    title: "Details carry the issue when the silhouettes pause.",
-    copy: "Accessories, fabric, and close crops break the rhythm so the page feels curated, not dumped from a board.",
+    label: "03 / Cape Town",
+    title: "Vintage rails meet sharp tailoring.",
+    copy: "Second-hand finds, wool coats, crisp sneakers, and gallery-night polish give Cape Town fashion its mix of restraint and surprise.",
     look: looks[8],
   },
 ];
 
 const trendReport: Trend[] = [
-  { name: "Washed blue", detail: "Denim tones keep the issue grounded." },
-  { name: "Hard contrast", detail: "Bright whites and deep blacks build the magazine edge." },
-  { name: "Red accents", detail: "Small hits of heat stop the grid from feeling flat." },
-  { name: "Tall crops", detail: "Vertical image framing keeps the fashion readable on phones." },
+  { name: "Shweshwe blue", detail: "Indigo pattern language keeps heritage visible in a modern streetwear frame." },
+  { name: "Taxi-rank colour", detail: "Bright reds, yellows, whites, and blacks give everyday outfits public energy." },
+  { name: "Amapiano volume", detail: "Loose denim, cropped jackets, and clean sneakers leave room for movement." },
+  { name: "Heritage detail", detail: "Beadwork, blanket references, and crafted accessories add meaning to the fit." },
 ];
 
 function PinImage({ look, eager = false }: { look: Look; eager?: boolean }) {
@@ -428,26 +428,26 @@ function App() {
       <section className="cover" id="top">
         <div className="noise" aria-hidden="true" />
         <div className="coverMasthead reveal">
-          <span>Issue 03</span>
-          <span>Full fashion magazine</span>
-          <span>{looks.length} Pinterest frames</span>
+          <span>Issue 04</span>
+          <span>South African fashion magazine</span>
+          <span>{looks.length} streetwear frames</span>
         </div>
         <div className="coverGrid">
           <div className="coverCopy reveal">
-            <p className="kicker">Digital fashion issue / visual archive</p>
+            <p className="kicker">South African fashion / streetwear report</p>
             <h1>
-              Modern.
-              <span>Fashion.</span>
-              <span>Magazine.</span>
+              Mzansi.
+              <span>Street.</span>
+              <span>Style.</span>
             </h1>
             <p>
-              A full editorial fashion website built from the Pinterest images you
-              supplied: cover story, departments, trend report, moving image rail,
-              filterable lookbook, and issue credits.
+              A visual issue on South African fashion: Johannesburg layers,
+              Durban ease, Cape Town thrift, township tailoring, beadwork colour,
+              and the streetwear confidence around amapiano nightlife.
             </p>
             <div className="actions">
               <a className="action" href="#contents">Open issue</a>
-              <a className="ghostAction" href="https://pin.it/5Sk0eJC3d" target="_blank" rel="noreferrer">Source link</a>
+              <a className="ghostAction" href="#lookbook">View lookbook</a>
             </div>
           </div>
 
@@ -465,55 +465,56 @@ function App() {
       <section className="issueDeck" aria-label="Issue highlights">
         <div className="issueDeckItem">
           <span>Cover</span>
-          <strong>Image-led editorial system</strong>
+          <strong>Mzansi streetwear</strong>
         </div>
         <div className="issueDeckItem">
           <span>Departments</span>
-          <strong>Cover / Street / Texture</strong>
+          <strong>Joburg / Durban / Cape Town</strong>
         </div>
         <div className="issueDeckItem">
           <span>Gallery</span>
-          <strong>{looks.length} responsive frames</strong>
+          <strong>{looks.length} fashion frames</strong>
         </div>
         <div className="issueDeckItem">
           <span>Interaction</span>
-          <strong>Filters, hover motion, rail</strong>
+          <strong>Lookbook, motion, image wall</strong>
         </div>
       </section>
 
       <section className="crawl" aria-label="Moodboard keywords">
         <div>
           <span>full magazine issue</span>
-          <span>new pin.it image set</span>
-          <span>responsive fashion grid</span>
-          <span>editorial departments</span>
-          <span>hover motion</span>
-          <span>mood filters</span>
-          <span>moving image rail</span>
-          <span>animated image wall</span>
-          <span>streetwear archive</span>
+          <span>South African streetwear</span>
+          <span>Braamfontein layers</span>
+          <span>Durban summer cuts</span>
+          <span>Cape Town thrift</span>
+          <span>amapiano nightlife</span>
+          <span>shweshwe blue</span>
+          <span>beadwork colour</span>
+          <span>township tailoring</span>
+          <span>taxi-rank palette</span>
         </div>
       </section>
 
       <section className="contents" id="contents">
         <div className="reveal">
           <p className="kicker">Contents</p>
-          <h2>Inside the issue.</h2>
+          <h2>Inside the South African fashion issue.</h2>
         </div>
         <ol className="contentsList reveal">
-          <li><a href="#features"><span>01</span> Features: animated editorial system</a></li>
-          <li><a href="#departments"><span>02</span> Departments: cover, street, texture</a></li>
-          <li><a href="#trend"><span>03</span> Trend report: color and silhouette notes</a></li>
-          <li><a href="#wall"><span>04</span> Image wall: expanded Pinterest archive</a></li>
-          <li><a href="#lookbook"><span>05</span> Lookbook: filter by image mood</a></li>
-          <li><a href="#editor"><span>06</span> Editor: picks and credits</a></li>
+          <li><a href="#features"><span>01</span> Features: South African streetwear language</a></li>
+          <li><a href="#departments"><span>02</span> Departments: Johannesburg, Durban, Cape Town</a></li>
+          <li><a href="#trend"><span>03</span> Trend report: colour, heritage, silhouette</a></li>
+          <li><a href="#wall"><span>04</span> Image wall: visual street-style archive</a></li>
+          <li><a href="#lookbook"><span>05</span> Lookbook: filter by fashion mood</a></li>
+          <li><a href="#editor"><span>06</span> Editor: South African fashion note</a></li>
         </ol>
       </section>
 
       <section className="features" id="features">
         <div className="sectionIntro reveal">
           <p className="kicker">Features</p>
-          <h2>Stories built like spreads.</h2>
+          <h2>Streetwear with a local accent.</h2>
         </div>
         <div className="articleGrid">
           {articles.map((article, index) => (
@@ -535,11 +536,11 @@ function App() {
         </div>
         <article className="coverStoryCopy reveal">
           <p className="kicker">Cover story</p>
-          <h2>Fashion sites should feel edited, not assembled.</h2>
+          <h2>South African fashion moves between heritage and heat.</h2>
           <p>
-            The new structure treats every picture like a page in an issue: some
-            images lead, some support, and some work as details that change the
-            pace between larger visual moments.
+            It is not one uniform. It shifts from Joburg's layered streetwear to
+            Durban's warm ease and Cape Town's thrifted polish, carrying beadwork,
+            pattern, tailoring, and music culture into everyday dressing.
           </p>
           <a className="textLink" href="#departments">Read departments</a>
         </article>
@@ -548,7 +549,7 @@ function App() {
       <section className="departments" id="departments">
         <div className="sectionIntro reveal">
           <p className="kicker">Departments</p>
-          <h2>Three lanes for the issue.</h2>
+          <h2>Three cities, three fashion temperatures.</h2>
         </div>
         <div className="departmentGrid">
           {departments.map((department) => (
@@ -567,7 +568,7 @@ function App() {
       <section className="trendReport" id="trend">
         <div className="trendCopy reveal">
           <p className="kicker">Trend report</p>
-          <h2>What the board is saying.</h2>
+          <h2>What South African style is saying.</h2>
         </div>
         <div className="trendList reveal">
           {trendReport.map((trend, index) => (
@@ -583,7 +584,7 @@ function App() {
       <section className="motionStrip" id="motion" aria-label="Animated image rail">
         <div className="sectionIntro reveal">
           <p className="kicker">Motion rail</p>
-          <h2>Scroll energy without the clutter.</h2>
+          <h2>Amapiano energy in motion.</h2>
         </div>
         <div className="rail">
           <div className="railTrack">
@@ -599,9 +600,9 @@ function App() {
       <section className="imageWall" id="wall">
         <div className="sectionIntro reveal">
           <p className="kicker">Image wall</p>
-          <h2>More Pinterest frames in motion.</h2>
+          <h2>Street-style rhythm, frame by frame.</h2>
         </div>
-        <div className="wallGrid" aria-label="Expanded Pinterest image wall">
+        <div className="wallGrid" aria-label="Expanded South African fashion image wall">
           {wallLooks.map((look, index) => (
             <figure className="wallTile reveal" key={`${look.title}-${index}`}>
               <PinImage look={look} />
@@ -617,7 +618,7 @@ function App() {
       <section className="editorsPicks" aria-label="Editor's picks">
         <div className="sectionIntro reveal">
           <p className="kicker">Editor's picks</p>
-          <h2>Four frames that hold the issue.</h2>
+          <h2>Four frames with local attitude.</h2>
         </div>
         <div className="pickGrid">
           {editorPicks.map((look, index) => (
@@ -633,7 +634,7 @@ function App() {
       <section className="lookbook" id="lookbook">
         <div className="sectionIntro reveal">
           <p className="kicker">Lookbook</p>
-          <h2>Filter the visual mood.</h2>
+          <h2>Filter the fashion mood.</h2>
           <div className="filterBar" aria-label="Filter lookbook by mood">
             {moodFilters.map((filter) => (
               <button
@@ -670,11 +671,11 @@ function App() {
         </div>
         <div className="signalCopy reveal">
           <p className="kicker">Style signals</p>
-          <h2>The issue has structure now.</h2>
+          <h2>The issue speaks South African style.</h2>
           <p>
-            The site now behaves like a real magazine website: a lead cover,
-            contents, feature cards, departments, trend report, moving gallery,
-            animated image wall, filterable archive, editor picks, and credits.
+            City codes, climate, nightlife, and heritage all shape the look.
+            These pages move between polished sneakers, loose denim, sharp
+            accessories, crafted detail, and the confidence of the street.
           </p>
           <div className="signalList">
             {signals.map((signal) => (
@@ -690,30 +691,31 @@ function App() {
       <section className="editor" id="editor">
         <div className="editorLetter reveal">
           <p className="kicker">Editor note</p>
-          <h2>A full issue, not just a page.</h2>
+          <h2>Mzansi style is not one thing.</h2>
           <p>
-            The Pinterest images now sit inside a proper editorial system with
-            visual hierarchy, sections, motion, mobile-safe grids, and a footer
-            that closes the issue cleanly.
+            South African fashion changes with the province, the pavement, the
+            season, and the hour. This issue follows that movement: streetwear
+            for heat, layering for the city, heritage in the details, and clothes
+            that know how to dance.
           </p>
         </div>
         <div className="credits reveal">
-          <span>Primary links</span>
-          <strong>SenchTV pins + pin.it/5Sk0eJC3d</strong>
+          <span>Editorial focus</span>
+          <strong>South African streetwear and modern fashion</strong>
           <span>Features</span>
-          <strong>Departments, trend report, filters, image rail</strong>
+          <strong>City departments, trend report, lookbook</strong>
           <span>Format</span>
-          <strong>React / TypeScript / CSS</strong>
+          <strong>Digital magazine issue</strong>
         </div>
       </section>
 
       <footer className="footerIssue">
         <div>
-          <p className="kicker">Sench//Index</p>
+          <p className="kicker">Sench//Index / South African fashion</p>
           <h2>End of issue.</h2>
         </div>
         <form className="newsletter" onSubmit={(event) => event.preventDefault()}>
-          <label htmlFor="email">Magazine updates</label>
+          <label htmlFor="email">Get the next fashion issue</label>
           <div>
             <input id="email" type="email" placeholder="email@example.com" />
             <button type="submit">Join</button>
