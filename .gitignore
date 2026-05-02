@@ -10,3 +10,4 @@ pin-*.html
 vite.config.js
 vite.config.d.ts
 *.log
+server-*.txt

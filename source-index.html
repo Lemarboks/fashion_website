@@ -60,6 +60,29 @@
         padding-left: 16px;
       }
 
+      .static-fallback__nav {
+        border-bottom: 1px solid rgba(243, 239, 229, 0.18);
+        border-top: 1px solid rgba(243, 239, 229, 0.18);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        margin: 0 0 34px;
+        padding: 14px 0;
+      }
+
+      .static-fallback__nav a {
+        color: #f3efe5;
+        font-size: 0.76rem;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .static-fallback__nav a:hover {
+        color: #d8ff3f;
+      }
+
       .static-fallback__grid {
         display: grid;
         gap: 12px;
@@ -86,6 +109,17 @@
     <div id="root">
       <section class="static-fallback">
         <div class="static-fallback__inner">
+          <nav class="static-fallback__nav" aria-label="Magazine pages">
+            <a href="./index.html">Home</a>
+            <a href="./contents.html">Contents</a>
+            <a href="./features.html">Features</a>
+            <a href="./departments.html">Departments</a>
+            <a href="./wall.html">Image wall</a>
+            <a href="./runway.html">Runway</a>
+            <a href="./motion.html">Motion</a>
+            <a href="./lookbook.html">Lookbook</a>
+            <a href="./editor.html">Editor</a>
+          </nav>
           <p>Sench//Index / South African fashion magazine</p>
           <h1>Mzansi. Street. Style.</h1>
           <strong>

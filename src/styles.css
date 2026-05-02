@@ -125,6 +125,14 @@ figcaption {
   transform: translateY(-1px);
 }
 
+.navLinks a[aria-current="page"] {
+  color: #d8ff3f;
+}
+
+.navLinks a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
 .navLinks a:hover::after {
   transform: scaleX(1);
 }
@@ -431,6 +439,54 @@ h1 span {
 .trendReport,
 .editor {
   padding: clamp(58px, 9vw, 112px) clamp(16px, 4vw, 48px);
+}
+
+main:not(.page-home) > section {
+  display: none;
+}
+
+main.page-home > section.coverStory,
+main.page-home > section.departments,
+main.page-home > section.editorsPicks,
+main.page-home > section.features,
+main.page-home > section.imageWall,
+main.page-home > section.lookbook,
+main.page-home > section.motionStrip,
+main.page-home > section.runwayBoard,
+main.page-home > section.signals,
+main.page-home > section.trendReport,
+main.page-home > section.editor {
+  display: none;
+}
+
+main:not(.page-home) > section.contents,
+main:not(.page-home) > section.coverStory,
+main:not(.page-home) > section.departments,
+main:not(.page-home) > section.editorsPicks,
+main:not(.page-home) > section.features,
+main:not(.page-home) > section.imageWall,
+main:not(.page-home) > section.lookbook,
+main:not(.page-home) > section.motionStrip,
+main:not(.page-home) > section.runwayBoard,
+main:not(.page-home) > section.signals,
+main:not(.page-home) > section.trendReport,
+main:not(.page-home) > section.editor {
+  min-height: calc(100vh - 240px);
+  padding-top: calc(clamp(58px, 9vw, 112px) + 58px);
+}
+
+main.page-contents > section.contents,
+main.page-cover-story > section.coverStory,
+main.page-departments > section.departments,
+main.page-features > section.features,
+main.page-lookbook > section.lookbook,
+main.page-motion > section.motionStrip,
+main.page-runway > section.runwayBoard,
+main.page-signals > section.signals,
+main.page-trend > section.trendReport,
+main.page-wall > section.imageWall,
+main.page-editor > section.editor {
+  display: grid;
 }
 
 .issueDeck {

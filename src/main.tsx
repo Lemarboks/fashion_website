@@ -36,6 +36,20 @@ type Trend = {
   detail: string;
 };
 
+type Page =
+  | "home"
+  | "contents"
+  | "features"
+  | "cover-story"
+  | "departments"
+  | "trend"
+  | "wall"
+  | "runway"
+  | "motion"
+  | "lookbook"
+  | "signals"
+  | "editor";
+
 const looks: Look[] = [
   {
     title: "Blue Fold",
@@ -483,20 +497,56 @@ const trendReport: Trend[] = [
   { name: "Heritage detail", detail: "Beadwork, blanket references, and crafted accessories add meaning to the fit." },
 ];
 
-const navItems = [
-  { href: "#contents", label: "Contents" },
-  { href: "#features", label: "Features" },
-  { href: "#departments", label: "Departments" },
-  { href: "#wall", label: "Image wall" },
-  { href: "#runway", label: "Runway" },
-  { href: "#motion", label: "Motion" },
-  { href: "#lookbook", label: "Lookbook" },
-  { href: "#editor", label: "Editor" },
+const pageRoutes: Record<Page, string> = {
+  home: "./index.html",
+  contents: "./contents.html",
+  features: "./features.html",
+  "cover-story": "./cover-story.html",
+  departments: "./departments.html",
+  trend: "./trend.html",
+  wall: "./wall.html",
+  runway: "./runway.html",
+  motion: "./motion.html",
+  lookbook: "./lookbook.html",
+  signals: "./signals.html",
+  editor: "./editor.html",
+};
+
+const navItems: { href: string; label: string; page: Page }[] = [
+  { href: pageRoutes.home, label: "Home", page: "home" },
+  { href: pageRoutes.contents, label: "Contents", page: "contents" },
+  { href: pageRoutes.features, label: "Features", page: "features" },
+  { href: pageRoutes.departments, label: "Departments", page: "departments" },
+  { href: pageRoutes.wall, label: "Image wall", page: "wall" },
+  { href: pageRoutes.runway, label: "Runway", page: "runway" },
+  { href: pageRoutes.motion, label: "Motion", page: "motion" },
+  { href: pageRoutes.lookbook, label: "Lookbook", page: "lookbook" },
+  { href: pageRoutes.editor, label: "Editor", page: "editor" },
 ];
 
 const whatsappMessage = encodeURIComponent(
   "Hi, I am interested in the Sench//Index South African fashion magazine.",
 );
+
+function getCurrentPage(): Page {
+  const pageFromHtml = document.documentElement.dataset.page;
+
+  if (pageFromHtml && pageFromHtml in pageRoutes) {
+    return pageFromHtml as Page;
+  }
+
+  const pageName = window.location.pathname.split("/").pop()?.replace(".html", "") || "index";
+
+  if (pageName === "index" || pageName === "source-index" || pageName === "view" || pageName === "404") {
+    return "home";
+  }
+
+  if (pageName in pageRoutes) {
+    return pageName as Page;
+  }
+
+  return "home";
+}
 
 function PinImage({ look, eager = false }: { look: Look; eager?: boolean }) {
   return (
@@ -512,6 +562,7 @@ function PinImage({ look, eager = false }: { look: Look; eager?: boolean }) {
 function App() {
   const [activeMood, setActiveMood] = useState<Mood>("all");
   const [navOpen, setNavOpen] = useState(false);
+  const currentPage = getCurrentPage();
   const filteredLooks = useMemo(
     () => looks.filter((look) => activeMood === "all" || look.mood === activeMood),
     [activeMood],
@@ -523,9 +574,9 @@ function App() {
   const wallLooks = [...looks.slice(6), ...looks.slice(24, 30)];
 
   return (
-    <main>
+    <main className={`page-${currentPage}`}>
       <nav className={`nav${navOpen ? " navOpen" : ""}`} aria-label="Primary navigation">
-        <a className="brand" href="#top" onClick={() => setNavOpen(false)}>Sench//Index</a>
+        <a className="brand" href={pageRoutes.home} onClick={() => setNavOpen(false)}>Sench//Index</a>
         <button
           aria-controls="primary-menu"
           aria-expanded={navOpen}
@@ -540,100 +591,112 @@ function App() {
         </button>
         <div className="navLinks" id="primary-menu">
           {navItems.map((item) => (
-            <a href={item.href} key={item.href} onClick={() => setNavOpen(false)}>
+            <a
+              aria-current={currentPage === item.page ? "page" : undefined}
+              href={item.href}
+              key={item.href}
+              onClick={() => setNavOpen(false)}
+            >
               {item.label}
             </a>
           ))}
         </div>
       </nav>
 
-      <section className="cover" id="top">
-        <div className="noise" aria-hidden="true" />
-        <div className="coverMasthead reveal">
-          <span>Issue 04</span>
-          <span>South African fashion magazine</span>
-          <span>{looks.length} streetwear frames</span>
-        </div>
-        <div className="coverGrid">
-          <div className="coverCopy reveal">
-            <p className="kicker">South African fashion / streetwear report</p>
-            <h1>
-              Mzansi.
-              <span>Street.</span>
-              <span>Style.</span>
-            </h1>
-            <p>
-              A visual issue on South African fashion: Johannesburg layers,
-              Durban ease, Cape Town thrift, township tailoring, beadwork colour,
-              and the streetwear confidence around amapiano nightlife.
-            </p>
-            <div className="actions">
-              <a className="action" href="#contents">Open issue</a>
-              <a className="ghostAction" href="#lookbook">View lookbook</a>
+      {currentPage === "home" && (
+        <>
+          <section className="cover" id="top">
+            <div className="noise" aria-hidden="true" />
+            <div className="coverMasthead reveal">
+              <span>Issue 04</span>
+              <span>South African fashion magazine</span>
+              <span>{looks.length} streetwear frames</span>
             </div>
-          </div>
+            <div className="coverGrid">
+              <div className="coverCopy reveal">
+                <p className="kicker">South African fashion / streetwear report</p>
+                <h1>
+                  Mzansi.
+                  <span>Street.</span>
+                  <span>Style.</span>
+                </h1>
+                <p>
+                  A visual issue on South African fashion: Johannesburg layers,
+                  Durban ease, Cape Town thrift, township tailoring, beadwork colour,
+                  and the streetwear confidence around amapiano nightlife.
+                </p>
+                <div className="actions">
+                  <a className="action" href={pageRoutes.contents}>Open issue</a>
+                  <a className="ghostAction" href={pageRoutes.lookbook}>View lookbook</a>
+                </div>
+              </div>
 
-          <div className="coverStack" aria-label="Magazine cover collage">
-            {heroLooks.map((look, index) => (
-              <figure className={`clip clip${index + 1}`} key={`${look.pin}-${look.title}`}>
-                <PinImage look={look} eager={index < 2} />
-                <figcaption>{look.title}</figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
+              <div className="coverStack" aria-label="Magazine cover collage">
+                {heroLooks.map((look, index) => (
+                  <figure className={`clip clip${index + 1}`} key={`${look.pin}-${look.title}`}>
+                    <PinImage look={look} eager={index < 2} />
+                    <figcaption>{look.title}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </section>
 
-      <section className="issueDeck" aria-label="Issue highlights">
-        <div className="issueDeckItem">
-          <span>Cover</span>
-          <strong>Mzansi streetwear</strong>
-        </div>
-        <div className="issueDeckItem">
-          <span>Departments</span>
-          <strong>Joburg / Durban / Cape Town</strong>
-        </div>
-        <div className="issueDeckItem">
-          <span>Gallery</span>
-          <strong>{looks.length} fashion frames</strong>
-        </div>
-        <div className="issueDeckItem">
-          <span>Interaction</span>
-          <strong>Lookbook, motion, image wall</strong>
-        </div>
-      </section>
+          <section className="issueDeck" aria-label="Issue highlights">
+            <div className="issueDeckItem">
+              <span>Cover</span>
+              <strong>Mzansi streetwear</strong>
+            </div>
+            <div className="issueDeckItem">
+              <span>Departments</span>
+              <strong>Joburg / Durban / Cape Town</strong>
+            </div>
+            <div className="issueDeckItem">
+              <span>Gallery</span>
+              <strong>{looks.length} fashion frames</strong>
+            </div>
+            <div className="issueDeckItem">
+              <span>Interaction</span>
+              <strong>Lookbook, motion, image wall</strong>
+            </div>
+          </section>
 
-      <section className="crawl" aria-label="Moodboard keywords">
-        <div>
-          <span>full magazine issue</span>
-          <span>South African streetwear</span>
-          <span>Braamfontein layers</span>
-          <span>Durban summer cuts</span>
-          <span>Cape Town thrift</span>
-          <span>amapiano nightlife</span>
-          <span>shweshwe blue</span>
-          <span>beadwork colour</span>
-          <span>township tailoring</span>
-          <span>taxi-rank palette</span>
-        </div>
-      </section>
+          <section className="crawl" aria-label="Moodboard keywords">
+            <div>
+              <span>full magazine issue</span>
+              <span>South African streetwear</span>
+              <span>Braamfontein layers</span>
+              <span>Durban summer cuts</span>
+              <span>Cape Town thrift</span>
+              <span>amapiano nightlife</span>
+              <span>shweshwe blue</span>
+              <span>beadwork colour</span>
+              <span>township tailoring</span>
+              <span>taxi-rank palette</span>
+            </div>
+          </section>
+        </>
+      )}
 
+      {currentPage === "contents" && (
       <section className="contents" id="contents">
         <div className="reveal">
           <p className="kicker">Contents</p>
           <h2>Inside the South African fashion issue.</h2>
         </div>
         <ol className="contentsList reveal">
-          <li><a href="#features"><span>01</span> Features: South African streetwear language</a></li>
-          <li><a href="#departments"><span>02</span> Departments: Johannesburg, Durban, Cape Town</a></li>
-          <li><a href="#trend"><span>03</span> Trend report: colour, heritage, silhouette</a></li>
-          <li><a href="#wall"><span>04</span> Image wall: visual street-style archive</a></li>
-          <li><a href="#runway"><span>05</span> Runway: animated Pinterest fashion stream</a></li>
-          <li><a href="#lookbook"><span>06</span> Lookbook: filter by fashion mood</a></li>
-          <li><a href="#editor"><span>07</span> Editor: South African fashion note</a></li>
+          <li><a href={pageRoutes.features}><span>01</span> Features: South African streetwear language</a></li>
+          <li><a href={pageRoutes.departments}><span>02</span> Departments: Johannesburg, Durban, Cape Town</a></li>
+          <li><a href={pageRoutes.trend}><span>03</span> Trend report: colour, heritage, silhouette</a></li>
+          <li><a href={pageRoutes.wall}><span>04</span> Image wall: visual street-style archive</a></li>
+          <li><a href={pageRoutes.runway}><span>05</span> Runway: animated Pinterest fashion stream</a></li>
+          <li><a href={pageRoutes.lookbook}><span>06</span> Lookbook: filter by fashion mood</a></li>
+          <li><a href={pageRoutes.editor}><span>07</span> Editor: South African fashion note</a></li>
         </ol>
       </section>
+      )}
 
+      {currentPage === "features" && (
       <section className="features" id="features">
         <div className="sectionIntro reveal">
           <p className="kicker">Features</p>
@@ -652,7 +715,9 @@ function App() {
           ))}
         </div>
       </section>
+      )}
 
+      {currentPage === "cover-story" && (
       <section className="coverStory" id="cover-story">
         <div className="coverStoryImage reveal">
           <PinImage look={coverStory} />
@@ -665,10 +730,12 @@ function App() {
             Durban's warm ease and Cape Town's thrifted polish, carrying beadwork,
             pattern, tailoring, and music culture into everyday dressing.
           </p>
-          <a className="textLink" href="#departments">Read departments</a>
+          <a className="textLink" href={pageRoutes.departments}>Read departments</a>
         </article>
       </section>
+      )}
 
+      {currentPage === "departments" && (
       <section className="departments" id="departments">
         <div className="sectionIntro reveal">
           <p className="kicker">Departments</p>
@@ -687,7 +754,9 @@ function App() {
           ))}
         </div>
       </section>
+      )}
 
+      {currentPage === "trend" && (
       <section className="trendReport" id="trend">
         <div className="trendCopy reveal">
           <p className="kicker">Trend report</p>
@@ -703,7 +772,9 @@ function App() {
           ))}
         </div>
       </section>
+      )}
 
+      {currentPage === "motion" && (
       <section className="motionStrip" id="motion" aria-label="Animated image rail">
         <div className="sectionIntro reveal">
           <p className="kicker">Motion rail</p>
@@ -719,7 +790,9 @@ function App() {
           </div>
         </div>
       </section>
+      )}
 
+      {currentPage === "wall" && (
       <section className="imageWall" id="wall">
         <div className="sectionIntro reveal">
           <p className="kicker">Image wall</p>
@@ -737,7 +810,9 @@ function App() {
           ))}
         </div>
       </section>
+      )}
 
+      {currentPage === "runway" && (
       <section className="runwayBoard" id="runway">
         <div className="runwayCopy reveal">
           <p className="kicker">Runway stream</p>
@@ -767,7 +842,9 @@ function App() {
           </div>
         </div>
       </section>
+      )}
 
+      {currentPage === "features" && (
       <section className="editorsPicks" aria-label="Editor's picks">
         <div className="sectionIntro reveal">
           <p className="kicker">Editor's picks</p>
@@ -783,7 +860,9 @@ function App() {
           ))}
         </div>
       </section>
+      )}
 
+      {currentPage === "lookbook" && (
       <section className="lookbook" id="lookbook">
         <div className="sectionIntro reveal">
           <p className="kicker">Lookbook</p>
@@ -817,7 +896,9 @@ function App() {
           ))}
         </div>
       </section>
+      )}
 
+      {currentPage === "signals" && (
       <section className="signals" id="signals">
         <div className="signalPoster reveal">
           <PinImage look={looks[13]} />
@@ -840,7 +921,9 @@ function App() {
           </div>
         </div>
       </section>
+      )}
 
+      {currentPage === "editor" && (
       <section className="editor" id="editor">
         <div className="editorLetter reveal">
           <p className="kicker">Editor note</p>
@@ -861,6 +944,7 @@ function App() {
           <strong>Digital magazine issue</strong>
         </div>
       </section>
+      )}
 
       <footer className="footerIssue">
         <div>
