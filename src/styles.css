@@ -543,6 +543,7 @@ h1 span {
 .motionStrip,
 .runwayBoard,
 .signals,
+.trendDetail,
 .trendReport,
 .editor {
   padding: clamp(58px, 9vw, 112px) clamp(16px, 4vw, 48px);
@@ -561,6 +562,7 @@ main.page-home > section.lookDetail,
 main.page-home > section.motionStrip,
 main.page-home > section.runwayBoard,
 main.page-home > section.signals,
+main.page-home > section.trendDetail,
 main.page-home > section.trendReport,
 main.page-home > section.editor {
   display: none;
@@ -576,6 +578,7 @@ main:not(.page-home) > section.lookDetail,
 main:not(.page-home) > section.motionStrip,
 main:not(.page-home) > section.runwayBoard,
 main:not(.page-home) > section.signals,
+main:not(.page-home) > section.trendDetail,
 main:not(.page-home) > section.trendReport,
 main:not(.page-home) > section.editor {
   min-height: calc(100vh - 240px);
@@ -591,6 +594,7 @@ main.page-motion > section.motionStrip,
 main.page-runway > section.runwayBoard,
 main.page-signals > section.signals,
 main.page-trend > section.trendReport,
+main.page-trend-detail > section.trendDetail,
 main.page-wall > section.imageWall,
 main.page-editor > section.editor {
   display: grid;
@@ -1006,10 +1010,12 @@ h2 {
   background: #080808;
   border: 6px solid #080808;
   border-bottom-color: var(--sa-gold);
+  color: #f3efe5;
   flex: 0 0 clamp(190px, 22vw, 330px);
   margin: 0;
   overflow: hidden;
   position: relative;
+  text-decoration: none;
 }
 
 .railFrame img {
@@ -1064,6 +1070,7 @@ h2 {
   gap: 12px;
   min-height: 240px;
   padding: 18px;
+  text-decoration: none;
 }
 
 .trendRailNote:nth-child(2n) {
@@ -1099,6 +1106,116 @@ h2 {
 .trendRailNote p {
   color: rgba(243, 239, 229, 0.74);
   margin: 0;
+}
+
+.trendDetail {
+  background:
+    linear-gradient(90deg, rgba(227, 76, 56, 0.2) 0 15%, transparent 15% 48%, rgba(11, 57, 166, 0.18) 48% 66%, transparent 66%),
+    radial-gradient(circle at 82% 12%, rgba(255, 205, 0, 0.34), transparent 28%),
+    #080808;
+  color: #f3efe5;
+  display: grid;
+  gap: clamp(28px, 5vw, 70px);
+}
+
+.trendDetailHero {
+  align-items: center;
+  display: grid;
+  gap: clamp(24px, 5vw, 70px);
+  grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1fr);
+}
+
+.trendDetailImage {
+  background: var(--paper);
+  border: 10px solid var(--paper);
+  box-shadow: 18px 18px 0 var(--sa-gold), -14px -14px 0 var(--uk-blue);
+  transform: rotate(-1.5deg);
+}
+
+.trendDetailImage img,
+.trendDetailCard img {
+  aspect-ratio: 4 / 5;
+  display: block;
+  filter: contrast(1.12) saturate(1.06);
+  object-fit: cover;
+  width: 100%;
+}
+
+.trendDetailCopy h2 {
+  font-size: clamp(3.2rem, 9vw, 8rem);
+  line-height: 0.78;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+}
+
+.trendDetailCopy p {
+  color: rgba(243, 239, 229, 0.78);
+  font-size: clamp(1rem, 1.8vw, 1.28rem);
+  max-width: 720px;
+}
+
+.trendDetailActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.trendDetailBoard {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1fr);
+}
+
+.trendDetailCard {
+  background: var(--paper);
+  color: #080808;
+  margin: 0;
+  padding: 10px;
+}
+
+.trendDetailCard figcaption {
+  display: grid;
+  gap: 8px;
+  padding-top: 10px;
+}
+
+.trendDetailCard span,
+.trendDetailNotes span {
+  color: var(--sa-red);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.trendDetailCard strong {
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.trendDetailNotes {
+  align-content: end;
+  background:
+    linear-gradient(135deg, rgba(255, 205, 0, 0.16), transparent 42%),
+    rgba(243, 239, 229, 0.08);
+  border: 1px solid rgba(243, 239, 229, 0.18);
+  display: grid;
+  gap: 14px;
+  padding: clamp(20px, 4vw, 42px);
+}
+
+.trendDetailNotes h3 {
+  font-size: clamp(2rem, 5vw, 5rem);
+  line-height: 0.82;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.trendDetailNotes p {
+  color: rgba(243, 239, 229, 0.76);
+  margin: 0;
+  max-width: 680px;
 }
 
 .imageWall {
@@ -1172,11 +1289,12 @@ h2 {
 
 .runwayBoard {
   background:
+    repeating-linear-gradient(0deg, rgba(8, 8, 8, 0.04) 0 1px, transparent 1px 7px),
     linear-gradient(90deg, rgba(8, 8, 8, 0.05) 1px, transparent 1px),
     linear-gradient(180deg, rgba(8, 8, 8, 0.045) 1px, transparent 1px),
-    radial-gradient(circle at 86% 14%, rgba(227, 76, 56, 0.18), transparent 30%),
+    radial-gradient(circle at 86% 14%, rgba(227, 76, 56, 0.22), transparent 30%),
     #f3efe5;
-  background-size: 22px 22px, 22px 22px, auto, auto;
+  background-size: auto, 22px 22px, 22px 22px, auto, auto;
   color: #080808;
   display: grid;
   gap: clamp(22px, 5vw, 70px);
@@ -1262,14 +1380,14 @@ main.page-runway h2 {
     linear-gradient(180deg, rgba(8, 8, 8, 0.07) 1px, transparent 1px),
     #eee7d4;
   background-size: 17px 17px;
-  border: 1px solid rgba(8, 8, 8, 0.34);
+  border: 2px solid rgba(8, 8, 8, 0.78);
   box-shadow: 0 18px 42px rgba(8, 8, 8, 0.22);
   display: grid;
   grid-template-rows: auto auto minmax(190px, 1fr) auto auto;
-  min-height: clamp(360px, 42vw, 520px);
+  min-height: clamp(390px, 46vw, 570px);
   margin: 0;
   overflow: hidden;
-  padding: 10px;
+  padding: 14px;
   position: relative;
   transform: translateZ(0);
 }
@@ -1288,7 +1406,7 @@ main.page-runway h2 {
 }
 
 .runwayCard::after {
-  border: 1px solid rgba(8, 8, 8, 0.34);
+  border: 1px solid rgba(8, 8, 8, 0.5);
   content: "";
   inset: 10px;
   pointer-events: none;
@@ -1321,8 +1439,8 @@ main.page-runway h2 {
 }
 
 .runwayMasthead {
-  color: rgba(8, 8, 8, 0.74);
-  font-size: clamp(3.1rem, 7.2vw, 7rem);
+  color: rgba(8, 8, 8, 0.84);
+  font-size: clamp(3.5rem, 8.4vw, 8rem);
   font-weight: 950;
   letter-spacing: 0;
   line-height: 0.72;
@@ -1335,14 +1453,14 @@ main.page-runway h2 {
 
 .runwayPhoto {
   background: #080808;
-  border: 2px solid rgba(8, 8, 8, 0.7);
+  border: 3px solid rgba(8, 8, 8, 0.88);
   overflow: hidden;
   position: relative;
   z-index: 2;
 }
 
 .runwayPhoto img {
-  filter: sepia(0.22) contrast(1.18) saturate(0.76);
+  filter: sepia(0.28) contrast(1.22) saturate(0.72);
   height: 100%;
   object-fit: cover;
   transition: filter 420ms ease, transform 420ms ease;
@@ -1352,7 +1470,7 @@ main.page-runway h2 {
 .runwayPhotoMain {
   align-self: stretch;
   margin-top: 6px;
-  min-height: 210px;
+  min-height: 230px;
 }
 
 .runwayPhotoInset {
@@ -1863,6 +1981,72 @@ main.page-runway h2 {
   text-transform: uppercase;
 }
 
+.applyForm {
+  background: rgba(243, 239, 229, 0.92);
+  border: 2px solid #080808;
+  box-shadow: 14px 14px 0 rgba(8, 8, 8, 0.22);
+  display: grid;
+  gap: 14px;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: clamp(18px, 4vw, 34px);
+}
+
+.applyForm > div,
+.applyForm label:nth-of-type(4),
+.applyForm label:nth-of-type(5),
+.applyForm button {
+  grid-column: 1 / -1;
+}
+
+.applyForm h3 {
+  font-size: clamp(2rem, 5vw, 5rem);
+  line-height: 0.82;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.applyForm label {
+  color: rgba(8, 8, 8, 0.66);
+  display: grid;
+  font-size: 0.72rem;
+  font-weight: 900;
+  gap: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.applyForm input,
+.applyForm textarea {
+  background: #f3efe5;
+  border: 1px solid rgba(8, 8, 8, 0.28);
+  color: #080808;
+  font: inherit;
+  font-size: 1rem;
+  letter-spacing: 0;
+  min-height: 48px;
+  padding: 12px;
+  text-transform: none;
+}
+
+.applyForm textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.applyForm button {
+  background: #080808;
+  border: 0;
+  color: #f3efe5;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  min-height: 52px;
+  padding: 14px 18px;
+  text-transform: uppercase;
+}
+
 .footerIssue {
   align-items: end;
   background:
@@ -2033,6 +2217,8 @@ main.page-runway h2 {
   .footerIssue,
   .imageWall,
   .lookDetailHero,
+  .trendDetailHero,
+  .trendDetailBoard,
   .pickGrid,
   .runwayBoard,
   .signals,
@@ -2257,6 +2443,8 @@ main.page-runway h2 {
   }
 
   .lookDetailHero,
+  .trendDetailHero,
+  .trendDetailBoard,
   .lookDetailGrid {
     grid-template-columns: 1fr;
   }
@@ -2267,6 +2455,10 @@ main.page-runway h2 {
 
   .lookDetailFrame {
     transform: none !important;
+  }
+
+  .applyForm {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -2309,6 +2501,7 @@ main.page-runway h2 {
   .imageWall,
   .lookbook,
   .lookDetail,
+  .trendDetail,
   .signals,
   .motionStrip,
   .runwayBoard,

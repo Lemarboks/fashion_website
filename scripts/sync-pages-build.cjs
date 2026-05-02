@@ -26,6 +26,25 @@ const lookPages = lookMatches.map((match, index) => ({
   index,
 }));
 const lookPageNames = lookPages.map((look) => `look-${look.slug}.html`);
+const trendMatches = [
+  ...sourceTs.matchAll(
+    /\{\s*slug: "([^"]+)",\s*name: "([^"]+)",\s*city: "([^"]+)",\s*role: "([^"]+)",\s*outfit: "([^"]+)",\s*detail: "([^"]+)",\s*source: "([^"]+)",\s*sourceUrl: "([^"]+)",\s*artistImage: "([^"]+)",\s*trendImage: "([^"]+)",\s*imageSearchUrl: "([^"]+)"/g,
+  ),
+];
+const trendPages = trendMatches.map((match) => ({
+  slug: match[1],
+  name: match[2],
+  city: match[3],
+  role: match[4],
+  outfit: match[5],
+  detail: match[6],
+  source: match[7],
+  sourceUrl: match[8],
+  artistImage: match[9],
+  trendImage: match[10],
+  imageSearchUrl: match[11],
+}));
+const trendPageNames = trendPages.map((trend) => `trend-${trend.slug}.html`);
 const pageNames = [
   "index.html",
   "404.html",
@@ -37,6 +56,7 @@ const pageNames = [
   "wall.html",
   "runway.html",
   "motion.html",
+  ...trendPageNames,
   "lookbook.html",
   ...lookPageNames,
   "signals.html",
@@ -45,6 +65,9 @@ const pageNames = [
 const stalePageNames = ["features.html"];
 const staleGeneratedLookPages = fs.existsSync(root)
   ? fs.readdirSync(root).filter((name) => /^look-(?!book\.html).+\.html$/.test(name) && !lookPageNames.includes(name))
+  : [];
+const staleGeneratedTrendPages = fs.existsSync(root)
+  ? fs.readdirSync(root).filter((name) => /^trend-.+\.html$/.test(name) && !trendPageNames.includes(name))
   : [];
 const pageMeta = {
   "index.html": {
@@ -127,6 +150,20 @@ const pageMeta = {
     heading: "Filter the fashion mood.",
     summary: "Browse the issue by cover, street, and texture moods.",
   },
+  ...Object.fromEntries(
+    trendPages.map((trend) => [
+      `trend-${trend.slug}.html`,
+      {
+        key: "trend-detail",
+        trendSlug: trend.slug,
+        title: `${trend.name} / Trend Rail / Sench//Index`,
+        label: `${trend.city} ${trend.role} / ${trend.source}`,
+        heading: trend.name,
+        summary: trend.detail,
+        images: [trend.artistImage, trend.trendImage],
+      },
+    ]),
+  ),
   ...Object.fromEntries(
     lookPages.map((look) => {
       const related = Array.from({ length: 8 }, (_, index) => lookPages[(look.index + index * 5) % lookPages.length]);
@@ -269,6 +306,7 @@ function pageHtml(template, pageName) {
 
   return template
     .replace("<html lang=\"en\">", `<html lang="en" data-page="${meta.key}">`)
+    .replace("<html lang=\"en\" data-page=\"trend-detail\">", `<html lang="en" data-page="trend-detail" data-trend="${meta.trendSlug || ""}">`)
     .replace("<html lang=\"en\" data-page=\"look-detail\">", `<html lang="en" data-page="look-detail" data-look="${meta.lookSlug || ""}">`)
     .replace("<title>Sench//Index</title>", `<title>${meta.title}</title>`)
     .replace(
@@ -286,7 +324,7 @@ function pageHtml(template, pageName) {
     );
 }
 
-for (const name of [...pageNames, ...stalePageNames, ...staleGeneratedLookPages, "assets", "pages-build"]) {
+for (const name of [...pageNames, ...stalePageNames, ...staleGeneratedLookPages, ...staleGeneratedTrendPages, "assets", "pages-build"]) {
   const target = path.join(root, name);
   if (fs.existsSync(target)) {
     fs.rmSync(target, { recursive: true, force: true });

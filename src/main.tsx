@@ -31,11 +31,17 @@ type Trend = {
 };
 
 type TrendRailItem = {
+  slug: string;
   name: string;
   city: string;
   role: string;
   outfit: string;
+  detail: string;
   source: string;
+  sourceUrl: string;
+  artistImage: string;
+  trendImage: string;
+  imageSearchUrl: string;
   look: Look;
 };
 
@@ -48,6 +54,7 @@ type Page =
   | "wall"
   | "runway"
   | "motion"
+  | "trend-detail"
   | "lookbook"
   | "look-detail"
   | "signals"
@@ -484,67 +491,115 @@ const trendReport: Trend[] = [
 
 const trendRail: TrendRailItem[] = [
   {
+    slug: "zee-nxumalo",
     name: "Zee Nxumalo",
     city: "SA",
     role: "artist",
     outfit: "Archive runner energy: low-profile sneakers, bright mesh, oversized tee, and suburb-ready layers.",
+    detail: "Zee fits the new SA streetwear lane because the look is musical, athletic, and wearable. The H-Street reference is all about archive running shapes coming back into daily outfits: light mesh, silver panels, colour hits, and clothes that can move from performance to neighbourhood hangout.",
     source: "PUMA H-Street campaign",
+    sourceUrl: "https://www.sowetan.co.za/s-mag/2026-03-24-zee-nxumalo-brings-fresh-amapiano-vibes-to-the-puma-h-street/",
+    artistImage: "https://i.pinimg.com/736x/07/bd/4c/07bd4ce5d88f710b18a803e723cafac1.jpg",
+    trendImage: "https://i.pinimg.com/736x/52/a9/73/52a973afe615d9fca0905161ad4e5f22.jpg",
+    imageSearchUrl: "https://www.pinterest.com/search/pins/?q=Zee%20Nxumalo%20Puma%20H-Street%20fashion",
     look: looks[30],
   },
   {
+    slug: "daliwonga",
     name: "Daliwonga",
     city: "SA",
     role: "artist",
     outfit: "Diesel-coded amapiano fit: washed denim, dark shine, cropped jacket, and Milan runway confidence.",
+    detail: "Daliwonga brings amapiano into a high-fashion context. The trend note is denim with polish: darker washes, industrial attitude, black layers, and a fit that can work at a show, in a club, or on camera.",
     source: "Milan FW26 appearance",
+    sourceUrl: "https://fakazanews.com/2026/02/27/daliwonga-shines-on-global-fashion-stage-at-milan-fashion-week/",
+    artistImage: "https://i.pinimg.com/736x/ce/1a/d6/ce1ad6cd28c793865073a7b11e9a10b6.jpg",
+    trendImage: "https://i.pinimg.com/736x/c3/26/08/c3260803164f302f54861b0ddcad607a.jpg",
+    imageSearchUrl: "https://www.pinterest.com/search/pins/?q=Daliwonga%20Diesel%20Milan%20Fashion%20Week%20style",
     look: looks[6],
   },
   {
+    slug: "musa-keys",
     name: "Musa Keys",
     city: "SA",
     role: "artist",
     outfit: "Theatrical layered luxury: sculpted outerwear, jewellery flash, clean trousers, styled like a stage entrance.",
+    detail: "Musa Keys makes the rail because his style is deliberate, layered, and performance-led. The trend is stagewear crossing into streetwear: jewellery, sculptural outerwear, athletic footwear, and clothes that feel as produced as the music.",
     source: "Metro FM style award",
+    sourceUrl: "https://iol.co.za/entertainment/music/2026-04-26-style-meets-sound-musa-keys-crowned-best-styled-artist-at-2026-metro-fm-music-awards/",
+    artistImage: "https://i.pinimg.com/736x/a8/b7/5c/a8b75c1706c03509a6a30ee99b1ffd58.jpg",
+    trendImage: "https://i.pinimg.com/736x/ae/c2/8d/aec28d3d691cfbf25041827721634e38.jpg",
+    imageSearchUrl: "https://www.pinterest.com/search/pins/?q=Musa%20Keys%20fashion%20style",
     look: looks[8],
   },
   {
+    slug: "safw-model-cast",
     name: "SAFW model cast",
     city: "SA",
     role: "models",
     outfit: "Slow-fashion runway mood: crafted textiles, natural tones, sustainable details, and polished street ease.",
+    detail: "This file stands for the South African runway model energy around SAFW: slower design, craft, textile story, and practical elegance. The outfit direction is less hype and more intentional shape, with earth tones and fabric detail doing the talking.",
     source: "SA Fashion Week SS26",
+    sourceUrl: "https://www.sowetan.co.za/s-mag/fashion-beauty/2026-04-28-fundudzi-by-craig-jacobs-draws-line-in-the-sand-at-sa-fashion-week/",
+    artistImage: "https://i.pinimg.com/736x/8e/ae/0d/8eae0da7d737f788368f9bce5c7fc57b.jpg",
+    trendImage: "https://i.pinimg.com/736x/6a/54/fe/6a54fe5fc3c63d3256d7bf929896c679.jpg",
+    imageSearchUrl: "https://www.pinterest.com/search/pins/?q=South%20African%20Fashion%20Week%202026%20street%20style",
     look: looks[17],
   },
   {
+    slug: "adwoa-aboah",
     name: "Adwoa Aboah",
     city: "LDN",
     role: "model",
     outfit: "Confident colour and shape: balloon trousers, sharp blazer lines, lace flashes, red and electric blue.",
+    detail: "Adwoa anchors the London side because the Topshop SS26 story is about strong colour and confident shape. The trend is grown-up high street with edge: balloon trousers, sharp blazers, sheer or lace detail, and colours that read from across the pavement.",
     source: "Topshop SS26 campaign",
+    sourceUrl: "https://www.theindustry.fashion/topshop-unveils-ss26-campaign-featuring-adwoa-aboah/",
+    artistImage: "https://i.pinimg.com/736x/0f/77/c2/0f77c2044adfbdadd31800950699e191.jpg",
+    trendImage: "https://i.pinimg.com/736x/78/53/c2/7853c2f7e6da0eec2b8325936e3b045c.jpg",
+    imageSearchUrl: "https://www.pinterest.com/search/pins/?q=Adwoa%20Aboah%20Topshop%20SS26%20campaign",
     look: looks[36],
   },
   {
+    slug: "skepta",
     name: "Skepta",
     city: "LDN",
     role: "artist",
     outfit: "Refined sportswear: clean tracksuit lines, creamy colour, luxe resort energy, and grown-up grime polish.",
+    detail: "Skepta's current fashion lane is refined sportswear: relaxed but expensive-looking, clean but still connected to grime and London street culture. The Casablanca reference pushes tracksuit language into resort polish and soft colour.",
     source: "Casablanca SS26 campaign",
+    sourceUrl: "https://www.rollingstone.co.uk/style/skepta-casablanca-spring-summer-2026-campaign-58829/",
+    artistImage: "https://i.pinimg.com/736x/95/dd/e9/95dde9d451d569429c6fe787e534d0c6.jpg",
+    trendImage: "https://i.pinimg.com/736x/f1/b2/8c/f1b28c81a380bfb8af442fad8468dc3e.jpg",
+    imageSearchUrl: "https://www.pinterest.com/search/pins/?q=Skepta%20Casablanca%20SS26%20campaign%20style",
     look: looks[40],
   },
   {
+    slug: "central-cee",
     name: "Central Cee",
     city: "LDN",
     role: "artist",
     outfit: "Comfort streetwear: puffer proportions, tech fleece, mule/clog styling, and Syna-style drop culture.",
+    detail: "Central Cee represents UK streetwear's comfort-first commercial power: puffer volume, tracksuits, fleece, skull caps, and limited drops. The 2026 UGG campaign adds mules and clogs to that everyday streetwear uniform.",
     source: "UGG Spring 2026 campaign",
+    sourceUrl: "https://pausemag.co.uk/2026/02/ugg-taps-central-cee-and-su-yiming-for-spring-2026-campaign/",
+    artistImage: "https://i.pinimg.com/736x/3d/34/fd/3d34fdf449480f50c3652d7b0be570cb.jpg",
+    trendImage: "https://i.pinimg.com/736x/79/fe/1d/79fe1d487c57ea124faad913e7d232d4.jpg",
+    imageSearchUrl: "https://www.pinterest.com/search/pins/?q=Central%20Cee%20UGG%20Spring%202026%20streetwear",
     look: looks[39],
   },
   {
+    slug: "pinkpantheress",
     name: "PinkPantheress",
     city: "LDN",
     role: "artist",
     outfit: "Cinematic club styling: Y2K layers, UK-garage softness, mini proportions, and playful British prep.",
+    detail: "PinkPantheress brings the UK garage/Y2K thread into the rail. Her fashion world sits between school-uniform references, club music nostalgia, soft layers, and playful British symbols, which makes it perfect for the LDN side of the magazine.",
     source: "Coachella / BRITs 2026",
+    sourceUrl: "https://www.vogue.com/article/pinkpantheress-coachella-performance-fashion-diary",
+    artistImage: "https://i.pinimg.com/736x/78/53/c2/7853c2f7e6da0eec2b8325936e3b045c.jpg",
+    trendImage: "https://i.pinimg.com/736x/2d/06/44/2d06449697ebf6e3dafc2f8fa1284dec.jpg",
+    imageSearchUrl: "https://www.pinterest.com/search/pins/?q=PinkPantheress%202026%20fashion%20style",
     look: looks[31],
   },
 ];
@@ -558,6 +613,7 @@ const pageRoutes: Record<Page, string> = {
   wall: "./wall.html",
   runway: "./runway.html",
   motion: "./motion.html",
+  "trend-detail": "./motion.html",
   lookbook: "./lookbook.html",
   "look-detail": "./lookbook.html",
   signals: "./signals.html",
@@ -587,6 +643,10 @@ function lookHref(look: Look) {
   return `./look-${lookSlug(look)}.html`;
 }
 
+function trendHref(item: TrendRailItem) {
+  return `./trend-${item.slug}.html`;
+}
+
 function getCurrentPage(): Page {
   const pageFromHtml = document.documentElement.dataset.page;
 
@@ -595,6 +655,10 @@ function getCurrentPage(): Page {
   }
 
   const pageName = window.location.pathname.split("/").pop()?.replace(".html", "") || "index";
+
+  if (pageName.startsWith("trend-") && pageName !== "trend") {
+    return "trend-detail";
+  }
 
   if (pageName.startsWith("look-")) {
     return "look-detail";
@@ -640,6 +704,20 @@ function App() {
   const selectedLookIndex = looks.findIndex((look) => lookSlug(look) === currentLookSlug);
   const selectedLook = looks[selectedLookIndex >= 0 ? selectedLookIndex : 0];
   const detailLooks = Array.from({ length: 8 }, (_, index) => looks[(Math.max(selectedLookIndex, 0) + index * 5) % looks.length]);
+  const currentTrendSlug = document.documentElement.dataset.trend
+    || window.location.pathname.split("/").pop()?.replace(/^trend-/, "").replace(".html", "")
+    || "";
+  const selectedTrend = trendRail.find((item) => item.slug === currentTrendSlug) || trendRail[0];
+  const [application, setApplication] = useState({
+    name: "",
+    city: "",
+    social: "",
+    outfit: "",
+    photo: "",
+  });
+  const applicationBody = encodeURIComponent(
+    `Name: ${application.name}\nCity: ${application.city}\nSocial: ${application.social}\nOutfit story: ${application.outfit}\nPhoto / portfolio link: ${application.photo}`,
+  );
 
   return (
     <main className={`page-${currentPage}`}>
@@ -841,25 +919,68 @@ function App() {
         <div className="rail">
           <div className="railTrack">
             {railItems.map((item, index) => (
-              <figure className="railFrame" key={`${item.name}-${index}`}>
+              <a className="railFrame" href={trendHref(item)} key={`${item.name}-${index}`}>
                 <PinImage look={item.look} />
                 <figcaption>
                   <span>{item.city} / {item.role}</span>
                   <strong>{item.name}</strong>
                 </figcaption>
-              </figure>
+              </a>
             ))}
           </div>
         </div>
         <div className="trendRailBoard">
           {trendRail.map((item, index) => (
-            <article className="trendRailNote reveal" key={item.name}>
+            <a className="trendRailNote reveal" href={trendHref(item)} key={item.name}>
               <span>{String(index + 1).padStart(2, "0")} / {item.city}</span>
               <h3>{item.name}</h3>
               <p>{item.outfit}</p>
               <strong>{item.source}</strong>
-            </article>
+            </a>
           ))}
+        </div>
+      </section>
+      )}
+
+      {currentPage === "trend-detail" && (
+      <section className="trendDetail" id="trend-detail">
+        <div className="trendDetailHero reveal">
+          <div className="trendDetailImage">
+            <img src={selectedTrend.artistImage} alt={`${selectedTrend.name} artist style reference`} referrerPolicy="no-referrer" />
+          </div>
+          <article className="trendDetailCopy">
+            <p className="kicker">{selectedTrend.city} / {selectedTrend.role}</p>
+            <h2>{selectedTrend.name}</h2>
+            <p>{selectedTrend.detail}</p>
+            <div className="lookDetailTags">
+              <span>{selectedTrend.source}</span>
+              <span>Mzansi x LDN</span>
+              <span>{selectedTrend.role}</span>
+            </div>
+            <div className="trendDetailActions">
+              <a className="textLink" href={selectedTrend.sourceUrl} rel="noreferrer" target="_blank">Read source</a>
+              <a className="textLink" href={selectedTrend.imageSearchUrl} rel="noreferrer" target="_blank">Pinterest images</a>
+              <a className="textLink" href={pageRoutes.motion}>Back to trend rail</a>
+            </div>
+          </article>
+        </div>
+        <div className="trendDetailBoard">
+          <figure className="trendDetailCard reveal">
+            <img src={selectedTrend.trendImage} alt={`${selectedTrend.name} outfit trend reference`} referrerPolicy="no-referrer" />
+            <figcaption>
+              <span>Trend picture</span>
+              <strong>{selectedTrend.outfit}</strong>
+            </figcaption>
+          </figure>
+          <article className="trendDetailNotes reveal">
+            <span>How to style it</span>
+            <h3>{selectedTrend.city === "SA" ? "Mzansi read" : "London read"}</h3>
+            <p>{selectedTrend.outfit}</p>
+            <p>
+              Build the look with one clear anchor piece, then let the details carry it:
+              footwear, proportion, colour, texture, and a pose that feels ready for a magazine street shot.
+            </p>
+          </article>
         </div>
       </section>
       )}
@@ -1045,6 +1166,66 @@ function App() {
           <span>Format</span>
           <strong>Digital magazine issue</strong>
         </div>
+        <form
+          className="applyForm reveal"
+          onSubmit={(event) => {
+            event.preventDefault();
+            window.location.href = `mailto:streetarchive@example.com?subject=Street Archive magazine outfit application&body=${applicationBody}`;
+          }}
+        >
+          <div>
+            <p className="kicker">Apply</p>
+            <h3>Show off your outfit in the magazine.</h3>
+          </div>
+          <label>
+            Name
+            <input
+              onChange={(event) => setApplication({ ...application, name: event.target.value })}
+              placeholder="Your name"
+              required
+              type="text"
+              value={application.name}
+            />
+          </label>
+          <label>
+            City
+            <input
+              onChange={(event) => setApplication({ ...application, city: event.target.value })}
+              placeholder="Joburg, London, Cape Town..."
+              required
+              type="text"
+              value={application.city}
+            />
+          </label>
+          <label>
+            Instagram / TikTok
+            <input
+              onChange={(event) => setApplication({ ...application, social: event.target.value })}
+              placeholder="@yourhandle"
+              type="text"
+              value={application.social}
+            />
+          </label>
+          <label>
+            Outfit story
+            <textarea
+              onChange={(event) => setApplication({ ...application, outfit: event.target.value })}
+              placeholder="Tell us what you are wearing and why it matters."
+              required
+              value={application.outfit}
+            />
+          </label>
+          <label>
+            Outfit photo link
+            <input
+              onChange={(event) => setApplication({ ...application, photo: event.target.value })}
+              placeholder="Paste a Google Drive, Instagram, Pinterest, or portfolio link"
+              type="url"
+              value={application.photo}
+            />
+          </label>
+          <button type="submit">Apply to be featured</button>
+        </form>
       </section>
       )}
 
