@@ -124,13 +124,123 @@ const pageMeta = {
   },
 };
 
+const imageSets = {
+  home: [
+    "https://i.pinimg.com/736x/81/b7/95/81b7955f8a71bf2388414a8b59919d92.jpg",
+    "https://i.pinimg.com/736x/ee/fe/ed/eefeed26d894b54ad4d74347579296cd.jpg",
+    "https://i.pinimg.com/736x/cb/b6/4e/cbb64ed60dc3a31f80b714d65403e4c9.jpg",
+    "https://i.pinimg.com/736x/37/ad/87/37ad87af414392f19028af7ffe7dab83.jpg",
+    "https://i.pinimg.com/736x/5b/9a/20/5b9a20dd7db72337bb6d18d7f78f7b17.jpg",
+    "https://i.pinimg.com/736x/2f/71/b1/2f71b13df8073726652f841bfcec1ac5.jpg",
+  ],
+  contents: [
+    "https://i.pinimg.com/736x/07/bd/4c/07bd4ce5d88f710b18a803e723cafac1.jpg",
+    "https://i.pinimg.com/736x/0f/77/c2/0f77c2044adfbdadd31800950699e191.jpg",
+    "https://i.pinimg.com/736x/3d/34/fd/3d34fdf449480f50c3652d7b0be570cb.jpg",
+    "https://i.pinimg.com/736x/52/a9/73/52a973afe615d9fca0905161ad4e5f22.jpg",
+    "https://i.pinimg.com/736x/6a/54/fe/6a54fe5fc3c63d3256d7bf929896c679.jpg",
+    "https://i.pinimg.com/736x/6d/65/f3/6d65f3139b6ad56a52972daec88d6c20.jpg",
+  ],
+  features: [
+    "https://i.pinimg.com/736x/45/c9/fe/45c9feb227ef694bf5fb62d9a44b268f.jpg",
+    "https://i.pinimg.com/736x/78/53/c2/7853c2f7e6da0eec2b8325936e3b045c.jpg",
+    "https://i.pinimg.com/736x/85/9a/c7/859ac76a28e66ae8c37c762dcdc5ed92.jpg",
+    "https://i.pinimg.com/736x/c3/26/08/c3260803164f302f54861b0ddcad607a.jpg",
+    "https://i.pinimg.com/736x/95/dd/e9/95dde9d451d569429c6fe787e534d0c6.jpg",
+    "https://i.pinimg.com/736x/ae/c2/8d/aec28d3d691cfbf25041827721634e38.jpg",
+  ],
+  "cover-story": [
+    "https://i.pinimg.com/736x/24/63/f5/2463f556c46aede0c874de646bdec32d.jpg",
+    "https://i.pinimg.com/736x/8e/ae/0d/8eae0da7d737f788368f9bce5c7fc57b.jpg",
+    "https://i.pinimg.com/736x/a8/85/37/a8853750b622649f7452ed45a6ce3008.jpg",
+    "https://i.pinimg.com/736x/7e/66/98/7e6698d55cb321b55e2564a20e88c312.jpg",
+    "https://i.pinimg.com/736x/75/da/07/75da073b3c225a2a32d04636c4c31d05.jpg",
+    "https://i.pinimg.com/736x/d7/47/96/d7479613d6a610d64e55864d57e03406.jpg",
+  ],
+  departments: [
+    "https://i.pinimg.com/736x/37/ad/87/37ad87af414392f19028af7ffe7dab83.jpg",
+    "https://i.pinimg.com/736x/52/a9/73/52a973afe615d9fca0905161ad4e5f22.jpg",
+    "https://i.pinimg.com/736x/a8/b7/5c/a8b75c1706c03509a6a30ee99b1ffd58.jpg",
+    "https://i.pinimg.com/736x/5b/9a/20/5b9a20dd7db72337bb6d18d7f78f7b17.jpg",
+    "https://i.pinimg.com/736x/45/c9/fe/45c9feb227ef694bf5fb62d9a44b268f.jpg",
+    "https://i.pinimg.com/474x/43/6f/58/436f581dab42dcacce56d17af00f3ffd.jpg",
+  ],
+  trend: [
+    "https://i.pinimg.com/736x/2f/71/b1/2f71b13df8073726652f841bfcec1ac5.jpg",
+    "https://i.pinimg.com/736x/8e/ae/0d/8eae0da7d737f788368f9bce5c7fc57b.jpg",
+    "https://i.pinimg.com/736x/6d/65/f3/6d65f3139b6ad56a52972daec88d6c20.jpg",
+    "https://i.pinimg.com/736x/ae/c2/8d/aec28d3d691cfbf25041827721634e38.jpg",
+    "https://i.pinimg.com/736x/0f/77/c2/0f77c2044adfbdadd31800950699e191.jpg",
+    "https://i.pinimg.com/736x/78/e0/17/78e0179634cd4017d92c7f13415fcd1d.jpg",
+  ],
+  wall: [
+    "https://i.pinimg.com/736x/ce/1a/d6/ce1ad6cd28c793865073a7b11e9a10b6.jpg",
+    "https://i.pinimg.com/736x/82/5b/c5/825bc53a0c865f76c69fba0e6860ad94.jpg",
+    "https://i.pinimg.com/736x/e2/95/c7/e295c751653b9b2b85ee812bab7e8f1e.jpg",
+    "https://i.pinimg.com/736x/9a/65/dd/9a65ddff7c41307e69af3d42e7440a1d.jpg",
+    "https://i.pinimg.com/736x/f9/f2/42/f9f2421f0a098545b46d443aa8ceedb4.jpg",
+    "https://i.pinimg.com/474x/88/fb/94/88fb94a365cdf7ecca2cd434ae4d4fdf.jpg",
+  ],
+  runway: [
+    "https://i.pinimg.com/236x/90/6b/81/906b81134f2cf2c1141876cdf2d2820d.jpg",
+    "https://i.pinimg.com/236x/57/1e/6e/571e6eb9aa805aadf11ee141d81be56f.jpg",
+    "https://i.pinimg.com/236x/eb/cb/3d/ebcb3d1553b55d6e47542bac139ea7ac.jpg",
+    "https://i.pinimg.com/236x/bd/b3/50/bdb350f0b3ea12f41f3d3c14746436d7.jpg",
+    "https://i.pinimg.com/236x/ff/d1/10/ffd1102e2ed150ac06b98a197759f7a5.jpg",
+    "https://i.pinimg.com/236x/49/4e/0f/494e0f6548c5d977b8ae44af28213558.jpg",
+  ],
+  motion: [
+    "https://i.pinimg.com/736x/2b/9e/e6/2b9ee65bf6bac9ae7ff918f49d95024c.jpg",
+    "https://i.pinimg.com/736x/c3/26/08/c3260803164f302f54861b0ddcad607a.jpg",
+    "https://i.pinimg.com/736x/78/e0/17/78e0179634cd4017d92c7f13415fcd1d.jpg",
+    "https://i.pinimg.com/736x/0f/77/c2/0f77c2044adfbdadd31800950699e191.jpg",
+    "https://i.pinimg.com/736x/52/a9/73/52a973afe615d9fca0905161ad4e5f22.jpg",
+    "https://i.pinimg.com/736x/79/fe/1d/79fe1d487c57ea124faad913e7d232d4.jpg",
+  ],
+  lookbook: [
+    "https://i.pinimg.com/736x/81/b7/95/81b7955f8a71bf2388414a8b59919d92.jpg",
+    "https://i.pinimg.com/736x/82/5b/c5/825bc53a0c865f76c69fba0e6860ad94.jpg",
+    "https://i.pinimg.com/736x/a8/b7/5c/a8b75c1706c03509a6a30ee99b1ffd58.jpg",
+    "https://i.pinimg.com/736x/d7/47/96/d7479613d6a610d64e55864d57e03406.jpg",
+    "https://i.pinimg.com/736x/95/dd/e9/95dde9d451d569429c6fe787e534d0c6.jpg",
+    "https://i.pinimg.com/736x/6a/54/fe/6a54fe5fc3c63d3256d7bf929896c679.jpg",
+  ],
+  signals: [
+    "https://i.pinimg.com/736x/a8/b7/5c/a8b75c1706c03509a6a30ee99b1ffd58.jpg",
+    "https://i.pinimg.com/736x/ae/c2/8d/aec28d3d691cfbf25041827721634e38.jpg",
+    "https://i.pinimg.com/736x/07/bd/4c/07bd4ce5d88f710b18a803e723cafac1.jpg",
+    "https://i.pinimg.com/736x/6d/65/f3/6d65f3139b6ad56a52972daec88d6c20.jpg",
+    "https://i.pinimg.com/736x/78/53/c2/7853c2f7e6da0eec2b8325936e3b045c.jpg",
+    "https://i.pinimg.com/736x/2f/71/b1/2f71b13df8073726652f841bfcec1ac5.jpg",
+  ],
+  editor: [
+    "https://i.pinimg.com/736x/7e/66/98/7e6698d55cb321b55e2564a20e88c312.jpg",
+    "https://i.pinimg.com/736x/24/63/f5/2463f556c46aede0c874de646bdec32d.jpg",
+    "https://i.pinimg.com/474x/b9/8b/17/b98b175e391022abbb8ae69134db0e70.jpg",
+    "https://i.pinimg.com/474x/30/4c/bc/304cbcffa5ec29f8294ce1afb0fb6a4c.jpg",
+    "https://i.pinimg.com/736x/f1/b2/8c/f1b28c81a380bfb8af442fad8468dc3e.jpg",
+    "https://i.pinimg.com/736x/75/da/07/75da073b3c225a2a32d04636c4c31d05.jpg",
+  ],
+};
+
+function fallbackGrid(meta) {
+  const images = imageSets[meta.key] || imageSets.home;
+  const items = images
+    .map(
+      (image, index) =>
+        `            <img src="${image}" alt="${meta.title} fashion image ${index + 1}" referrerpolicy="no-referrer" />`,
+    )
+    .join("\n");
+
+  return `          <div class="static-fallback__grid" aria-label="${meta.title} image preview">\n${items}\n          </div>`;
+}
+
 function pageHtml(template, pageName) {
   const meta = pageMeta[pageName];
 
   return template
     .replace("<html lang=\"en\">", `<html lang="en" data-page="${meta.key}">`)
     .replace("<title>Sench//Index</title>", `<title>${meta.title}</title>`)
-    .replace(/\s*<script type="module" crossorigin src="\.\/assets\/[^"]+"><\/script>/, "")
     .replace(
       /<p>Sench\/\/Index \/ South African fashion magazine<\/p>/,
       `<p>${meta.label}</p>`,
@@ -139,6 +249,10 @@ function pageHtml(template, pageName) {
     .replace(
       /A visual issue on Johannesburg layers, Durban ease, Cape Town thrift, township tailoring, beadwork colour, shweshwe pattern, and amapiano nightlife\./,
       meta.summary,
+    )
+    .replace(
+      /          <div class="static-fallback__grid" aria-label="Created pin image preview">[\s\S]*?          <\/div>/,
+      fallbackGrid(meta),
     );
 }
 
