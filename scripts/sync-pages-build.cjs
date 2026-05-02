@@ -130,6 +130,7 @@ function pageHtml(template, pageName) {
   return template
     .replace("<html lang=\"en\">", `<html lang="en" data-page="${meta.key}">`)
     .replace("<title>Sench//Index</title>", `<title>${meta.title}</title>`)
+    .replace(/\s*<script type="module" crossorigin src="\.\/assets\/[^"]+"><\/script>/, "")
     .replace(
       /<p>Sench\/\/Index \/ South African fashion magazine<\/p>/,
       `<p>${meta.label}</p>`,
