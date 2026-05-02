@@ -30,6 +30,15 @@ type Trend = {
   detail: string;
 };
 
+type TrendRailItem = {
+  name: string;
+  city: string;
+  role: string;
+  outfit: string;
+  source: string;
+  look: Look;
+};
+
 type Page =
   | "home"
   | "contents"
@@ -473,6 +482,73 @@ const trendReport: Trend[] = [
   { name: "Heritage detail", detail: "Beadwork, blanket references, and crafted accessories add meaning to the fit." },
 ];
 
+const trendRail: TrendRailItem[] = [
+  {
+    name: "Zee Nxumalo",
+    city: "SA",
+    role: "artist",
+    outfit: "Archive runner energy: low-profile sneakers, bright mesh, oversized tee, and suburb-ready layers.",
+    source: "PUMA H-Street campaign",
+    look: looks[30],
+  },
+  {
+    name: "Daliwonga",
+    city: "SA",
+    role: "artist",
+    outfit: "Diesel-coded amapiano fit: washed denim, dark shine, cropped jacket, and Milan runway confidence.",
+    source: "Milan FW26 appearance",
+    look: looks[6],
+  },
+  {
+    name: "Musa Keys",
+    city: "SA",
+    role: "artist",
+    outfit: "Theatrical layered luxury: sculpted outerwear, jewellery flash, clean trousers, styled like a stage entrance.",
+    source: "Metro FM style award",
+    look: looks[8],
+  },
+  {
+    name: "SAFW model cast",
+    city: "SA",
+    role: "models",
+    outfit: "Slow-fashion runway mood: crafted textiles, natural tones, sustainable details, and polished street ease.",
+    source: "SA Fashion Week SS26",
+    look: looks[17],
+  },
+  {
+    name: "Adwoa Aboah",
+    city: "LDN",
+    role: "model",
+    outfit: "Confident colour and shape: balloon trousers, sharp blazer lines, lace flashes, red and electric blue.",
+    source: "Topshop SS26 campaign",
+    look: looks[36],
+  },
+  {
+    name: "Skepta",
+    city: "LDN",
+    role: "artist",
+    outfit: "Refined sportswear: clean tracksuit lines, creamy colour, luxe resort energy, and grown-up grime polish.",
+    source: "Casablanca SS26 campaign",
+    look: looks[40],
+  },
+  {
+    name: "Central Cee",
+    city: "LDN",
+    role: "artist",
+    outfit: "Comfort streetwear: puffer proportions, tech fleece, mule/clog styling, and Syna-style drop culture.",
+    source: "UGG Spring 2026 campaign",
+    look: looks[39],
+  },
+  {
+    name: "PinkPantheress",
+    city: "LDN",
+    role: "artist",
+    outfit: "Cinematic club styling: Y2K layers, UK-garage softness, mini proportions, and playful British prep.",
+    source: "Coachella / BRITs 2026",
+    look: looks[31],
+  },
+];
+
 const pageRoutes: Record<Page, string> = {
   home: "./index.html",
   contents: "./contents.html",
@@ -494,7 +570,7 @@ const navItems: { href: string; label: string; page: Page }[] = [
   { href: pageRoutes.departments, label: "Departments", page: "departments" },
   { href: pageRoutes.wall, label: "Image wall", page: "wall" },
   { href: pageRoutes.runway, label: "Runway", page: "runway" },
-  { href: pageRoutes.motion, label: "Motion", page: "motion" },
+  { href: pageRoutes.motion, label: "Trend rail", page: "motion" },
   { href: pageRoutes.lookbook, label: "Lookbook", page: "lookbook" },
   { href: pageRoutes.editor, label: "Editor", page: "editor" },
 ];
@@ -555,7 +631,7 @@ function App() {
     [activeMood],
   );
   const heroLooks = looks.slice(0, 5);
-  const railLooks = [...looks.slice(3, 15), ...looks.slice(3, 15)];
+  const railItems = [...trendRail, ...trendRail];
   const coverStory = looks[13];
   const wallLooks = [...looks.slice(6), ...looks.slice(24, 30)];
   const currentLookSlug = document.documentElement.dataset.look
@@ -689,7 +765,7 @@ function App() {
           <li><a href={pageRoutes.trend}><span>02</span> Trend report: colour, heritage, silhouette</a></li>
           <li><a href={pageRoutes.wall}><span>03</span> Image wall: visual street-style archive</a></li>
           <li><a href={pageRoutes.runway}><span>04</span> Runway: animated Pinterest fashion stream</a></li>
-          <li><a href={pageRoutes.motion}><span>05</span> Motion: amapiano and UK street energy</a></li>
+          <li><a href={pageRoutes.motion}><span>05</span> Trend rail: SA x UK artists, models, and outfit cues</a></li>
           <li><a href={pageRoutes.lookbook}><span>06</span> Lookbook: filter by fashion mood</a></li>
           <li><a href={pageRoutes.editor}><span>07</span> Editor: Street Archive fashion note</a></li>
         </ol>
@@ -754,19 +830,36 @@ function App() {
       )}
 
       {currentPage === "motion" && (
-      <section className="motionStrip" id="motion" aria-label="Animated image rail">
+      <section className="motionStrip" id="motion" aria-label="Animated trend rail">
         <div className="sectionIntro reveal">
-          <p className="kicker">Motion rail</p>
-          <h2>Amapiano energy in motion.</h2>
+          <p className="kicker">Trend rail</p>
+          <h2>SA x UK fit checks in motion.</h2>
+          <p>
+            A moving edit of the artists, models, and outfit codes shaping the Mzansi x LDN street archive right now.
+          </p>
         </div>
         <div className="rail">
           <div className="railTrack">
-            {railLooks.map((look, index) => (
-              <figure className="railFrame" key={`${look.title}-${index}`}>
-                <PinImage look={look} />
+            {railItems.map((item, index) => (
+              <figure className="railFrame" key={`${item.name}-${index}`}>
+                <PinImage look={item.look} />
+                <figcaption>
+                  <span>{item.city} / {item.role}</span>
+                  <strong>{item.name}</strong>
+                </figcaption>
               </figure>
             ))}
           </div>
+        </div>
+        <div className="trendRailBoard">
+          {trendRail.map((item, index) => (
+            <article className="trendRailNote reveal" key={item.name}>
+              <span>{String(index + 1).padStart(2, "0")} / {item.city}</span>
+              <h3>{item.name}</h3>
+              <p>{item.outfit}</p>
+              <strong>{item.source}</strong>
+            </article>
+          ))}
         </div>
       </section>
       )}

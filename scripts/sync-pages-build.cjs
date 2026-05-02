@@ -76,7 +76,7 @@ const pageMeta = {
     title: "Contents / Sench//Index",
     label: "Contents / Full issue map",
     heading: "Inside the issue.",
-    summary: "Open the separate city, trend, image wall, runway, motion, lookbook, and editor pages.",
+    summary: "Open the separate city, trend, image wall, runway, trend rail, lookbook, and editor pages.",
   },
   "cover-story.html": {
     key: "cover-story",
@@ -115,10 +115,10 @@ const pageMeta = {
   },
   "motion.html": {
     key: "motion",
-    title: "Motion / Sench//Index",
-    label: "Motion rail / Amapiano energy",
-    heading: "Amapiano energy in motion.",
-    summary: "A moving rail of fashion frames built around nightlife, movement, and local street style.",
+    title: "Trend Rail / Sench//Index",
+    label: "Trend rail / SA x UK fit checks",
+    heading: "SA x UK fit checks in motion.",
+    summary: "A moving trend rail of artists, models, and outfit cues from South Africa and London.",
   },
   "lookbook.html": {
     key: "lookbook",

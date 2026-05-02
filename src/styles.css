@@ -967,15 +967,23 @@ h2 {
 
 .motionStrip {
   background:
+    linear-gradient(90deg, rgba(227, 76, 56, 0.18) 0 14%, transparent 14% 50%, rgba(11, 57, 166, 0.18) 50% 64%, transparent 64%),
     linear-gradient(135deg, rgba(255, 205, 0, 0.68), transparent 34%),
-    linear-gradient(315deg, rgba(11, 57, 166, 0.28), transparent 34%),
+    linear-gradient(315deg, rgba(0, 122, 61, 0.2), transparent 34%),
     #f3efe5;
   color: #080808;
+  display: grid;
+  gap: clamp(24px, 4vw, 52px);
   overflow: hidden;
 }
 
 .motionStrip .kicker {
   color: var(--sa-red);
+}
+
+.motionStrip .sectionIntro p:not(.kicker) {
+  color: rgba(8, 8, 8, 0.72);
+  max-width: 620px;
 }
 
 .rail {
@@ -984,7 +992,7 @@ h2 {
 }
 
 .railTrack {
-  animation: railMove 34s linear infinite;
+  animation: railMove 38s linear infinite;
   display: flex;
   gap: 12px;
   width: max-content;
@@ -1001,6 +1009,7 @@ h2 {
   flex: 0 0 clamp(190px, 22vw, 330px);
   margin: 0;
   overflow: hidden;
+  position: relative;
 }
 
 .railFrame img {
@@ -1014,6 +1023,82 @@ h2 {
 .railFrame:hover img {
   filter: contrast(1.18) saturate(1.12);
   transform: scale(1.05);
+}
+
+.railFrame figcaption {
+  background: linear-gradient(180deg, transparent, rgba(8, 8, 8, 0.9));
+  bottom: 0;
+  color: #f3efe5;
+  display: grid;
+  gap: 4px;
+  left: 0;
+  padding: 64px 12px 12px;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+}
+
+.railFrame figcaption span {
+  color: var(--sa-gold);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.railFrame figcaption strong {
+  font-size: clamp(1.3rem, 2vw, 2.1rem);
+  line-height: 0.86;
+}
+
+.trendRailBoard {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.trendRailNote {
+  background: rgba(8, 8, 8, 0.92);
+  border-top: 8px solid var(--sa-gold);
+  color: #f3efe5;
+  display: grid;
+  gap: 12px;
+  min-height: 240px;
+  padding: 18px;
+}
+
+.trendRailNote:nth-child(2n) {
+  border-top-color: var(--sa-green);
+  transform: translateY(24px);
+}
+
+.trendRailNote:nth-child(3n) {
+  border-top-color: var(--uk-blue);
+}
+
+.trendRailNote:nth-child(4n) {
+  border-top-color: var(--sa-red);
+}
+
+.trendRailNote span,
+.trendRailNote strong {
+  color: var(--sa-gold);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.trendRailNote h3 {
+  color: #f3efe5;
+  font-size: clamp(1.5rem, 2.6vw, 2.7rem);
+  line-height: 0.88;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.trendRailNote p {
+  color: rgba(243, 239, 229, 0.74);
+  margin: 0;
 }
 
 .imageWall {
@@ -1969,6 +2054,10 @@ main.page-runway h2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .trendRailBoard {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .wallGrid {
     column-count: 3;
   }
@@ -2138,6 +2227,15 @@ main.page-runway h2 {
 
   .issueDeck {
     grid-template-columns: 1fr;
+  }
+
+  .trendRailBoard {
+    grid-template-columns: 1fr;
+  }
+
+  .trendRailNote {
+    min-height: 0;
+    transform: none !important;
   }
 
   .issueDeckItem {
