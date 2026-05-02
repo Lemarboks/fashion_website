@@ -13,12 +13,6 @@ type Look = {
   mood: Exclude<Mood, "all">;
 };
 
-type Article = {
-  eyebrow: string;
-  title: string;
-  dek: string;
-};
-
 type Signal = {
   label: string;
   value: string;
@@ -39,7 +33,6 @@ type Trend = {
 type Page =
   | "home"
   | "contents"
-  | "features"
   | "cover-story"
   | "departments"
   | "trend"
@@ -47,6 +40,7 @@ type Page =
   | "runway"
   | "motion"
   | "lookbook"
+  | "look-detail"
   | "signals"
   | "editor";
 
@@ -437,24 +431,6 @@ const looks: Look[] = [
   },
 ];
 
-const articles: Article[] = [
-  {
-    eyebrow: "Cover Story",
-    title: "Street archive fashion is a city language.",
-    dek: "From Braamfontein layers to Durban heat and Cape Town thrift rails, the look is practical, expressive, and impossible to separate from movement.",
-  },
-  {
-    eyebrow: "Motion",
-    title: "Amapiano nights changed the silhouette.",
-    dek: "Wide denim, cropped jackets, polished sneakers, jewellery, and easy shirts carry dance-floor confidence into everyday street style.",
-  },
-  {
-    eyebrow: "Heritage",
-    title: "Heritage is not costume. It is construction.",
-    dek: "Shweshwe pattern, beadwork colour, Basotho blanket references, and township tailoring sit beside global streetwear without losing their local weight.",
-  },
-];
-
 const signals: Signal[] = [
   { label: "Images", value: `${looks.length} editorial frames` },
   { label: "Cities", value: "Joburg / Durban / Cape Town" },
@@ -500,7 +476,6 @@ const trendReport: Trend[] = [
 const pageRoutes: Record<Page, string> = {
   home: "./index.html",
   contents: "./contents.html",
-  features: "./features.html",
   "cover-story": "./cover-story.html",
   departments: "./departments.html",
   trend: "./trend.html",
@@ -508,6 +483,7 @@ const pageRoutes: Record<Page, string> = {
   runway: "./runway.html",
   motion: "./motion.html",
   lookbook: "./lookbook.html",
+  "look-detail": "./lookbook.html",
   signals: "./signals.html",
   editor: "./editor.html",
 };
@@ -515,7 +491,6 @@ const pageRoutes: Record<Page, string> = {
 const navItems: { href: string; label: string; page: Page }[] = [
   { href: pageRoutes.home, label: "Home", page: "home" },
   { href: pageRoutes.contents, label: "Contents", page: "contents" },
-  { href: pageRoutes.features, label: "Features", page: "features" },
   { href: pageRoutes.departments, label: "Departments", page: "departments" },
   { href: pageRoutes.wall, label: "Image wall", page: "wall" },
   { href: pageRoutes.runway, label: "Runway", page: "runway" },
@@ -528,6 +503,14 @@ const whatsappMessage = encodeURIComponent(
   "Hi, I am interested in the Sench//Index Street Archive fashion magazine.",
 );
 
+function lookSlug(look: Look) {
+  return look.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+function lookHref(look: Look) {
+  return `./look-${lookSlug(look)}.html`;
+}
+
 function getCurrentPage(): Page {
   const pageFromHtml = document.documentElement.dataset.page;
 
@@ -536,6 +519,10 @@ function getCurrentPage(): Page {
   }
 
   const pageName = window.location.pathname.split("/").pop()?.replace(".html", "") || "index";
+
+  if (pageName.startsWith("look-")) {
+    return "look-detail";
+  }
 
   if (pageName === "index" || pageName === "source-index" || pageName === "view" || pageName === "404") {
     return "home";
@@ -570,8 +557,13 @@ function App() {
   const heroLooks = looks.slice(0, 5);
   const railLooks = [...looks.slice(3, 15), ...looks.slice(3, 15)];
   const coverStory = looks[13];
-  const editorPicks = [looks[0], looks[7], looks[12], looks[19]];
   const wallLooks = [...looks.slice(6), ...looks.slice(24, 30)];
+  const currentLookSlug = document.documentElement.dataset.look
+    || window.location.pathname.split("/").pop()?.replace(/^look-/, "").replace(".html", "")
+    || "";
+  const selectedLookIndex = looks.findIndex((look) => lookSlug(look) === currentLookSlug);
+  const selectedLook = looks[selectedLookIndex >= 0 ? selectedLookIndex : 0];
+  const detailLooks = Array.from({ length: 8 }, (_, index) => looks[(Math.max(selectedLookIndex, 0) + index * 5) % looks.length]);
 
   return (
     <main className={`page-${currentPage}`}>
@@ -693,35 +685,14 @@ function App() {
           <h2>Inside the Street Archive fashion issue.</h2>
         </div>
         <ol className="contentsList reveal">
-          <li><a href={pageRoutes.features}><span>01</span> Features: street archive fashion language</a></li>
-          <li><a href={pageRoutes.departments}><span>02</span> Departments: Johannesburg, Durban, Cape Town</a></li>
-          <li><a href={pageRoutes.trend}><span>03</span> Trend report: colour, heritage, silhouette</a></li>
-          <li><a href={pageRoutes.wall}><span>04</span> Image wall: visual street-style archive</a></li>
-          <li><a href={pageRoutes.runway}><span>05</span> Runway: animated Pinterest fashion stream</a></li>
+          <li><a href={pageRoutes.departments}><span>01</span> Departments: Johannesburg, London, Cape Town</a></li>
+          <li><a href={pageRoutes.trend}><span>02</span> Trend report: colour, heritage, silhouette</a></li>
+          <li><a href={pageRoutes.wall}><span>03</span> Image wall: visual street-style archive</a></li>
+          <li><a href={pageRoutes.runway}><span>04</span> Runway: animated Pinterest fashion stream</a></li>
+          <li><a href={pageRoutes.motion}><span>05</span> Motion: amapiano and UK street energy</a></li>
           <li><a href={pageRoutes.lookbook}><span>06</span> Lookbook: filter by fashion mood</a></li>
           <li><a href={pageRoutes.editor}><span>07</span> Editor: Street Archive fashion note</a></li>
         </ol>
-      </section>
-      )}
-
-      {currentPage === "features" && (
-      <section className="features" id="features">
-        <div className="sectionIntro reveal">
-          <p className="kicker">Features</p>
-          <h2>Streetwear with a local accent.</h2>
-        </div>
-        <div className="articleGrid">
-          {articles.map((article, index) => (
-            <article className="articleCard reveal" key={article.title}>
-              <PinImage look={looks[index + 3]} />
-              <div>
-                <span>{article.eyebrow}</span>
-                <h3>{article.title}</h3>
-                <p>{article.dek}</p>
-              </div>
-            </article>
-          ))}
-        </div>
       </section>
       )}
 
@@ -868,24 +839,6 @@ function App() {
       </section>
       )}
 
-      {currentPage === "features" && (
-      <section className="editorsPicks" aria-label="Editor's picks">
-        <div className="sectionIntro reveal">
-          <p className="kicker">Editor's picks</p>
-          <h2>Four frames with local attitude.</h2>
-        </div>
-        <div className="pickGrid">
-          {editorPicks.map((look, index) => (
-            <article className="pickCard reveal" key={look.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <PinImage look={look} />
-              <h3>{look.title}</h3>
-            </article>
-          ))}
-        </div>
-      </section>
-      )}
-
       {currentPage === "lookbook" && (
       <section className="lookbook" id="lookbook">
         <div className="sectionIntro reveal">
@@ -906,7 +859,7 @@ function App() {
         </div>
         <div className="fileGrid">
           {filteredLooks.map((look, index) => (
-            <article className="file reveal" key={`${look.pin}-${look.title}`}>
+            <a className="file reveal" href={lookHref(look)} key={`${look.pin}-${look.title}`}>
               <div className="fileImage">
                 <PinImage look={look} />
               </div>
@@ -916,7 +869,39 @@ function App() {
                 <p>{look.note}</p>
               </div>
               <b aria-hidden="true">{String(index + 1).padStart(2, "0")}</b>
-            </article>
+            </a>
+          ))}
+        </div>
+      </section>
+      )}
+
+      {currentPage === "look-detail" && (
+      <section className="lookDetail" id="look-detail">
+        <div className="lookDetailHero reveal">
+          <div className="lookDetailPoster">
+            <PinImage look={selectedLook} eager />
+          </div>
+          <div className="lookDetailCopy">
+            <p className="kicker">Lookbook file</p>
+            <h2>{selectedLook.title}</h2>
+            <p>{selectedLook.note}</p>
+            <div className="lookDetailTags">
+              <span>Mzansi x LDN</span>
+              <span>{selectedLook.mood}</span>
+              <span>{selectedLook.pin}</span>
+            </div>
+            <a className="textLink" href={pageRoutes.lookbook}>Back to lookbook</a>
+          </div>
+        </div>
+        <div className="lookDetailGrid" aria-label={`${selectedLook.title} related Pinterest looks`}>
+          {detailLooks.map((look, index) => (
+            <figure className="lookDetailFrame reveal" key={`${selectedLook.title}-${look.title}-${index}`}>
+              <PinImage look={look} />
+              <figcaption>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                {look.title}
+              </figcaption>
+            </figure>
           ))}
         </div>
       </section>
@@ -962,7 +947,7 @@ function App() {
         <div className="credits reveal">
           <span>Editorial focus</span>
           <strong>Street archive fashion and modern streetwear</strong>
-          <span>Features</span>
+          <span>Inside</span>
           <strong>City departments, trend report, lookbook</strong>
           <span>Format</span>
           <strong>Digital magazine issue</strong>

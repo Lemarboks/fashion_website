@@ -537,9 +537,9 @@ h1 span {
 .coverStory,
 .departments,
 .editorsPicks,
-.features,
 .imageWall,
 .lookbook,
+.lookDetail,
 .motionStrip,
 .runwayBoard,
 .signals,
@@ -555,9 +555,9 @@ main:not(.page-home) > section {
 main.page-home > section.coverStory,
 main.page-home > section.departments,
 main.page-home > section.editorsPicks,
-main.page-home > section.features,
 main.page-home > section.imageWall,
 main.page-home > section.lookbook,
+main.page-home > section.lookDetail,
 main.page-home > section.motionStrip,
 main.page-home > section.runwayBoard,
 main.page-home > section.signals,
@@ -570,9 +570,9 @@ main:not(.page-home) > section.contents,
 main:not(.page-home) > section.coverStory,
 main:not(.page-home) > section.departments,
 main:not(.page-home) > section.editorsPicks,
-main:not(.page-home) > section.features,
 main:not(.page-home) > section.imageWall,
 main:not(.page-home) > section.lookbook,
+main:not(.page-home) > section.lookDetail,
 main:not(.page-home) > section.motionStrip,
 main:not(.page-home) > section.runwayBoard,
 main:not(.page-home) > section.signals,
@@ -585,7 +585,7 @@ main:not(.page-home) > section.editor {
 main.page-contents > section.contents,
 main.page-cover-story > section.coverStory,
 main.page-departments > section.departments,
-main.page-features > section.features,
+main.page-look-detail > section.lookDetail,
 main.page-lookbook > section.lookbook,
 main.page-motion > section.motionStrip,
 main.page-runway > section.runwayBoard,
@@ -1087,8 +1087,11 @@ h2 {
 
 .runwayBoard {
   background:
-    linear-gradient(118deg, rgba(227, 76, 56, 0.16) 0 22%, transparent 22% 46%, rgba(11, 57, 166, 0.16) 46% 68%, rgba(0, 122, 61, 0.14) 68%),
+    linear-gradient(90deg, rgba(8, 8, 8, 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(8, 8, 8, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 86% 14%, rgba(227, 76, 56, 0.18), transparent 30%),
     #f3efe5;
+  background-size: 22px 22px, 22px 22px, auto, auto;
   color: #080808;
   display: grid;
   gap: clamp(22px, 5vw, 70px);
@@ -1097,7 +1100,16 @@ h2 {
 }
 
 .runwayBoard .kicker {
-  color: var(--sa-red);
+  color: #e34c38;
+}
+
+main.page-runway > section.runwayBoard::before {
+  background: #080808;
+  height: 8px;
+}
+
+main.page-runway h2 {
+  text-shadow: none;
 }
 
 .runwayCopy {
@@ -1131,13 +1143,13 @@ h2 {
 }
 
 .runwayStage::before {
-  background: linear-gradient(180deg, #f3efe5, transparent);
+  background: linear-gradient(180deg, #f3efe5, rgba(243, 239, 229, 0));
   height: 120px;
   top: 0;
 }
 
 .runwayStage::after {
-  background: linear-gradient(0deg, #f3efe5, transparent);
+  background: linear-gradient(0deg, #f3efe5, rgba(243, 239, 229, 0));
   bottom: 0;
   height: 120px;
 }
@@ -1161,12 +1173,12 @@ h2 {
 
 .runwayCard {
   background:
-    linear-gradient(90deg, rgba(8, 8, 8, 0.08) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(8, 8, 8, 0.06) 1px, transparent 1px),
-    #eee8d8;
-  background-size: 18px 18px;
-  border: 1px solid rgba(8, 8, 8, 0.28);
-  box-shadow: 0 18px 48px rgba(8, 8, 8, 0.2);
+    linear-gradient(90deg, rgba(8, 8, 8, 0.1) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(8, 8, 8, 0.07) 1px, transparent 1px),
+    #eee7d4;
+  background-size: 17px 17px;
+  border: 1px solid rgba(8, 8, 8, 0.34);
+  box-shadow: 0 18px 42px rgba(8, 8, 8, 0.22);
   display: grid;
   grid-template-rows: auto auto minmax(190px, 1fr) auto auto;
   min-height: clamp(360px, 42vw, 520px);
@@ -1179,8 +1191,8 @@ h2 {
 
 .runwayCard::before {
   background:
-    linear-gradient(90deg, transparent, rgba(8, 8, 8, 0.12), transparent),
-    repeating-linear-gradient(0deg, rgba(8, 8, 8, 0.08) 0 1px, transparent 1px 6px);
+    linear-gradient(90deg, transparent, rgba(8, 8, 8, 0.16), transparent),
+    repeating-linear-gradient(0deg, rgba(8, 8, 8, 0.1) 0 1px, transparent 1px 5px);
   content: "";
   inset: 0;
   mix-blend-mode: multiply;
@@ -1191,7 +1203,7 @@ h2 {
 }
 
 .runwayCard::after {
-  border: 1px solid rgba(8, 8, 8, 0.28);
+  border: 1px solid rgba(8, 8, 8, 0.34);
   content: "";
   inset: 10px;
   pointer-events: none;
@@ -1209,7 +1221,7 @@ h2 {
 
 .runwayIssue {
   align-self: start;
-  background: linear-gradient(90deg, var(--sa-red), var(--uk-blue));
+  background: #080808;
   color: #f3efe5;
   display: inline-flex;
   font-size: 0.56rem;
@@ -1224,8 +1236,8 @@ h2 {
 }
 
 .runwayMasthead {
-  color: rgba(8, 8, 8, 0.78);
-  font-size: clamp(2.7rem, 6.8vw, 6.6rem);
+  color: rgba(8, 8, 8, 0.74);
+  font-size: clamp(3.1rem, 7.2vw, 7rem);
   font-weight: 950;
   letter-spacing: 0;
   line-height: 0.72;
@@ -1238,14 +1250,14 @@ h2 {
 
 .runwayPhoto {
   background: #080808;
-  border: 1px solid rgba(8, 8, 8, 0.45);
+  border: 2px solid rgba(8, 8, 8, 0.7);
   overflow: hidden;
   position: relative;
   z-index: 2;
 }
 
 .runwayPhoto img {
-  filter: sepia(0.18) contrast(1.18) saturate(0.82);
+  filter: sepia(0.22) contrast(1.18) saturate(0.76);
   height: 100%;
   object-fit: cover;
   transition: filter 420ms ease, transform 420ms ease;
@@ -1259,9 +1271,9 @@ h2 {
 }
 
 .runwayPhotoInset {
-  bottom: 54px;
-  box-shadow: 0 10px 24px rgba(8, 8, 8, 0.3);
-  height: 34%;
+  bottom: 62px;
+  box-shadow: 0 10px 24px rgba(8, 8, 8, 0.34);
+  height: 36%;
   position: absolute;
   right: 18px;
   transform: rotate(3deg);
@@ -1276,17 +1288,17 @@ h2 {
 }
 
 .runwayCard:nth-child(3n) .runwayMasthead {
-  color: rgba(180, 38, 30, 0.82);
+  color: rgba(75, 112, 91, 0.9);
 }
 
 .runwayCard:nth-child(4n) .runwayMasthead {
-  color: rgba(44, 92, 72, 0.86);
+  color: rgba(202, 66, 58, 0.86);
 }
 
 .runwayMicrocopy {
-  border-bottom: 1px solid rgba(8, 8, 8, 0.28);
-  border-top: 1px solid rgba(8, 8, 8, 0.28);
-  color: rgba(8, 8, 8, 0.66);
+  border-bottom: 1px solid rgba(8, 8, 8, 0.34);
+  border-top: 1px solid rgba(8, 8, 8, 0.34);
+  color: rgba(8, 8, 8, 0.72);
   font-size: 0.58rem;
   font-weight: 800;
   line-height: 1.15;
@@ -1299,7 +1311,7 @@ h2 {
 
 .runwayCard figcaption {
   align-items: center;
-  background: linear-gradient(90deg, var(--sa-red), var(--uk-blue));
+  background: #e34c38;
   color: #f3efe5;
   display: flex;
   justify-content: space-between;
@@ -1315,7 +1327,7 @@ h2 {
 
 .runwayCard figcaption::after {
   color: rgba(243, 239, 229, 0.75);
-  content: "scan";
+  content: "print file";
 }
 
 .runwayCard:hover .runwayPhoto img {
@@ -1402,11 +1414,13 @@ h2 {
 
 .file {
   border: 1px solid rgba(243, 239, 229, 0.24);
+  color: #f3efe5;
   display: grid;
   grid-column: span 4;
   min-height: 460px;
   overflow: hidden;
   position: relative;
+  text-decoration: none;
   transition: border-color 260ms ease, box-shadow 260ms ease;
 }
 
@@ -1489,6 +1503,122 @@ h2 {
   right: 12px;
   top: 6px;
   z-index: 1;
+}
+
+.lookDetail {
+  background:
+    linear-gradient(90deg, rgba(255, 205, 0, 0.12) 0 18%, transparent 18% 48%, rgba(0, 122, 61, 0.14) 48% 64%, transparent 64%),
+    radial-gradient(circle at 88% 14%, rgba(227, 76, 56, 0.24), transparent 32%),
+    #080808;
+  display: grid;
+  gap: clamp(28px, 5vw, 64px);
+}
+
+.lookDetailHero {
+  align-items: center;
+  display: grid;
+  gap: clamp(24px, 5vw, 72px);
+  grid-template-columns: minmax(240px, 0.75fr) minmax(0, 1fr);
+  margin: 0 auto;
+  max-width: 1180px;
+  width: 100%;
+}
+
+.lookDetailPoster {
+  background: var(--paper);
+  border: 10px solid var(--paper);
+  box-shadow: 22px 24px 0 rgba(255, 205, 0, 0.9), -16px -16px 0 rgba(11, 57, 166, 0.78);
+  transform: rotate(-2deg);
+}
+
+.lookDetailPoster img {
+  aspect-ratio: 4 / 5;
+  display: block;
+  filter: contrast(1.08) saturate(1.08);
+  object-fit: cover;
+  width: 100%;
+}
+
+.lookDetailCopy h2 {
+  font-size: clamp(3.4rem, 9vw, 8.8rem);
+  line-height: 0.78;
+  margin: 0 0 22px;
+  text-transform: uppercase;
+}
+
+.lookDetailCopy p {
+  color: rgba(243, 239, 229, 0.78);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  max-width: 620px;
+}
+
+.lookDetailTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0;
+}
+
+.lookDetailTags span {
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  padding: 8px 10px;
+  text-transform: uppercase;
+}
+
+.lookDetailGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.lookDetailFrame {
+  background: #f3efe5;
+  color: #080808;
+  margin: 0;
+  min-height: 100%;
+  padding: 9px;
+}
+
+.lookDetailFrame:nth-child(2n) {
+  transform: translateY(26px);
+}
+
+.lookDetailFrame:nth-child(3n) {
+  border-top: 10px solid var(--sa-red);
+}
+
+.lookDetailFrame:nth-child(4n) {
+  border-bottom: 10px solid var(--uk-blue);
+}
+
+.lookDetailFrame img {
+  aspect-ratio: 4 / 5;
+  display: block;
+  filter: contrast(1.12) saturate(1.02);
+  object-fit: cover;
+  width: 100%;
+}
+
+.lookDetailFrame figcaption {
+  align-items: center;
+  display: flex;
+  font-size: 0.72rem;
+  font-weight: 900;
+  gap: 8px;
+  justify-content: space-between;
+  letter-spacing: 0.08em;
+  padding-top: 9px;
+  text-transform: uppercase;
+}
+
+.lookDetailFrame figcaption span {
+  background: var(--sa-gold);
+  color: #080808;
+  padding: 3px 6px;
 }
 
 .signals {
@@ -1817,6 +1947,7 @@ h2 {
   .departmentGrid,
   .footerIssue,
   .imageWall,
+  .lookDetailHero,
   .pickGrid,
   .runwayBoard,
   .signals,
@@ -1853,6 +1984,10 @@ h2 {
 
   .file {
     grid-column: span 6;
+  }
+
+  .lookDetailGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -2022,6 +2157,19 @@ h2 {
     min-height: 420px;
     transform: none !important;
   }
+
+  .lookDetailHero,
+  .lookDetailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .lookDetailPoster {
+    box-shadow: 12px 14px 0 rgba(255, 205, 0, 0.9), -9px -9px 0 rgba(11, 57, 166, 0.78);
+  }
+
+  .lookDetailFrame {
+    transform: none !important;
+  }
 }
 
 @media (max-width: 440px) {
@@ -2060,9 +2208,9 @@ h2 {
   .coverStory,
   .departments,
   .editorsPicks,
-  .features,
   .imageWall,
   .lookbook,
+  .lookDetail,
   .signals,
   .motionStrip,
   .runwayBoard,

@@ -4,12 +4,33 @@ const path = require("node:path");
 const root = path.resolve(__dirname, "..");
 const dist = path.join(root, "dist");
 const pagesBuild = path.join(root, "pages-build");
+
+function slugify(value) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+const sourceTs = fs.readFileSync(path.join(root, "src", "main.tsx"), "utf8");
+const lookMatches = [
+  ...sourceTs.matchAll(
+    /\{\s*title: "([^"]+)",\s*pin: "([^"]+)",\s*image: "([^"]+)",\s*note: "([^"]+)",\s*alt: "([^"]+)",\s*mood: "([^"]+)"/g,
+  ),
+];
+const lookPages = lookMatches.map((match, index) => ({
+  title: match[1],
+  pin: match[2],
+  image: match[3],
+  note: match[4],
+  alt: match[5],
+  mood: match[6],
+  slug: slugify(match[1]),
+  index,
+}));
+const lookPageNames = lookPages.map((look) => `look-${look.slug}.html`);
 const pageNames = [
   "index.html",
   "404.html",
   "view.html",
   "contents.html",
-  "features.html",
   "cover-story.html",
   "departments.html",
   "trend.html",
@@ -17,9 +38,14 @@ const pageNames = [
   "runway.html",
   "motion.html",
   "lookbook.html",
+  ...lookPageNames,
   "signals.html",
   "editor.html",
 ];
+const stalePageNames = ["features.html"];
+const staleGeneratedLookPages = fs.existsSync(root)
+  ? fs.readdirSync(root).filter((name) => /^look-(?!book\.html).+\.html$/.test(name) && !lookPageNames.includes(name))
+  : [];
 const pageMeta = {
   "index.html": {
     key: "home",
@@ -50,14 +76,7 @@ const pageMeta = {
     title: "Contents / Sench//Index",
     label: "Contents / Full issue map",
     heading: "Inside the issue.",
-    summary: "Open the separate feature, city, trend, image wall, runway, motion, lookbook, and editor pages.",
-  },
-  "features.html": {
-    key: "features",
-    title: "Features / Sench//Index",
-    label: "Features / Streetwear language",
-    heading: "Streetwear with a local accent.",
-    summary: "Cover story features on street archive styling, nightlife silhouettes, and heritage construction.",
+    summary: "Open the separate city, trend, image wall, runway, motion, lookbook, and editor pages.",
   },
   "cover-story.html": {
     key: "cover-story",
@@ -108,6 +127,24 @@ const pageMeta = {
     heading: "Filter the fashion mood.",
     summary: "Browse the issue by cover, street, and texture moods.",
   },
+  ...Object.fromEntries(
+    lookPages.map((look) => {
+      const related = Array.from({ length: 8 }, (_, index) => lookPages[(look.index + index * 5) % lookPages.length]);
+
+      return [
+        `look-${look.slug}.html`,
+        {
+          key: "look-detail",
+          lookSlug: look.slug,
+          title: `${look.title} / Lookbook / Sench//Index`,
+          label: `Lookbook file / ${look.mood}`,
+          heading: look.title,
+          summary: look.note,
+          images: related.map((item) => item.image),
+        },
+      ];
+    }),
+  ),
   "signals.html": {
     key: "signals",
     title: "Style Signals / Sench//Index",
@@ -140,14 +177,6 @@ const imageSets = {
     "https://i.pinimg.com/736x/52/a9/73/52a973afe615d9fca0905161ad4e5f22.jpg",
     "https://i.pinimg.com/736x/6a/54/fe/6a54fe5fc3c63d3256d7bf929896c679.jpg",
     "https://i.pinimg.com/736x/6d/65/f3/6d65f3139b6ad56a52972daec88d6c20.jpg",
-  ],
-  features: [
-    "https://i.pinimg.com/736x/45/c9/fe/45c9feb227ef694bf5fb62d9a44b268f.jpg",
-    "https://i.pinimg.com/736x/78/53/c2/7853c2f7e6da0eec2b8325936e3b045c.jpg",
-    "https://i.pinimg.com/736x/85/9a/c7/859ac76a28e66ae8c37c762dcdc5ed92.jpg",
-    "https://i.pinimg.com/736x/c3/26/08/c3260803164f302f54861b0ddcad607a.jpg",
-    "https://i.pinimg.com/736x/95/dd/e9/95dde9d451d569429c6fe787e534d0c6.jpg",
-    "https://i.pinimg.com/736x/ae/c2/8d/aec28d3d691cfbf25041827721634e38.jpg",
   ],
   "cover-story": [
     "https://i.pinimg.com/736x/24/63/f5/2463f556c46aede0c874de646bdec32d.jpg",
@@ -224,7 +253,7 @@ const imageSets = {
 };
 
 function fallbackGrid(meta) {
-  const images = imageSets[meta.key] || imageSets.home;
+  const images = meta.images || imageSets[meta.key] || imageSets.home;
   const items = images
     .map(
       (image, index) =>
@@ -240,6 +269,7 @@ function pageHtml(template, pageName) {
 
   return template
     .replace("<html lang=\"en\">", `<html lang="en" data-page="${meta.key}">`)
+    .replace("<html lang=\"en\" data-page=\"look-detail\">", `<html lang="en" data-page="look-detail" data-look="${meta.lookSlug || ""}">`)
     .replace("<title>Sench//Index</title>", `<title>${meta.title}</title>`)
     .replace(
       /<p>Sench\/\/Index \/ Mzansi x LDN street style<\/p>/,
@@ -256,7 +286,7 @@ function pageHtml(template, pageName) {
     );
 }
 
-for (const name of [...pageNames, "assets", "pages-build"]) {
+for (const name of [...pageNames, ...stalePageNames, ...staleGeneratedLookPages, "assets", "pages-build"]) {
   const target = path.join(root, name);
   if (fs.existsSync(target)) {
     fs.rmSync(target, { recursive: true, force: true });
