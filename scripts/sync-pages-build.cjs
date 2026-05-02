@@ -23,27 +23,27 @@ const pageNames = [
 const pageMeta = {
   "index.html": {
     key: "home",
-    title: "Sench//Index",
-    label: "Sench//Index / Street Archive fashion magazine",
-    heading: "Mzansi. Street. Style.",
+    title: "Mzansi x LDN / Sench//Index",
+    label: "Sench//Index / Mzansi x LDN street style",
+    heading: "Mzansi x LDN Street Style.",
     summary:
-      "A visual issue on street archive fashion: print-style layouts, city layers, vintage references, graphic crops, sharp accessories, and nightlife silhouettes.",
+      "A cross-city fashion issue linking South African colour, township tailoring, amapiano-night silhouettes, and London streetwear codes.",
   },
   "404.html": {
     key: "home",
-    title: "Sench//Index",
-    label: "Sench//Index / Street Archive fashion magazine",
-    heading: "Mzansi. Street. Style.",
+    title: "Mzansi x LDN / Sench//Index",
+    label: "Sench//Index / Mzansi x LDN street style",
+    heading: "Mzansi x LDN Street Style.",
     summary:
-      "A visual issue on street archive fashion: print-style layouts, city layers, vintage references, graphic crops, sharp accessories, and nightlife silhouettes.",
+      "A cross-city fashion issue linking South African colour, township tailoring, amapiano-night silhouettes, and London streetwear codes.",
   },
   "view.html": {
     key: "home",
-    title: "Sench//Index",
-    label: "Sench//Index / Street Archive fashion magazine",
-    heading: "Mzansi. Street. Style.",
+    title: "Mzansi x LDN / Sench//Index",
+    label: "Sench//Index / Mzansi x LDN street style",
+    heading: "Mzansi x LDN Street Style.",
     summary:
-      "A visual issue on street archive fashion: print-style layouts, city layers, vintage references, graphic crops, sharp accessories, and nightlife silhouettes.",
+      "A cross-city fashion issue linking South African colour, township tailoring, amapiano-night silhouettes, and London streetwear codes.",
   },
   "contents.html": {
     key: "contents",
@@ -242,12 +242,12 @@ function pageHtml(template, pageName) {
     .replace("<html lang=\"en\">", `<html lang="en" data-page="${meta.key}">`)
     .replace("<title>Sench//Index</title>", `<title>${meta.title}</title>`)
     .replace(
-      /<p>Sench\/\/Index \/ Street Archive fashion magazine<\/p>/,
+      /<p>Sench\/\/Index \/ Mzansi x LDN street style<\/p>/,
       `<p>${meta.label}</p>`,
     )
-    .replace(/<h1>Mzansi\. Street\. Style\.<\/h1>/, `<h1>${meta.heading}</h1>`)
+    .replace(/<h1>Mzansi x LDN Street Style\.<\/h1>/, `<h1>${meta.heading}</h1>`)
     .replace(
-      /A visual issue on street archive fashion: print-style layouts, city layers, vintage references, graphic crops, sharp accessories, and nightlife silhouettes\./,
+      /A cross-city fashion issue linking South African colour, township tailoring, amapiano-night silhouettes, and London streetwear codes\./,
       meta.summary,
     )
     .replace(

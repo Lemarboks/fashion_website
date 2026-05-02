@@ -608,23 +608,30 @@ function App() {
           <section className="cover" id="top">
             <div className="noise" aria-hidden="true" />
             <div className="coverMasthead reveal">
-              <span>Issue 04</span>
-              <span>Street Archive fashion magazine</span>
-              <span>{looks.length} streetwear frames</span>
+              <span>Issue 04 / Collab file</span>
+              <span>Mzansi x LDN street style</span>
+              <span>Joburg / London / Cape Town</span>
             </div>
             <div className="coverGrid">
               <div className="coverCopy reveal">
-                <p className="kicker">Street Archive fashion / print report</p>
+                <p className="kicker">Street Archive fashion / UK x SA report</p>
                 <h1>
-                  Mzansi.
-                  <span>Street.</span>
-                  <span>Style.</span>
+                  Mzansi
+                  <span>x LDN</span>
+                  <span>Street Style.</span>
                 </h1>
                 <p>
-                  A visual issue on street archive fashion: print-style layouts,
-                  city layers, vintage references, graphic crops, sharp accessories,
-                  and nightlife silhouettes.
+                  A cross-city fashion issue linking South African colour,
+                  township tailoring, amapiano-night silhouettes, and London
+                  streetwear codes: terrace jackets, archive graphics, sharp
+                  sneakers, denim volume, and cold-weather layering.
                 </p>
+                <div className="cityTags" aria-label="Featured city style codes">
+                  <span>Johannesburg layers</span>
+                  <span>London terrace cut</span>
+                  <span>Cape Town thrift</span>
+                  <span>Durban heat</span>
+                </div>
                 <div className="actions">
                   <a className="action" href={pageRoutes.contents}>Open issue</a>
                   <a className="ghostAction" href={pageRoutes.lookbook}>View lookbook</a>
@@ -645,34 +652,35 @@ function App() {
           <section className="issueDeck" aria-label="Issue highlights">
             <div className="issueDeckItem">
               <span>Cover</span>
-              <strong>Mzansi streetwear</strong>
+              <strong>Mzansi x LDN street style</strong>
             </div>
             <div className="issueDeckItem">
-              <span>Departments</span>
-              <strong>Joburg / Durban / Cape Town</strong>
+              <span>Route</span>
+              <strong>Joburg / London / Cape Town</strong>
             </div>
             <div className="issueDeckItem">
-              <span>Gallery</span>
-              <strong>{looks.length} fashion frames</strong>
+              <span>Codes</span>
+              <strong>Colour / denim / terrace jackets</strong>
             </div>
             <div className="issueDeckItem">
-              <span>Interaction</span>
-              <strong>Lookbook, motion, image wall</strong>
+              <span>Soundtrack</span>
+              <strong>Amapiano afters / UK street energy</strong>
             </div>
           </section>
 
           <section className="crawl" aria-label="Moodboard keywords">
             <div>
-              <span>full magazine issue</span>
+              <span>Mzansi x LDN street style</span>
               <span>street archive fashion</span>
+              <span>London terrace jackets</span>
               <span>Braamfontein layers</span>
-              <span>Durban summer cuts</span>
+              <span>South African colour</span>
               <span>Cape Town thrift</span>
+              <span>UK garage textures</span>
               <span>amapiano nightlife</span>
               <span>shweshwe blue</span>
-              <span>beadwork colour</span>
-              <span>township tailoring</span>
-              <span>taxi-rank palette</span>
+              <span>denim volume</span>
+              <span>cold-weather layering</span>
             </div>
           </section>
         </>

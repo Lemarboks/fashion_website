@@ -179,6 +179,7 @@ figcaption {
 }
 
 .cover {
+  isolation: isolate;
   min-height: 100vh;
   overflow: hidden;
   padding: 92px clamp(16px, 4vw, 48px) 46px;
@@ -187,18 +188,33 @@ figcaption {
 
 .noise {
   background:
-    repeating-linear-gradient(0deg, transparent 0 8px, rgba(216, 255, 63, 0.055) 9px),
-    radial-gradient(circle at 18% 28%, rgba(255, 92, 51, 0.24), transparent 28%),
+    linear-gradient(118deg, rgba(11, 57, 166, 0.22) 0 18%, transparent 18% 35%, rgba(255, 205, 0, 0.18) 35% 48%, transparent 48% 67%, rgba(0, 122, 61, 0.2) 67%),
+    repeating-linear-gradient(0deg, transparent 0 8px, rgba(243, 239, 229, 0.055) 9px),
+    radial-gradient(circle at 18% 28%, rgba(227, 76, 56, 0.28), transparent 28%),
     radial-gradient(circle at 92% 14%, rgba(216, 255, 63, 0.18), transparent 24%);
   inset: 0;
-  opacity: 0.62;
+  opacity: 0.74;
   pointer-events: none;
   position: absolute;
 }
 
+.cover::after {
+  background:
+    linear-gradient(90deg, #e34c38 0 16.66%, #f3efe5 16.66% 22%, transparent 22% 50%, #0b39a6 50% 66.66%, #f3efe5 66.66% 72%, transparent 72%),
+    linear-gradient(180deg, transparent, rgba(8, 8, 8, 0.78));
+  bottom: 0;
+  content: "";
+  height: 18px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: 4;
+}
+
 .coverMasthead {
-  border-bottom: 1px solid rgba(243, 239, 229, 0.2);
-  border-top: 1px solid rgba(243, 239, 229, 0.2);
+  background: rgba(8, 8, 8, 0.54);
+  border-bottom: 1px solid rgba(243, 239, 229, 0.28);
+  border-top: 1px solid rgba(243, 239, 229, 0.28);
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(3, 1fr);
@@ -211,6 +227,7 @@ figcaption {
   color: rgba(243, 239, 229, 0.78);
   font-size: 0.82rem;
   font-weight: 800;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -249,10 +266,10 @@ p {
 }
 
 h1 {
-  font-size: clamp(3.25rem, 10.5vw, 12rem);
+  font-size: clamp(3.05rem, 9.4vw, 10.7rem);
   font-weight: 950;
   letter-spacing: 0;
-  line-height: 0.76;
+  line-height: 0.78;
   margin-bottom: 22px;
   max-width: 1060px;
   text-transform: uppercase;
@@ -262,6 +279,19 @@ h1 span {
   color: transparent;
   display: block;
   -webkit-text-stroke: 1.5px #f3efe5;
+}
+
+.coverCopy h1::first-line {
+  color: #f3efe5;
+}
+
+.coverCopy h1 span:first-of-type {
+  color: #d8ff3f;
+  -webkit-text-stroke: 0;
+}
+
+.coverCopy h1 span:last-of-type {
+  text-shadow: 6px 0 0 rgba(227, 76, 56, 0.86), -6px 0 0 rgba(11, 57, 166, 0.84);
 }
 
 .coverCopy p,
@@ -274,6 +304,41 @@ h1 span {
 
 .coverCopy p {
   max-width: 620px;
+}
+
+.cityTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 4px;
+  max-width: 660px;
+}
+
+.cityTags span {
+  border: 1px solid rgba(243, 239, 229, 0.28);
+  color: #f3efe5;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  padding: 7px 9px;
+  text-transform: uppercase;
+}
+
+.cityTags span:nth-child(1) {
+  background: #007a3d;
+}
+
+.cityTags span:nth-child(2) {
+  background: #0b39a6;
+}
+
+.cityTags span:nth-child(3) {
+  background: #ffcd00;
+  color: #080808;
+}
+
+.cityTags span:nth-child(4) {
+  background: #e34c38;
 }
 
 .action {
@@ -327,12 +392,39 @@ h1 span {
 }
 
 .clip {
-  background: #111;
-  border: 1px solid rgba(243, 239, 229, 0.22);
+  background:
+    linear-gradient(90deg, rgba(8, 8, 8, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(8, 8, 8, 0.08) 1px, transparent 1px),
+    #eee8d8;
+  background-size: 16px 16px;
+  border: 1px solid rgba(243, 239, 229, 0.36);
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.5);
   margin: 0;
   overflow: hidden;
+  padding: 8px;
   position: absolute;
+}
+
+.clip::before {
+  background: #080808;
+  color: #f3efe5;
+  content: "JHB / LDN";
+  font-size: 0.58rem;
+  font-weight: 900;
+  left: 8px;
+  letter-spacing: 0.12em;
+  padding: 5px 6px;
+  position: absolute;
+  top: 8px;
+  z-index: 3;
+}
+
+.clip:nth-child(2n)::before {
+  content: "LDN / CPT";
+}
+
+.clip:nth-child(3n)::before {
+  content: "DBN / SOHO";
 }
 
 .clip img {
@@ -353,9 +445,9 @@ h1 span {
 }
 
 .clip figcaption {
-  background: #ff5c33;
+  background: #e34c38;
   bottom: 10px;
-  color: #080808;
+  color: #f3efe5;
   left: 10px;
   padding: 6px 8px;
   position: absolute;
