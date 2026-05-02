@@ -963,13 +963,43 @@ h2 {
 }
 
 .runwayCard {
-  background: #080808;
-  border: 1px solid rgba(8, 8, 8, 0.2);
-  box-shadow: 0 18px 48px rgba(8, 8, 8, 0.18);
+  background:
+    linear-gradient(90deg, rgba(8, 8, 8, 0.08) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(8, 8, 8, 0.06) 1px, transparent 1px),
+    #eee8d8;
+  background-size: 18px 18px;
+  border: 1px solid rgba(8, 8, 8, 0.28);
+  box-shadow: 0 18px 48px rgba(8, 8, 8, 0.2);
+  display: grid;
+  grid-template-rows: auto auto minmax(190px, 1fr) auto auto;
+  min-height: clamp(360px, 42vw, 520px);
   margin: 0;
   overflow: hidden;
+  padding: 10px;
   position: relative;
   transform: translateZ(0);
+}
+
+.runwayCard::before {
+  background:
+    linear-gradient(90deg, transparent, rgba(8, 8, 8, 0.12), transparent),
+    repeating-linear-gradient(0deg, rgba(8, 8, 8, 0.08) 0 1px, transparent 1px 6px);
+  content: "";
+  inset: 0;
+  mix-blend-mode: multiply;
+  opacity: 0.45;
+  pointer-events: none;
+  position: absolute;
+  z-index: 3;
+}
+
+.runwayCard::after {
+  border: 1px solid rgba(8, 8, 8, 0.28);
+  content: "";
+  inset: 10px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 4;
 }
 
 .runwayCard:nth-child(4n + 1) {
@@ -980,39 +1010,120 @@ h2 {
   transform: translateY(-22px);
 }
 
-.runwayCard img {
-  aspect-ratio: 3 / 4;
-  filter: contrast(1.08) saturate(0.92);
+.runwayIssue {
+  align-self: start;
+  background: #080808;
+  color: #f3efe5;
+  display: inline-flex;
+  font-size: 0.56rem;
+  font-weight: 900;
+  justify-self: start;
+  letter-spacing: 0.13em;
+  line-height: 1;
+  padding: 5px 6px;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 5;
+}
+
+.runwayMasthead {
+  color: rgba(8, 8, 8, 0.78);
+  font-size: clamp(2.7rem, 6.8vw, 6.6rem);
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 0.72;
+  margin: 8px 0 -10px;
+  overflow-wrap: normal;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.runwayPhoto {
+  background: #080808;
+  border: 1px solid rgba(8, 8, 8, 0.45);
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+}
+
+.runwayPhoto img {
+  filter: sepia(0.18) contrast(1.18) saturate(0.82);
   height: 100%;
   object-fit: cover;
   transition: filter 420ms ease, transform 420ms ease;
+  width: 100%;
 }
 
-.runwayCard:nth-child(3n) img {
-  aspect-ratio: 1 / 1;
+.runwayPhotoMain {
+  align-self: stretch;
+  margin-top: 6px;
+  min-height: 210px;
+}
+
+.runwayPhotoInset {
+  bottom: 54px;
+  box-shadow: 0 10px 24px rgba(8, 8, 8, 0.3);
+  height: 34%;
+  position: absolute;
+  right: 18px;
+  transform: rotate(3deg);
+  width: 34%;
+  z-index: 6;
+}
+
+.runwayCard:nth-child(2n) .runwayPhotoInset {
+  left: 18px;
+  right: auto;
+  transform: rotate(-4deg);
+}
+
+.runwayCard:nth-child(3n) .runwayMasthead {
+  color: rgba(180, 38, 30, 0.82);
+}
+
+.runwayCard:nth-child(4n) .runwayMasthead {
+  color: rgba(44, 92, 72, 0.86);
+}
+
+.runwayMicrocopy {
+  border-bottom: 1px solid rgba(8, 8, 8, 0.28);
+  border-top: 1px solid rgba(8, 8, 8, 0.28);
+  color: rgba(8, 8, 8, 0.66);
+  font-size: 0.58rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 8px 0;
+  padding: 5px 0;
+  position: relative;
+  text-transform: uppercase;
+  z-index: 5;
 }
 
 .runwayCard figcaption {
-  background: #d8ff3f;
-  bottom: 8px;
-  color: #080808;
-  left: 8px;
-  opacity: 0;
-  padding: 6px 8px;
-  position: absolute;
-  right: 8px;
-  transform: translateY(10px);
-  transition: opacity 220ms ease, transform 220ms ease;
-}
-
-.runwayCard:hover img {
-  filter: contrast(1.2) saturate(1.12);
-  transform: scale(1.06);
-}
-
-.runwayCard:hover figcaption {
+  align-items: center;
+  background: #e34c38;
+  color: #f3efe5;
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
   opacity: 1;
-  transform: translateY(0);
+  padding: 7px 8px;
+  position: relative;
+  right: auto;
+  text-shadow: 0 1px 0 rgba(8, 8, 8, 0.18);
+  transform: none;
+  z-index: 5;
+}
+
+.runwayCard figcaption::after {
+  color: rgba(243, 239, 229, 0.75);
+  content: "scan";
+}
+
+.runwayCard:hover .runwayPhoto img {
+  filter: sepia(0.05) contrast(1.28) saturate(1.04);
+  transform: scale(1.06);
 }
 
 .editorsPicks {

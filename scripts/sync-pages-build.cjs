@@ -24,26 +24,26 @@ const pageMeta = {
   "index.html": {
     key: "home",
     title: "Sench//Index",
-    label: "Sench//Index / South African fashion magazine",
+    label: "Sench//Index / Street Archive fashion magazine",
     heading: "Mzansi. Street. Style.",
     summary:
-      "A visual issue on Johannesburg layers, Durban ease, Cape Town thrift, township tailoring, beadwork colour, shweshwe pattern, and amapiano nightlife.",
+      "A visual issue on street archive fashion: print-style layouts, city layers, vintage references, graphic crops, sharp accessories, and nightlife silhouettes.",
   },
   "404.html": {
     key: "home",
     title: "Sench//Index",
-    label: "Sench//Index / South African fashion magazine",
+    label: "Sench//Index / Street Archive fashion magazine",
     heading: "Mzansi. Street. Style.",
     summary:
-      "A visual issue on Johannesburg layers, Durban ease, Cape Town thrift, township tailoring, beadwork colour, shweshwe pattern, and amapiano nightlife.",
+      "A visual issue on street archive fashion: print-style layouts, city layers, vintage references, graphic crops, sharp accessories, and nightlife silhouettes.",
   },
   "view.html": {
     key: "home",
     title: "Sench//Index",
-    label: "Sench//Index / South African fashion magazine",
+    label: "Sench//Index / Street Archive fashion magazine",
     heading: "Mzansi. Street. Style.",
     summary:
-      "A visual issue on Johannesburg layers, Durban ease, Cape Town thrift, township tailoring, beadwork colour, shweshwe pattern, and amapiano nightlife.",
+      "A visual issue on street archive fashion: print-style layouts, city layers, vintage references, graphic crops, sharp accessories, and nightlife silhouettes.",
   },
   "contents.html": {
     key: "contents",
@@ -57,7 +57,7 @@ const pageMeta = {
     title: "Features / Sench//Index",
     label: "Features / Streetwear language",
     heading: "Streetwear with a local accent.",
-    summary: "Cover story features on South African streetwear, amapiano silhouettes, and heritage construction.",
+    summary: "Cover story features on street archive styling, nightlife silhouettes, and heritage construction.",
   },
   "cover-story.html": {
     key: "cover-story",
@@ -85,7 +85,7 @@ const pageMeta = {
     title: "Image Wall / Sench//Index",
     label: "Image wall / Street-style archive",
     heading: "Frame by frame.",
-    summary: "An expanded visual wall of South African fashion images, details, textures, and colour.",
+    summary: "An expanded visual wall of street archive fashion images, details, textures, and colour.",
   },
   "runway.html": {
     key: "runway",
@@ -242,12 +242,12 @@ function pageHtml(template, pageName) {
     .replace("<html lang=\"en\">", `<html lang="en" data-page="${meta.key}">`)
     .replace("<title>Sench//Index</title>", `<title>${meta.title}</title>`)
     .replace(
-      /<p>Sench\/\/Index \/ South African fashion magazine<\/p>/,
+      /<p>Sench\/\/Index \/ Street Archive fashion magazine<\/p>/,
       `<p>${meta.label}</p>`,
     )
     .replace(/<h1>Mzansi\. Street\. Style\.<\/h1>/, `<h1>${meta.heading}</h1>`)
     .replace(
-      /A visual issue on Johannesburg layers, Durban ease, Cape Town thrift, township tailoring, beadwork colour, shweshwe pattern, and amapiano nightlife\./,
+      /A visual issue on street archive fashion: print-style layouts, city layers, vintage references, graphic crops, sharp accessories, and nightlife silhouettes\./,
       meta.summary,
     )
     .replace(

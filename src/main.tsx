@@ -440,7 +440,7 @@ const looks: Look[] = [
 const articles: Article[] = [
   {
     eyebrow: "Cover Story",
-    title: "South African streetwear is a city language.",
+    title: "Street archive fashion is a city language.",
     dek: "From Braamfontein layers to Durban heat and Cape Town thrift rails, the look is practical, expressive, and impossible to separate from movement.",
   },
   {
@@ -459,7 +459,7 @@ const signals: Signal[] = [
   { label: "Images", value: `${looks.length} editorial frames` },
   { label: "Cities", value: "Joburg / Durban / Cape Town" },
   { label: "Mood", value: "street / heritage / nightlife" },
-  { label: "Issue", value: "South African fashion report" },
+  { label: "Issue", value: "Street Archive fashion report" },
 ];
 
 const moodFilters: { value: Mood; label: string }[] = [
@@ -525,7 +525,7 @@ const navItems: { href: string; label: string; page: Page }[] = [
 ];
 
 const whatsappMessage = encodeURIComponent(
-  "Hi, I am interested in the Sench//Index South African fashion magazine.",
+  "Hi, I am interested in the Sench//Index Street Archive fashion magazine.",
 );
 
 function getCurrentPage(): Page {
@@ -609,21 +609,21 @@ function App() {
             <div className="noise" aria-hidden="true" />
             <div className="coverMasthead reveal">
               <span>Issue 04</span>
-              <span>South African fashion magazine</span>
+              <span>Street Archive fashion magazine</span>
               <span>{looks.length} streetwear frames</span>
             </div>
             <div className="coverGrid">
               <div className="coverCopy reveal">
-                <p className="kicker">South African fashion / streetwear report</p>
+                <p className="kicker">Street Archive fashion / print report</p>
                 <h1>
                   Mzansi.
                   <span>Street.</span>
                   <span>Style.</span>
                 </h1>
                 <p>
-                  A visual issue on South African fashion: Johannesburg layers,
-                  Durban ease, Cape Town thrift, township tailoring, beadwork colour,
-                  and the streetwear confidence around amapiano nightlife.
+                  A visual issue on street archive fashion: print-style layouts,
+                  city layers, vintage references, graphic crops, sharp accessories,
+                  and nightlife silhouettes.
                 </p>
                 <div className="actions">
                   <a className="action" href={pageRoutes.contents}>Open issue</a>
@@ -664,7 +664,7 @@ function App() {
           <section className="crawl" aria-label="Moodboard keywords">
             <div>
               <span>full magazine issue</span>
-              <span>South African streetwear</span>
+              <span>street archive fashion</span>
               <span>Braamfontein layers</span>
               <span>Durban summer cuts</span>
               <span>Cape Town thrift</span>
@@ -682,16 +682,16 @@ function App() {
       <section className="contents" id="contents">
         <div className="reveal">
           <p className="kicker">Contents</p>
-          <h2>Inside the South African fashion issue.</h2>
+          <h2>Inside the Street Archive fashion issue.</h2>
         </div>
         <ol className="contentsList reveal">
-          <li><a href={pageRoutes.features}><span>01</span> Features: South African streetwear language</a></li>
+          <li><a href={pageRoutes.features}><span>01</span> Features: street archive fashion language</a></li>
           <li><a href={pageRoutes.departments}><span>02</span> Departments: Johannesburg, Durban, Cape Town</a></li>
           <li><a href={pageRoutes.trend}><span>03</span> Trend report: colour, heritage, silhouette</a></li>
           <li><a href={pageRoutes.wall}><span>04</span> Image wall: visual street-style archive</a></li>
           <li><a href={pageRoutes.runway}><span>05</span> Runway: animated Pinterest fashion stream</a></li>
           <li><a href={pageRoutes.lookbook}><span>06</span> Lookbook: filter by fashion mood</a></li>
-          <li><a href={pageRoutes.editor}><span>07</span> Editor: South African fashion note</a></li>
+          <li><a href={pageRoutes.editor}><span>07</span> Editor: Street Archive fashion note</a></li>
         </ol>
       </section>
       )}
@@ -724,7 +724,7 @@ function App() {
         </div>
         <article className="coverStoryCopy reveal">
           <p className="kicker">Cover story</p>
-          <h2>South African fashion moves between heritage and heat.</h2>
+          <h2>Street archive fashion moves between heritage and heat.</h2>
           <p>
             It is not one uniform. It shifts from Joburg's layered streetwear to
             Durban's warm ease and Cape Town's thrifted polish, carrying beadwork,
@@ -818,16 +818,24 @@ function App() {
           <p className="kicker">Runway stream</p>
           <h2>More Pinterest looks, more movement.</h2>
           <p>
-            The added frames move like a digital fashion wall: quick details,
-            tall outfit crops, warm colour, chrome shine, and the visual pace of
-            South African streetwear in motion.
+            The added frames move like a scanned print archive: bold mastheads,
+            quick model crops, warm colour, chrome shine, and the visual pace of
+            streetwear in motion.
           </p>
         </div>
         <div className="runwayStage" aria-label="Animated Pinterest fashion runway">
           <div className="runwayTrack runwayTrackA">
             {[...looks.slice(30), ...looks.slice(30)].map((look, index) => (
               <figure className="runwayCard" key={`runway-a-${look.title}-${index}`}>
-                <PinImage look={look} />
+                <span className="runwayIssue">Street Archive</span>
+                <strong className="runwayMasthead">{index % 3 === 0 ? "NIGO" : index % 3 === 1 ? "PRINT" : "STYLE"}</strong>
+                <div className="runwayPhoto runwayPhotoMain">
+                  <PinImage look={look} />
+                </div>
+                <div className="runwayPhoto runwayPhotoInset">
+                  <PinImage look={looks[(index + 12) % looks.length]} />
+                </div>
+                <p className="runwayMicrocopy">archive scan / fit reference / texture note</p>
                 <figcaption>{look.title}</figcaption>
               </figure>
             ))}
@@ -835,7 +843,15 @@ function App() {
           <div className="runwayTrack runwayTrackB">
             {[...looks.slice(6, 24), ...looks.slice(6, 24)].map((look, index) => (
               <figure className="runwayCard" key={`runway-b-${look.title}-${index}`}>
-                <PinImage look={look} />
+                <span className="runwayIssue">Street Archive</span>
+                <strong className="runwayMasthead">{index % 3 === 0 ? "PRINT" : index % 3 === 1 ? "STYLE" : "NIGO"}</strong>
+                <div className="runwayPhoto runwayPhotoMain">
+                  <PinImage look={look} />
+                </div>
+                <div className="runwayPhoto runwayPhotoInset">
+                  <PinImage look={looks[(index + 24) % looks.length]} />
+                </div>
+                <p className="runwayMicrocopy">runway clipping / street note / archive page</p>
                 <figcaption>{look.title}</figcaption>
               </figure>
             ))}
@@ -929,15 +945,15 @@ function App() {
           <p className="kicker">Editor note</p>
           <h2>Mzansi style is not one thing.</h2>
           <p>
-            South African fashion changes with the province, the pavement, the
-            season, and the hour. This issue follows that movement: streetwear
+            Street archive fashion changes with the pavement, the season, the
+            flyer, and the hour. This issue follows that movement: streetwear
             for heat, layering for the city, heritage in the details, and clothes
-            that know how to dance.
+            that look good in print.
           </p>
         </div>
         <div className="credits reveal">
           <span>Editorial focus</span>
-          <strong>South African streetwear and modern fashion</strong>
+          <strong>Street archive fashion and modern streetwear</strong>
           <span>Features</span>
           <strong>City departments, trend report, lookbook</strong>
           <span>Format</span>
@@ -948,7 +964,7 @@ function App() {
 
       <footer className="footerIssue">
         <div>
-          <p className="kicker">Sench//Index / South African fashion</p>
+          <p className="kicker">Sench//Index / Street Archive fashion</p>
           <h2>End of issue.</h2>
         </div>
         <form className="newsletter" onSubmit={(event) => event.preventDefault()}>
