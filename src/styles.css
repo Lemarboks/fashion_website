@@ -201,6 +201,19 @@ figcaption {
   position: relative;
 }
 
+.coverVideoBackdrop {
+  filter: contrast(1.18) saturate(0.82) brightness(0.52);
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  opacity: 0.58;
+  pointer-events: none;
+  position: absolute;
+  transform: scale(1.02);
+  width: 100%;
+  z-index: 0;
+}
+
 .noise {
   background:
     linear-gradient(118deg, rgba(11, 57, 166, 0.22) 0 18%, transparent 18% 35%, rgba(255, 205, 0, 0.18) 35% 48%, transparent 48% 67%, rgba(0, 122, 61, 0.2) 67%),
@@ -211,6 +224,7 @@ figcaption {
   opacity: 0.74;
   pointer-events: none;
   position: absolute;
+  z-index: 1;
 }
 
 .cover::after {
@@ -1224,6 +1238,34 @@ h2 {
     linear-gradient(315deg, rgba(0, 122, 61, 0.16), transparent 280px),
     #080808;
   overflow: hidden;
+}
+
+.imageWallVideoBackdrop {
+  filter: contrast(1.16) saturate(0.84) brightness(0.42);
+  height: min(72vh, 760px);
+  inset: 0 0 auto;
+  object-fit: cover;
+  opacity: 0.5;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
+.imageWall::after {
+  background: linear-gradient(180deg, rgba(8, 8, 8, 0.12), #080808 76%);
+  content: "";
+  height: min(76vh, 820px);
+  inset: 0 0 auto;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.imageWall .sectionIntro,
+.wallGrid {
+  position: relative;
+  z-index: 1;
 }
 
 .wallGrid {

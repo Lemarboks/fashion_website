@@ -461,6 +461,8 @@ const moodFilters: { value: Mood; label: string }[] = [
   { value: "texture", label: "Texture" },
 ];
 
+const heroVideoSrc = "./media/hero-wall-video.mp4";
+
 const departments: Department[] = [
   {
     label: "01 / Johannesburg",
@@ -752,6 +754,15 @@ function App() {
       {currentPage === "home" && (
         <>
           <section className="cover" id="top">
+            <video
+              aria-hidden="true"
+              autoPlay
+              className="coverVideoBackdrop"
+              loop
+              muted
+              playsInline
+              src={heroVideoSrc}
+            />
             <div className="noise" aria-hidden="true" />
             <div className="coverMasthead reveal">
               <span>Issue 04 / Collab file</span>
@@ -987,9 +998,18 @@ function App() {
 
       {currentPage === "wall" && (
       <section className="imageWall" id="wall">
+        <video
+          aria-hidden="true"
+          autoPlay
+          className="imageWallVideoBackdrop"
+          loop
+          muted
+          playsInline
+          src={heroVideoSrc}
+        />
         <div className="sectionIntro reveal">
           <p className="kicker">Image wall</p>
-          <h2>Street-style rhythm, frame by frame.</h2>
+          <h2>Image wall archive.</h2>
         </div>
         <div className="wallGrid" aria-label="Expanded South African fashion image wall">
           {wallLooks.map((look, index) => (

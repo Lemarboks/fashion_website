@@ -125,8 +125,8 @@ const pageMeta = {
   "wall.html": {
     key: "wall",
     title: "Image Wall / Sench//Index",
-    label: "Image wall / Street-style archive",
-    heading: "Frame by frame.",
+    label: "Image wall / Visual archive",
+    heading: "Image wall archive.",
     summary: "An expanded visual wall of street archive fashion images, details, textures, and colour.",
   },
   "runway.html": {
@@ -324,7 +324,7 @@ function pageHtml(template, pageName) {
     );
 }
 
-for (const name of [...pageNames, ...stalePageNames, ...staleGeneratedLookPages, ...staleGeneratedTrendPages, "assets", "pages-build"]) {
+for (const name of [...pageNames, ...stalePageNames, ...staleGeneratedLookPages, ...staleGeneratedTrendPages, "assets", "media", "pages-build"]) {
   const target = path.join(root, name);
   if (fs.existsSync(target)) {
     fs.rmSync(target, { recursive: true, force: true });
@@ -343,6 +343,12 @@ fs.cpSync(path.join(dist, "assets"), path.join(root, "assets"), {
   recursive: true,
 });
 
+if (fs.existsSync(path.join(dist, "media"))) {
+  fs.cpSync(path.join(dist, "media"), path.join(root, "media"), {
+    recursive: true,
+  });
+}
+
 for (const pageName of pageNames) {
   fs.cpSync(path.join(root, pageName), path.join(pagesBuild, pageName));
 }
@@ -351,3 +357,8 @@ fs.writeFileSync(path.join(pagesBuild, ".nojekyll"), "");
 fs.cpSync(path.join(root, "assets"), path.join(pagesBuild, "assets"), {
   recursive: true,
 });
+if (fs.existsSync(path.join(root, "media"))) {
+  fs.cpSync(path.join(root, "media"), path.join(pagesBuild, "media"), {
+    recursive: true,
+  });
+}
